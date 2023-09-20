@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richiesta dati Firebase</title>
+    <title>Stampa valore dal database Firebase</title>
 </head>
 <body>
-    <h1>ID:</h1>
+    <h1>Valore dal database Firebase:</h1>
     <p id="firebaseData"></p>
 
     <!-- Includi Firebase App e Firebase Database come moduli -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
         // Inizializza Firebase con la tua configurazione
         const firebaseConfig = {
@@ -30,18 +30,16 @@
         // Ottieni un riferimento al tuo database
         const database = getDatabase(firebaseApp);
 
-        // Riferimento al nodo del database da cui vuoi ottenere il nome dell'utente
+        // Riferimento al nodo del database da cui vuoi ottenere il valore "5"
         const dataRef = ref(database, 'id');
 
-        // Leggi il nome dell'utente dal database
-        get(dataRef)
-            .then((snapshot) => {
-                const nomeUtente = snapshot.val();
-                document.getElementById('firebaseData').textContent = nomeUtente;
-            })
-            .catch((error) => {
-                console.error('Errore nel recupero dei dati:', error);
-            });
+        // Ascolta le modifiche al valore
+        onValue(dataRef, (snapshot) => {
+            const valore = snapshot.val();
+            document.getElementById('firebaseData').textContent = valore;
+        }, {
+            onlyOnce: true // Per ricevere il valore una sola volta e non in modo continuo
+        });
     </script>
 </body>
 </html>
