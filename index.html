@@ -31,7 +31,7 @@
         const database = getDatabase(firebaseApp);
 
         // Riferimento al nodo del database da cui vuoi ottenere il nome dell'utente
-        const dataRef = ref(database, 'test-fire-realtime-db/id');
+        const dataRef = ref(database, 'id');
 
         // Leggi il nome dell'utente dal database
         get(dataRef)
