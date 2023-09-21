@@ -25,12 +25,12 @@
 
     </form>
 
-    <!-- Includi il Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"></script>
+    <!-- Includi Firebase SDK versione 8.x.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-    <!-- Inizializza Firebase con le tue credenziali -->
     <script>
+        // Inizializza Firebase con la tua configurazione
         const firebaseConfig = {
             apiKey: "AIzaSyCEc_jt85Nr4KS-4wXSPfAscmc0Vt0o4BM",
             authDomain: "arcanetomestavern.firebaseapp.com",
@@ -41,21 +41,26 @@
             measurementId: "G-Q2BES5BYC2"
         };
 
+        // Inizializza l'app Firebase
         firebase.initializeApp(firebaseConfig);
 
         const idPlayerInput = document.getElementById("id");
         const form = document.getElementById("giocatore-form");
 
+        // Riferimento alla collezione "ArcaneTomesTavern/campagne"
+        const giocatoriRef = db.collection("ArcaneTomesTavernDB").doc("giocatori");
+
+        
         form.addEventListener("submit", function (e) {
             e.preventDefault();
-
+            
             const idPlayer = parseInt(idPlayerInput.value);
-            const livello = parseFloat(document.getElementById("livello").value);
             const nome = document.getElementById("nome").value;
+            const livello = parseFloat(document.getElementById("livello").value);
             const vita = parseInt(document.getElementById("vita").value);
 
             const database = firebase.database();
-            const giocatoriRef = database.ref("giocatori");
+            //const giocatoriRef = database.ref("giocatori");
 
             // Inserisci i dati nel database
             giocatoriRef.update({
