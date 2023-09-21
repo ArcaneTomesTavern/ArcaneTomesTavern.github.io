@@ -43,6 +43,23 @@ form.addEventListener("submit", function (e) {
     const curr_punti_ferita = parseInt(document.getElementById("curr_punti_ferita").value);
     const temp_punti_ferita = parseInt(document.getElementById("temp_punti_ferita").value);
     const dadi_vita = parseInt(document.getElementById("dadi_vita").value);
+
+    const equipaggiamento = [];
+        const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
+        equipaggiamentoInputs.forEach(input => {
+            const nomeEquipaggiamento = input.querySelector("[name='equipaggiamento-nome[]']").value;
+            const tipoEquipaggiamento = input.querySelector("[name='equipaggiamento-tipo[]']").value;
+            equipaggiamento.push({ nome: nomeEquipaggiamento, tipo: tipoEquipaggiamento });
+        });
+
+        // Raccolta dei dati delle magie dinamiche
+        const magie = [];
+        const magieInputs = document.querySelectorAll(".magia");
+        magieInputs.forEach(input => {
+            const nomeMagia = input.querySelector("[name='magia-nome[]']").value;
+            const livelloMagia = input.querySelector("[name='magia-livello[]']").value;
+            magie.push({ nome: nomeMagia, livello: livelloMagia });
+        });
     //const database = firebase.database();
     //const giocatoriRef = database.ref("giocatori");
 
@@ -68,7 +85,8 @@ form.addEventListener("submit", function (e) {
             max_punti_ferita: max_punti_ferita,
             curr_punti_ferita: curr_punti_ferita,
             temp_punti_ferita: temp_punti_ferita,
-            dadi_vita: dadi_vita
+            dadi_vita: dadi_vita,
+            
         }
     }).then(() => {
         alert("Giocatore inserito con successo!");
