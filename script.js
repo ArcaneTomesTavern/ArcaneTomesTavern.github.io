@@ -1,6 +1,6 @@
 // Importa il modulo Firebase
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+//import firebase from 'firebase/app';
+//import 'firebase/firestore';
 
 // Inizializza Firebase con la tua configurazione
 const firebaseConfig = {
