@@ -58,12 +58,11 @@
             const giocatoriRef = database.ref("giocatori");
 
             // Inserisci i dati nel database
-            giocatoriRef.push({
-                [idPlayer]: { 
-                    livello: livello,
-                    nome: nome,
-                    vita: vita
-                }
+            giocatoriRef.update({
+                id_player : idPlayer,
+                livello: livello,
+                nome: nome,
+                vita: vita
             }).then(() => {
                 alert("Giocatore inserito con successo!");
                 form.reset();

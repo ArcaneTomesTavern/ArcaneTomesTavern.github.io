@@ -63,11 +63,9 @@
 
             // Inserisci il nuovo record nel database Firestore
             campagneRef.update({
-                [idCampagna]: {
-                    id_campagna: idCampagna,
-                    nome_campagna: nomeCampagna,
-                    giocatori: giocatori
-                }
+                id_campagna: idCampagna,
+                nome_campagna: nomeCampagna,
+                giocatori: giocatori                
             })
             .then(() => {
                 console.log("Record inserito con successo!");
