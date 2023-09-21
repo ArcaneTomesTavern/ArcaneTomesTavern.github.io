@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 // Recupera le campagne dal database
 const db = firebase.firestore();
 
-db.collection('campagne').get()
+db.collection("ArcaneTomesTavernDB").doc("campagne").get()
   .then((querySnapshot) => {
     const campagneButtons = document.getElementById('campagneButtons');
 
