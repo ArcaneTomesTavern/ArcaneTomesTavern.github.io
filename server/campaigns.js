@@ -1,14 +1,13 @@
 // Inizializza Firebase con la tua configurazione
 const firebaseConfig = {
-    apiKey: "AIzaSyBpgYB4_8gIT20m9u3sNMpVhqVytrBpZ20",
-    authDomain: "test-fire-realtime-db.firebaseapp.com",
-    databaseURL: "https://test-fire-realtime-db-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "test-fire-realtime-db",
-    storageBucket: "test-fire-realtime-db.appspot.com",
-    messagingSenderId: "791679169237",
-    appId: "1:791679169237:web:a441e09863db2ad3ff685c",
-    measurementId: "G-LGSPN89S5W"
-};
+    apiKey: "AIzaSyCEc_jt85Nr4KS-4wXSPfAscmc0Vt0o4BM",
+    authDomain: "arcanetomestavern.firebaseapp.com",
+    projectId: "arcanetomestavern",
+    storageBucket: "arcanetomestavern.appspot.com",
+    messagingSenderId: "1035963633765",
+    appId: "1:1035963633765:web:7c1524769bc1e387ba768c",
+    measurementId: "G-Q2BES5BYC2"
+  };
 
 // Inizializza l'app Firebase
 firebase.initializeApp(firebaseConfig);
