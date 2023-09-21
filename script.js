@@ -19,25 +19,19 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 db.collection("ArcaneTomesTavernDB").doc("campagne").get()
-  .then((querySnapshot) => {
-    const campagneButtons = document.getElementById('campagneButtons');
+.then((querySnapshot) => {
+    if (querySnapshot.empty) {
+      console.log("Nessun documento trovato nella collezione 'campagne'.");
+      return;
+    }
 
+    // Continua con il codice per l'elaborazione dei documenti
+    const campagneButtons = document.getElementById('campagneButtons');
     querySnapshot.forEach((doc) => {
-      // Qui puoi elaborare ciascun documento (campagna)
       const campagna = doc.data();
       const nomeCampagna = campagna.nome_campagna;
-
-      // Creazione di un pulsante per la campagna
-      const button = document.createElement('button');
-      button.textContent = nomeCampagna;
-      button.addEventListener('click', () => {
-        // Gestisci la selezione della campagna qui
-        // Ad esempio, puoi memorizzare l'ID della campagna selezionata o fare altre azioni
-        console.log(`Campagna selezionata: ${nomeCampagna}`);
-      });
-
-      // Aggiungi il pulsante alla pagina HTML
-      campagneButtons.appendChild(button);
+      
+      // Il resto del tuo codice per creare i pulsanti
     });
   })
   .catch((error) => {
