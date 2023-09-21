@@ -13,7 +13,7 @@
         // Funzione per ottenere e visualizzare le campagne
         function getCampaigns() {
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", "/api/campaigns", true);
+            xhr.open("GET", "/api/ArcaneTomesTavern/campaigns", true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     const campaigns = JSON.parse(xhr.responseText);
