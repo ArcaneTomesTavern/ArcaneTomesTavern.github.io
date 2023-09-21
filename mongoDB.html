@@ -10,34 +10,26 @@
     <ul id="campaignList"></ul>
 
     <script>
-        // Connetti al tuo cluster MongoDB Atlas
-        const MongoClient = require('mongodb').MongoClient;
-        const uri = "mongodb+srv://<mattei>:<00mrcmtt01>@cluster.mongodb.net/test?retryWrites=true&w=majority";
-        const client = new MongoClient(uri, { useNewUrlParser: true });
-
         // Funzione per ottenere e visualizzare le campagne
-        async function getCampaigns() {
-            try {
-                await client.connect();
-
-                const database = client.db("ArcaneTomesTavern"); // Sostituisci "mydatabase" con il nome del tuo database
-                const collection = database.collection("campaigns"); // Sostituisci "campaigns" con il nome della tua raccolta
-
-                const campaigns = await collection.find().toArray();
-
-                const campaignList = document.getElementById("campaignList");
-                campaigns.forEach(campaign => {
-                    const listItem = document.createElement("li");
-                    listItem.textContent = `ID: ${campaign._id}, Nome Campagna: ${campaign.campaign_name}, Giocatori: ${campaign.players_id.join(", ")}`;
-                    campaignList.appendChild(listItem);
-                });
-            } finally {
-                await client.close();
-            }
+        function getCampaigns() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "/api/campaigns", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const campaigns = JSON.parse(xhr.responseText);
+                    const campaignList = document.getElementById("campaignList");
+                    campaigns.forEach(campaign => {
+                        const listItem = document.createElement("li");
+                        listItem.textContent = `ID: ${campaign._id}, Nome Campagna: ${campaign.campaign_name}, Giocatori: ${campaign.players_id.join(", ")}`;
+                        campaignList.appendChild(listItem);
+                    });
+                }
+            };
+            xhr.send();
         }
 
         // Chiama la funzione per ottenere le campagne
-        getCampaigns().catch(console.error);
+        getCampaigns();
     </script>
 </body>
 </html>
