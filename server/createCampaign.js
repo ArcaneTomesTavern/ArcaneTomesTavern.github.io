@@ -1,15 +1,15 @@
 
 // Inizializza Firebase con la tua configurazione
-//const firebaseConfig = getFirebaseConfig();
+const firebaseConfig = getFirebaseConfig();
 
 // Inizializza l'app Firebase
-//firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 // Ottieni un riferimento al database Firestore
-//const db = firebase.firestore();
+const db = firebase.firestore();
 
 //inizializza firebase e database
-const db = getDatabaseReference();
+//const db = getDatabaseReference();
 
 // Riferimento alla collezione "ArcaneTomesTavern/campagne"
 const campagneRef = db.collection("ArcaneTomesTavernDB").doc("campagne");
