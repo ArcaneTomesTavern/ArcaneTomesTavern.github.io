@@ -44,6 +44,8 @@
         // Inizializza l'app Firebase
         firebase.initializeApp(firebaseConfig);
 
+        const db = firebase.firestore();
+
         const idPlayerInput = document.getElementById("id");
         const form = document.getElementById("giocatore-form");
 
