@@ -86,7 +86,8 @@ form.addEventListener("submit", function (e) {
             curr_punti_ferita: curr_punti_ferita,
             temp_punti_ferita: temp_punti_ferita,
             dadi_vita: dadi_vita,
-            
+            equipaggiamento: equipaggiamento,
+            magie: magie   
         }
     }).then(() => {
         alert("Giocatore inserito con successo!");
