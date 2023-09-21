@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserisci Record in Firestore</title>
+</head>
+<body>
+    <h1>Inserisci un nuovo record in Firestore</h1>
+
+    <!-- Form per inserire i dati -->
+    <form id="form">
+        <label for="id_campagna">ID Campagna:</label>
+        <input type="number" id="id_campagna" required><br><br>
+
+        <label for="nome_campagna">Nome Campagna:</label>
+        <input type="text" id="nome_campagna" required><br><br>
+
+        <label for="giocatori">Giocatori (separati da virgola):</label>
+        <input type="text" id="giocatori"><br><br>
+
+        <button type="submit">Inserisci Record</button>
+    </form>
+
+    <!-- Includi Firebase SDK versione 8.x.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- script -->
+    <script src="../server/createCampaign.js"></script>
+</body>
+</html>

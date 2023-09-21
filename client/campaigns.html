@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Firestore</title>
+</head>
+<body>
+    <h1>Elenco delle Campagne</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Campagna</th>
+                <th>Nome Campagna</th>
+                <th>Giocatori</th>
+            </tr>
+        </thead>
+        <tbody id="campagneTable">
+            <!-- I risultati della query verranno visualizzati qui -->
+        </tbody>
+    </table>
+
+    <!-- Includi Firebase SDK versione 8.x.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="../server/createCampaing.js"></script>
+</body>
+</html>
