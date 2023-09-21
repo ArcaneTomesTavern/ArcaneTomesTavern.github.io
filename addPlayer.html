@@ -66,10 +66,12 @@
 
             // Inserisci i dati nel database
             giocatoriRef.update({
-                id_player : idPlayer,
-                livello: livello,
-                nome: nome,
-                vita: vita
+                [idPlayer] : {
+                    id_player : idPlayer,
+                    livello: livello,
+                    nome: nome,
+                    vita: vita
+                }
             }).then(() => {
                 alert("Giocatore inserito con successo!");
                 form.reset();
