@@ -69,7 +69,34 @@
         <label for="dadi_vita">Dadi Vita:</label>
         <input type="number" id="dadi_vita" name="dadi_vita" required><br><br>
 
+        <h2>Equipaggiamento</h2>
+        <div id="equipaggiamento-container">
+        <!-- Campi di input per il primo oggetto di equipaggiamento -->
+        <div class="equipaggiamento">
+            <label for="equipaggiamento-nome">Nome Oggetto di Equipaggiamento:</label>
+            <input type="text" name="equipaggiamento-nome[]" required>
+            <label for="equipaggiamento-tipo">Tipo Oggetto di Equipaggiamento:</label>
+            <input type="text" name="equipaggiamento-tipo[]" required>
+            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button>
+        </div>
+        </div>
+        <button type="button" onclick="aggiungiEquipaggiamento()">Aggiungi Equipaggiamento</button>
 
+        <h2>Magie</h2>
+        <div id="magie-container">
+        <!-- Campi di input per la prima magia -->
+        <div class="magia">
+            <label for="magia-nome">Nome Magia:</label>
+            <input type="text" name="magia-nome[]" required>
+            <label for="magia-livello">Livello Magia:</label>
+            <input type="number" name="magia-livello[]" required>
+            <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button>
+        </div>
+        </div>
+        <button type="button" onclick="aggiungiMagia()">Aggiungi Magia</button>
+
+
+        <hr>
         <button type="submit">Inserisci Giocatore</button>
 
     </form>
@@ -79,5 +106,52 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script src="../server/createPlayer.js"></script>
+
+    <script>
+        function aggiungiEquipaggiamento() {
+        const equipaggiamentoContainer = document.getElementById("equipaggiamento-container");
+
+        // Creazione di un nuovo blocco di campi di input per l'equipaggiamento
+        const nuovoEquipaggiamento = document.createElement("div");
+        nuovoEquipaggiamento.className = "equipaggiamento";
+        nuovoEquipaggiamento.innerHTML = `
+            <label for="equipaggiamento-nome">Nome Oggetto di Equipaggiamento:</label>
+            <input type="text" name="equipaggiamento-nome[]" required>
+            <label for="equipaggiamento-tipo">Tipo Oggetto di Equipaggiamento:</label>
+            <input type="text" name="equipaggiamento-tipo[]" required>
+            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button>
+        `;
+
+        equipaggiamentoContainer.appendChild(nuovoEquipaggiamento);
+        }
+
+        function rimuoviEquipaggiamento(button) {
+        const equipaggiamentoContainer = document.getElementById("equipaggiamento-container");
+        equipaggiamentoContainer.removeChild(button.parentNode);
+        }
+
+        function aggiungiMagia() {
+        const magieContainer = document.getElementById("magie-container");
+
+        // Creazione di un nuovo blocco di campi di input per la magia
+        const nuovaMagia = document.createElement("div");
+        nuovaMagia.className = "magia";
+        nuovaMagia.innerHTML = `
+            <label for="magia-nome">Nome Magia:</label>
+            <input type="text" name="magia-nome[]" required>
+            <label for="magia-livello">Livello Magia:</label>
+            <input type="number" name="magia-livello[]" required>
+            <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button>
+        `;
+
+        magieContainer.appendChild(nuovaMagia);
+        }
+
+        function rimuoviMagia(button) {
+        const magieContainer = document.getElementById("magie-container");
+        magieContainer.removeChild(button.parentNode);
+        }
+
+    </script>
 </body>
 </html>
