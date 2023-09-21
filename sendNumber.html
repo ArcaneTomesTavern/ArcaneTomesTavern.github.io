@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invia Numero a Firebase</title>
+</head>
+<body>
+    <h1>Inserisci un numero:</h1>
+    <input type="number" id="numeroInput">
+    <button id="inviaNumero">Invia</button>
+
+    <h2>Ultimo numero salvato:</h2>
+    <p id="ultimoNumero"></p>
+
+    <!-- Includi Firebase App e Firebase Database come moduli -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+        // Inizializza Firebase con la tua configurazione
+        const firebaseConfig = {
+            apiKey: "AIzaSyBpgYB4_8gIT20m9u3sNMpVhqVytrBpZ20",
+            authDomain: "test-fire-realtime-db.firebaseapp.com",
+            databaseURL: "https://test-fire-realtime-db-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "test-fire-realtime-db",
+            storageBucket: "test-fire-realtime-db.appspot.com",
+            messagingSenderId: "791679169237",
+            appId: "1:791679169237:web:a441e09863db2ad3ff685c",
+            measurementId: "G-LGSPN89S5W"
+        };
+        const firebaseApp = initializeApp(firebaseConfig);
+
+        // Ottieni un riferimento al tuo database
+        const database = getDatabase(firebaseApp);
+
+        // Riferimento al nodo del database in cui verranno salvati i numeri
+        const numeriRef = ref(database, 'Numeri');
+
+        // Riferimento all'elemento HTML per il numero inserito
+        const numeroInput = document.getElementById('numeroInput');
+
+        // Riferimento all'elemento HTML per visualizzare l'ultimo numero salvato
+        const ultimoNumero = document.getElementById('ultimoNumero');
+
+        // Gestisci l'invio del numero al database quando il pulsante "Invia" viene premuto
+        document.getElementById('inviaNumero').addEventListener('click', () => {
+            const numeroDaInviare = numeroInput.value;
+            if (numeroDaInviare !== "") {
+                set(numeriRef, numeroDaInviare)
+                    .then(() => {
+                        console.log('Numero inviato con successo.');
+                        numeroInput.value = '';
+                    })
+                    .catch((error) => {
+                        console.error('Errore nell\'invio del numero:', error);
+                    });
+            }
+        });
+
+        // Ascolta le modifiche al valore nel nodo "Numeri" e visualizza l'ultimo numero
+        onValue(numeriRef, (snapshot) => {
+            const numeroSalvato = snapshot.val();
+            if (numeroSalvato !== null) {
+                ultimoNumero.textContent = `Ultimo numero salvato: ${numeroSalvato}`;
+            }
+        });
+    </script>
+</body>
+</html>
