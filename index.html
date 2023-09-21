@@ -3,43 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stampa valore dal database Firebase</title>
+    <title>Selezione Campagna</title>
 </head>
 <body>
-    <h1>Valore dal database Firebase:</h1>
-    <p id="firebaseData"></p>
+    <h1>Seleziona una Campagna</h1>
+    <div id="campagneButtons"></div>
 
-    <!-- Includi Firebase App e Firebase Database come moduli -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
-
-        // Inizializza Firebase con la tua configurazione
-        const firebaseConfig = {
-            apiKey: "AIzaSyBpgYB4_8gIT20m9u3sNMpVhqVytrBpZ20",
-            authDomain: "test-fire-realtime-db.firebaseapp.com",
-            databaseURL: "https://test-fire-realtime-db-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "test-fire-realtime-db",
-            storageBucket: "test-fire-realtime-db.appspot.com",
-            messagingSenderId: "791679169237",
-            appId: "1:791679169237:web:a441e09863db2ad3ff685c",
-            measurementId: "G-LGSPN89S5W"
-        };
-        const firebaseApp = initializeApp(firebaseConfig);
-
-        // Ottieni un riferimento al tuo database
-        const database = getDatabase(firebaseApp);
-
-        // Riferimento al nodo del database da cui vuoi ottenere il valore "5"
-        const dataRef = ref(database, 'id');
-
-        // Ascolta le modifiche al valore
-        onValue(dataRef, (snapshot) => {
-            const valore = snapshot.val();
-            document.getElementById('firebaseData').textContent = valore;
-        }, {
-            onlyOnce: true // Per ricevere il valore una sola volta e non in modo continuo
-        });
-    </script>
+    <!-- Utilizza l'attributo "type" per specificare il tipo di script -->
+    <script src="script.js" type="module"></script>
 </body>
 </html>
