@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserimento Giocatore</title>
+    <!-- Includi il Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"></script>
+</head>
+<body>
+    <h1>Inserimento Giocatore</h1>
+    <form id="giocatore-form">
+        <label for="livello">Livello:</label>
+        <input type="number" id="livello" name="livello" required><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
+
+        <label for="vita">Vita:</label>
+        <input type="number" id="vita" name="vita" required><br>
+
+        <button type="submit">Inserisci Giocatore</button>
+    </form>
+
+    <!-- Inizializza Firebase con le tue credenziali -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCEc_jt85Nr4KS-4wXSPfAscmc0Vt0o4BM",
+            authDomain: "arcanetomestavern.firebaseapp.com",
+            projectId: "arcanetomestavern",
+            storageBucket: "arcanetomestavern.appspot.com",
+            messagingSenderId: "1035963633765",
+            appId: "1:1035963633765:web:7c1524769bc1e387ba768c",
+            measurementId: "G-Q2BES5BYC2"
+            };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const form = document.getElementById("giocatore-form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const livello = parseFloat(document.getElementById("livello").value);
+            const nome = document.getElementById("nome").value;
+            const vita = parseInt(document.getElementById("vita").value);
+
+            const database = firebase.database();
+            const giocatoriRef = database.ref("giocatori");
+
+            // Inserisci i dati nel database
+            giocatoriRef.push({
+                livello: livello,
+                nome: nome,
+                vita: vita
+            }).then(() => {
+                alert("Giocatore inserito con successo!");
+                form.reset();
+            }).catch(error => {
+                alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
+            });
+        });
+    </script>
+</body>
+</html>
