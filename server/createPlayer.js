@@ -25,6 +25,8 @@ form.addEventListener("submit", function (e) {
     
     const idPlayer = parseInt(idPlayerInput.value);
     const nome_personaggio = document.getElementById("nome_personaggio").value;
+    const background = document.getElementById("background").value;
+    const nome_giocatore = document.getElementById("nome_giocatore").value;
     const classe = document.getElementById("classe").value;
     const livello = parseFloat(document.getElementById("livello").value);
     const razza = document.getElementById("razza").value;
@@ -68,8 +70,10 @@ form.addEventListener("submit", function (e) {
         [idPlayer] : {
             id_player : idPlayer,
             nome_personaggio: nome_personaggio,
+            background:background,
             classe: classe,
             livello: livello,
+            nome_giocatore: nome_giocatore,
             razza: razza,
             allineamento: allineamento,
             esperienza: esperienza,
