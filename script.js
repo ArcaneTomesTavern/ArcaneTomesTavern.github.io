@@ -22,23 +22,42 @@ db.collection("ArcaneTomesTavernDB").doc("campagne").get()
   .then((querySnapshot) => {
     const campagneButtons = document.getElementById('campagneButtons');
 
-    querySnapshot.forEach((doc) => {
-      // Qui puoi elaborare ciascun documento (campagna)
-      const campagna = doc.data();
-      const nomeCampagna = campagna.nome_campagna;
+    if(querySnapshot.exists) {
+      const campagneData = querySnapshot.data();
+      for (const key in campagneData) {
+        const campagna = campagneData[key];
+        // Creazione di un pulsante per la campagna
+        const button = document.createElement('button');
+        button.textContent = campagna.nome_campagna;
+        button.addEventListener('click', () => {
+          // Gestisci la selezione della campagna qui
+          // Ad esempio, puoi memorizzare l'ID della campagna selezionata o fare altre azioni
+          console.log(`Campagna selezionata: ${campagna.nome_campagna}`);
+        });
 
-      // Creazione di un pulsante per la campagna
-      const button = document.createElement('button');
-      button.textContent = nomeCampagna;
-      button.addEventListener('click', () => {
-        // Gestisci la selezione della campagna qui
-        // Ad esempio, puoi memorizzare l'ID della campagna selezionata o fare altre azioni
-        console.log(`Campagna selezionata: ${nomeCampagna}`);
-      });
+        // Aggiungi il pulsante alla pagina HTML
+        campagneButtons.appendChild(button);
+      }
+      
+/*
+      querySnapshot.forEach((doc) => {
+        // Qui puoi elaborare ciascun documento (campagna)
+        const campagna = doc.data();
+        const nomeCampagna = campagna.nome_campagna;
 
-      // Aggiungi il pulsante alla pagina HTML
-      campagneButtons.appendChild(button);
-    });
+        // Creazione di un pulsante per la campagna
+        const button = document.createElement('button');
+        button.textContent = nomeCampagna;
+        button.addEventListener('click', () => {
+          // Gestisci la selezione della campagna qui
+          // Ad esempio, puoi memorizzare l'ID della campagna selezionata o fare altre azioni
+          console.log(`Campagna selezionata: ${nomeCampagna}`);
+        });
+
+        // Aggiungi il pulsante alla pagina HTML
+        campagneButtons.appendChild(button);
+      });*/
+    }
   })
   .catch((error) => {
     console.error('Errore nel recupero delle campagne:', error);
