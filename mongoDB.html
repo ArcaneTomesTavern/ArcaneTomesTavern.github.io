@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso a MongoDB Atlas</title>
+</head>
+<body>
+    <h1>Elenco delle Campagne</h1>
+    <ul id="campaignList"></ul>
+
+    <script>
+        // Connetti al tuo cluster MongoDB Atlas
+        const MongoClient = require('mongodb').MongoClient;
+        const uri = "mongodb+srv://<mattei>:<00mrcmtt01>@cluster.mongodb.net/test?retryWrites=true&w=majority";
+        const client = new MongoClient(uri, { useNewUrlParser: true });
+
+        // Funzione per ottenere e visualizzare le campagne
+        async function getCampaigns() {
+            try {
+                await client.connect();
+
+                const database = client.db("ArcaneTomesTavern"); // Sostituisci "mydatabase" con il nome del tuo database
+                const collection = database.collection("campaigns"); // Sostituisci "campaigns" con il nome della tua raccolta
+
+                const campaigns = await collection.find().toArray();
+
+                const campaignList = document.getElementById("campaignList");
+                campaigns.forEach(campaign => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = `ID: ${campaign._id}, Nome Campagna: ${campaign.campaign_name}, Giocatori: ${campaign.players_id.join(", ")}`;
+                    campaignList.appendChild(listItem);
+                });
+            } finally {
+                await client.close();
+            }
+        }
+
+        // Chiama la funzione per ottenere le campagne
+        getCampaigns().catch(console.error);
+    </script>
+</body>
+</html>
