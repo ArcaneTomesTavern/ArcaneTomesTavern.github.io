@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserimento Giocatore</title>
+    
+</head>
+<body>
+    <h1>Inserimento Giocatore</h1>
+    <form id="giocatore-form">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required><br><br>
+
+        <label for="nome_personaggio">Nome Personaggio:</label>
+        <input type="text" id="nome_personaggio" name="nome_personaggio" required><br><br>
+
+        <label for="classe">Classe:</label>
+        <input type="text" id="classe" name="classe" required><br><br>
+
+        <label for="livello">Livello:</label>
+        <input type="number" id="livello" name="livello" required><br><br>
+
+        <label for="razza">Razza:</label>
+        <input type="text" id="razza" name="razza" required><br><br>
+
+        <label for="allineamento">Allineamento:</label>
+        <input type="text" id="allineamento" name="allineamento" required><br><br>
+
+        <label for="esperienza">Esperienza:</label>
+        <input type="text" id="esperienza" name="esperienza" required><br><br>
+
+        <label for="tratti_caratteriali">Tratti Caratteriali:</label>
+        <input type="text" id="tratti_caratteriali" name="tratti_caratteriali" required><br><br>
+
+        <label for="percezione_passiva">Percezione Passiva:</label>
+        <input type="number" id="percezione_passiva" name="percezione_passiva" required><br><br>
+
+        <label for="ideali">Ideali:</label>
+        <input type="text" id="ideali" name="ideali" required><br><br>
+
+        <label for="legami">Legami:</label>
+        <input type="text" id="legami" name="legami" required><br><br>
+
+        <label for="difetti">Difetti:</label>
+        <input type="text" id="difetti" name="difetti" required><br><br>
+
+        <label for="ispirazione">Ispirazione:</label>
+        <input type="text" id="ispirazione" name="ispirazione" required><br><br>
+
+        <label for="bonus_competenza">Bonus Competenza:</label>
+        <input type="number" id="bonus_competenza" name="bonus_competenza" required><br><br>
+
+        <label for="iniziativa">Iniziativa:</label>
+        <input type="number" id="iniziativa" name="iniziativa" required><br><br>
+
+        <label for="classe_armatura">Classe Armatura:</label>
+        <input type="number" id="classe_armatura" name="classe_armatura" required><br><br>
+
+        <label for="max_punti_ferita">Punti Ferita Massimi:</label>
+        <input type="number" id="max_punti_ferita" name="max_punti_ferita" required><br><br>
+
+        <label for="curr_punti_ferita">Punti Ferita:</label>
+        <input type="number" id="curr_punti_ferita" name="curr_punti_ferita" required><br><br>
+
+        <label for="temp_punti_ferita">Punti Ferita Temporanei:</label>
+        <input type="number" id="temp_punti_ferita" name="temp_punti_ferita" required><br><br>
+
+        <label for="dadi_vita">Dadi Vita:</label>
+        <input type="number" id="dadi_vita" name="dadi_vita" required><br><br>
+
+
+        <button type="submit">Inserisci Giocatore</button>
+
+    </form>
+
+    <!-- Includi Firebase SDK versione 8.x.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="../server/createPlayer.js"></script>
+</body>
+</html>
