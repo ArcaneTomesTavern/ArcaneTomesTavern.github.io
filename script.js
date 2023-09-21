@@ -20,17 +20,17 @@ const db = firebase.firestore();
 
 db.collection("ArcaneTomesTavernDB").doc("campagne").get()
 .then((querySnapshot) => {
-    if (querySnapshot.empty) {
+    const campagneButtons = document.getElementById('campagneButtons');
+
+    if (querySnapshot.size === 0) {
       console.log("Nessun documento trovato nella collezione 'campagne'.");
       return;
     }
 
-    // Continua con il codice per l'elaborazione dei documenti
-    const campagneButtons = document.getElementById('campagneButtons');
     querySnapshot.forEach((doc) => {
       const campagna = doc.data();
       const nomeCampagna = campagna.nome_campagna;
-      
+
       // Creazione di un pulsante per la campagna
       const button = document.createElement('button');
       button.textContent = nomeCampagna;
