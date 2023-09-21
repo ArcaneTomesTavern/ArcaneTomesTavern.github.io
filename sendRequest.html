@@ -20,9 +20,9 @@
         </tbody>
     </table>
 
-    <!-- Includi Firebase e Firestore SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+    <!-- Includi Firebase SDK versione 8.x.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script>
         // Inizializza Firebase con la tua configurazione
@@ -54,16 +54,19 @@
                     const campagneTable = document.getElementById("campagneTable");
 
                     // Cicla attraverso i dati e crea righe nella tabella HTML
-                    campagneData.forEach((campagna) => {
-                        const row = campagneTable.insertRow();
-                        const cell1 = row.insertCell(0);
-                        const cell2 = row.insertCell(1);
-                        const cell3 = row.insertCell(2);
-                        
-                        cell1.textContent = campagna.id_campagna;
-                        cell2.textContent = campagna.nome_campagna;
-                        cell3.textContent = campagna.giocatori.join(", "); // Unisce i giocatori in una stringa
-                    });
+                    for (const key in campagneData) {
+                        if (campagneData.hasOwnProperty(key)) {
+                            const campagna = campagneData[key];
+                            const row = campagneTable.insertRow();
+                            const cell1 = row.insertCell(0);
+                            const cell2 = row.insertCell(1);
+                            const cell3 = row.insertCell(2);
+                            
+                            cell1.textContent = campagna.id_campagna;
+                            cell2.textContent = campagna.nome_campagna;
+                            cell3.textContent = campagna.giocatori.join(", "); // Unisce i giocatori in una stringa
+                        }
+                    }
                 } else {
                     console.log("Nessun documento trovato.");
                 }
