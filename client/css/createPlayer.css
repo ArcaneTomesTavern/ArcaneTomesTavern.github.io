@@ -2,7 +2,33 @@
     border: 2px solid #000; /* Imposta uno stile di bordo */
     padding: 20px; /* Aggiunge spazio interno al rettangolo */
     margin: 10px; /* Aggiunge margine esterno al rettangolo */
-    background-color: #f0f0f0; /* Imposta il colore di sfondo del rettangolo */
+    background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
     border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
     width: 1000px; /* Imposta la larghezza del rettangolo */
+}
+
+.rettangolo_punti_caratteristica {
+    border: 2px solid #000; /* Imposta uno stile di bordo */
+    padding: 20px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 250px; /* Imposta la larghezza del rettangolo */
+}
+
+.confirm {
+    border: 2px solid green; /* Imposta uno stile di bordo */
+    padding: 20px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: rgb(33, 191, 33); /* Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 100px; /* Imposta la larghezza del rettangolo */
+    color: white; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /*background-image: url("../../server/resources/backgroundPlayer.jpg");
+    color: white;*/ 
 }
