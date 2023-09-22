@@ -42,6 +42,26 @@ form.addEventListener("submit", function (e) {
     const saggezza = parseInt(document.getElementById("saggezza").value);
     const carisma = parseInt(document.getElementById("carisma").value);
 
+    const acrobazia = parseInt(document.getElementById("acrobazia").value);
+    const addestrare_animali = parseInt(document.getElementById("acrobazia").value);
+    const arcano = parseInt(document.getElementById("acrobazia").value);
+    const atletica = parseInt(document.getElementById("acrobazia").value);
+    const furtivita = parseInt(document.getElementById("acrobazia").value);
+    const indagare = parseInt(document.getElementById("acrobazia").value);
+    const inganno = parseInt(document.getElementById("acrobazia").value);
+    const intimidire = parseInt(document.getElementById("acrobazia").value);
+    const intrattenere = parseInt(document.getElementById("acrobazia").value);
+    const intuizione = parseInt(document.getElementById("acrobazia").value);
+    const medicina = parseInt(document.getElementById("acrobazia").value);
+    const natura = parseInt(document.getElementById("acrobazia").value);
+    const percezione = parseInt(document.getElementById("acrobazia").value);
+    const persuasione = parseInt(document.getElementById("acrobazia").value);
+    const rapidita_mano = parseInt(document.getElementById("acrobazia").value);
+    const religione = parseInt(document.getElementById("acrobazia").value);
+    const sopravvivenza = parseInt(document.getElementById("acrobazia").value);
+    const storia = parseInt(document.getElementById("acrobazia").value);
+
+
     const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
     const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
     const ideali = document.getElementById("ideali").value;
@@ -85,25 +105,48 @@ form.addEventListener("submit", function (e) {
             razza: razza,
             allineamento: allineamento,
             esperienza: esperienza,
+
             forza: forza,
             destrezza: destrezza,
             costituzione: costituzione,
             intelligenza: intelligenza,
             saggezza: saggezza,
             carisma: carisma,
+
+            ispirazione: ispirazione,
+            bonus_competenza: bonus_competenza,
+
+            acrobazia: acrobazia,
+            addestrare_animali: addestrare_animali,
+            arcano: arcano,
+            atletica: atletica,
+            furtivita: furtivita,
+            indagare: indagare,
+            inganno: inganno,
+            intimidire: intimidire,
+            intrattenere: intrattenere,
+            intuizione: intuizione,
+            medicina: medicina,
+            natura: natura,
+            percezione: percezione,
+            persuasione: persuasione,
+            rapidita_mano: rapidita_mano,
+            religione: religione,
+            sopravvivenza: sopravvivenza,
+            storia: storia, 
+
             tratti_caratteriali: tratti_caratteriali,
             percezione_passiva: percezione_passiva,
             ideali: ideali,
             legami: legami,
             difetti: difetti,
-            ispirazione: ispirazione,
-            bonus_competenza: bonus_competenza,
             iniziativa: iniziativa,
             classe_armatura: classe_armatura,
             max_punti_ferita: max_punti_ferita,
             curr_punti_ferita: curr_punti_ferita,
             temp_punti_ferita: temp_punti_ferita,
             dadi_vita: dadi_vita,
+
             equipaggiamento: equipaggiamento,
             magie: magie
     }).then(() => {

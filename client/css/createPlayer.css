@@ -7,13 +7,55 @@
     width: 1000px; /* Imposta la larghezza del rettangolo */
 }
 
-.rettangolo_punti_caratteristica {
+.rettangolo_singolo {
+    border: 2px solid #000; /* Imposta uno stile di bordo */
+    padding: 5px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 100px; /* Imposta la larghezza del rettangolo */
+}
+
+.prima_colonna {
+    border: 2px solid #000; /* Imposta uno stile di bordo */
+    padding: 20px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 500px; /* Imposta la larghezza del rettangolo */
+}
+
+.prima_colonna, .seconda_colonna {
+    display: inline-block;
+    width: 20%; /* Imposta la larghezza desiderata per ciascun div */
+    vertical-align: top; /* Allinea i div in cima uno all'altro (opzionale) */
+} 
+
+.seconda_colonna {
+    border: 0px solid #000; /* Imposta uno stile di bordo */
+    padding: 20px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: white;  /*Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 500px; /* Imposta la larghezza del rettangolo */
+}
+
+.rettangolo_ts {
     border: 2px solid #000; /* Imposta uno stile di bordo */
     padding: 20px; /* Aggiunge spazio interno al rettangolo */
     margin: 10px; /* Aggiunge margine esterno al rettangolo */
     background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
     border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
     width: 250px; /* Imposta la larghezza del rettangolo */
+}
+
+.rettangolo_abilita {
+    border: 2px solid #000; /* Imposta uno stile di bordo */
+    padding: 20px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 300px; /* Imposta la larghezza del rettangolo */
 }
 
 .confirm {
