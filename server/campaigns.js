@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 for(let i = 0; i < players.size; i++){
                     db.collection("players").doc(players[i]).get('nome_giocatore').then((_doc) => {
                         if(_doc.exists){
-                            const playerName = _doc.data().nome_giocatore;
+                            const playerName = _doc.data();
                             const button = document.createElement('button');
                             button.className = "campButton";
                             button.id = playerName.replace(/ /g, "_") ;
