@@ -89,13 +89,24 @@ form.addEventListener("submit", function (e) {
         });
 
         // Raccolta dei dati delle magie dinamiche
-        const magie = [];
+    const magie = [];
         const magieInputs = document.querySelectorAll(".magia");
         magieInputs.forEach(input => {
             const nomeMagia = input.querySelector("[name='magia-nome[]']").value;
             const livelloMagia = input.querySelector("[name='magia-livello[]']").value;
             magie.push({ nome: nomeMagia, livello: livelloMagia });
         });
+
+    const attacchi = [];
+        const attacchi_incantesimiInputs = document.querySelectorAll(".attacchi");
+        attacchi_incantesimiInputs.forEach(input => {
+            const nomeAttacco = input.querySelector("[name='attacco-nome[]']").value;
+            const bonusAttacco = input.querySelector("[name='attacco-bonus[]']").value;
+            const dannoAttacco = input.querySelector("[name='attacco-danno[]']").value;
+            const tipoAttacco = input.querySelector("[name='attacco-tipo[]']").value;
+            equipaggiamento.push({ nome: nomeAttacco,bonus: bonusAttacco, danno: dannoAttacco, tipo: tipoAttacco });
+        });
+
     //const database = firebase.database();
     //const giocatoriRef = database.ref("giocatori");
 
@@ -157,7 +168,8 @@ form.addEventListener("submit", function (e) {
             difetti: difetti,
 
             equipaggiamento: equipaggiamento,
-            magie: magie
+            magie: magie,
+            attacchi: attacchi
     }).then(() => {
         alert("Giocatore inserito con successo!");
         form.reset();
