@@ -21,7 +21,7 @@ const db = firebase.firestore();
 //const db = getDatabaseReference();
 
 // Riferimento alla collezione "ArcaneTomesTavern/campagne"
-const campagneRef = db.collection("campaigns");
+const campagneRef = db.collection("campaigns").doc("000000");
 
 // Riferimenti agli input del form
 const form = document.getElementById("form");
@@ -38,7 +38,6 @@ form.addEventListener("submit", function (e) {
     const giocatori = giocatoriInput.value.split(",").map((giocatore) => giocatore.trim());
 
     // Inserisci il nuovo record nel database Firestore
-    campagneRef.doc("000000");
     campagneRef.update({
         //[idCampagna]: {
             id_campagna: idCampagna,
