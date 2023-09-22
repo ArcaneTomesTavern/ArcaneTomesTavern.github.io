@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Manipola i dati come desideri, ad esempio, stampa l'array dei giocatori
                 //const playersList = document.getElementById('playersList');
                 //playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
-                for(let i = 0; i < players.size; i++){
+                for(let i = 0; i < players.length; i++){
                     db.collection("players").doc(players[i]).get('nome_giocatore').then((_doc) => {
                         if(_doc.exists){
                             const playerName = _doc.data();
