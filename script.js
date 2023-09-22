@@ -18,12 +18,14 @@ firebase.initializeApp(firebaseConfig);
 // Recupera le campagne dal database
 const db = firebase.firestore();
 var cont = 0;
+const campagneButtons = document.getElementById('buttonContainer');
 
 db.collection('campaigns')
     .get('campaign_name')
     .then((querySnapshot) => {
         for (let i = 0; i < querySnapshot.size; i++) {
             const doc = querySnapshot.docs[i];
+            
             // Ottieni solo il nome della campagna dal documento
             const nomeCampagna = doc.data().campaign_name;
             
