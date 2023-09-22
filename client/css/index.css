@@ -1,0 +1,64 @@
+/* ******** BOTTONE ADD ******** */
+.top-right {
+    display: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2.5rem;
+}
+.top-right #add {
+    top: 3%;
+    right: 3%;
+    border-radius: 2.5rem;
+    position: absolute;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.45rem;
+    transition: 0.2s;
+}
+.top-right #add:hover {
+    border-radius: 2.5rem;
+    letter-spacing: 0.2rem;
+    padding: 0.6rem 1.55rem;
+    background: var(--clr);
+    color: var(--clr);
+    /* box-shadow: 0 0 35px var(--clr); */
+    animation: box 3s infinite;
+}
+.top-right #add::before {
+    content: "";
+    border-radius: 2.5rem;
+    position: absolute;
+    inset: 2px;
+    background: #272822;
+}
+.top-right #add span {
+    border-radius: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ******** CAMPAGNE ******** */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.button-container .campButton {
+    position: relative;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    transition: 0.2s;
+}
