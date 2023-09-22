@@ -57,45 +57,7 @@ db.collection('campaigns')
         console.error('Errore nel recupero delle campagne:', error);
     });
 
-
-//db.collection("ArcaneTomesTavernDB").doc("campagne").get()
-/*db.collection("campaigns").get()
-  .then((querySnapshot) => {
-    //const campagneButtons = document.getElementById('campagneButtons');
-    const campagneButtons = document.getElementById('buttonContainer');
-
-    if(querySnapshot.exists) {
-      const campagneData = querySnapshot.data();
-      
-      for (const key in campagneData) {
-        const campagna = campagneData[key];
-        // Creazione di un pulsante per la campagna
-        const button = document.createElement('button');
-
-        button.value = cont;
-        cont++;
-        button.className = "campButton";
-        button.id = campagna.nome_campagna.replace(/ /g, "_") ;
-        button.style = "--clr:#d5a24c";
-        //span dentro al bottone
-        const span = document.createElement('span');
-        span.textContent = campagna.nome_campagna;
-        button.append(span);
-        //i dentro al bottone
-        button.append(document.createElement('i'));
-
-        //button.textContent = campagna.nome_campagna;
-        button.addEventListener('click', () => {
-          console.log(`Campagna selezionata: ${campagna.nome_campagna}`);
-          window.location.href = `client/campaigns.html?value=${button.value}`;
-        });
-
-        // Aggiungi il pulsante alla pagina HTML
-        campagneButtons.appendChild(button);
-      }
-    }
-  })
-  .catch((error) => {
-    console.error('Errore nel recupero delle campagne:', error);
-  });
-*/
+const add_button = document.getElementById("add");
+add_button.addEventListener('click', function(){
+  window.location.href = '../client/createCampaign.html';
+});
