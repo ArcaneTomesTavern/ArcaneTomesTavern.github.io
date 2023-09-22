@@ -21,7 +21,7 @@ const db = firebase.firestore();
 //const db = getDatabaseReference();
 
 // Riferimento alla collezione "ArcaneTomesTavern/campagne"
-const campagneRef = db.collection("campaigns").doc("000000");
+//const campagneRef = db.collection("campaigns").doc("000000");
 
 // Riferimenti agli input del form
 const form = document.getElementById("form");
@@ -37,8 +37,15 @@ form.addEventListener("submit", function (e) {
     const nomeCampagna = nomeCampagnaInput.value;
     const giocatori = giocatoriInput.value.split(",").map((giocatore) => giocatore.trim());
 
+
+    const campagneRef = db.collection("campaigns").add({
+        id_campagna: idCampagna,
+        nome_campagna: nomeCampagna,
+        giocatori: giocatori
+    });
+
     // Inserisci il nuovo record nel database Firestore
-    campagneRef.update({
+   /* campagneRef.push({
         //[idCampagna]: {
             id_campagna: idCampagna,
             nome_campagna: nomeCampagna,
@@ -51,5 +58,5 @@ form.addEventListener("submit", function (e) {
     })
     .catch((error) => {
         console.error("Errore nell'inserimento del record:", error);
-    });
+    });*/
 });
