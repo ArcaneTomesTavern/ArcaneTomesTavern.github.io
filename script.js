@@ -19,7 +19,8 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 var cont = 0;
 
-db.collection("ArcaneTomesTavernDB").doc("campagne").get()
+//db.collection("ArcaneTomesTavernDB").doc("campagne").get()
+db.collection("campaigns").get()
   .then((querySnapshot) => {
     //const campagneButtons = document.getElementById('campagneButtons');
     const campagneButtons = document.getElementById('buttonContainer');
