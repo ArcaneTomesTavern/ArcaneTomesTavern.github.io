@@ -1,5 +1,50 @@
-// campaign.js
 document.addEventListener('DOMContentLoaded', () => {
+    // Recupera il valore di 'id' dalla query URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const documentId = urlParams.get('id');
+
+    // Inizializza Firebase con la tua configurazione
+    const firebaseConfig = {
+        apiKey: "AIzaSyCEc_jt85Nr4KS-4wXSPfAscmc0Vt0o4BM",
+        authDomain: "arcanetomestavern.firebaseapp.com",
+        projectId: "arcanetomestavern",
+        storageBucket: "arcanetomestavern.appspot.com",
+        messagingSenderId: "1035963633765",
+        appId: "1:1035963633765:web:7c1524769bc1e387ba768c",
+        measurementId: "G-Q2BES5BYC2"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Riferimento al tuo database Firestore
+    const db = firebase.firestore();
+
+    // Ricerca il documento specifico utilizzando l'ID passato nell'URL
+    db.collection("campaigns").doc(documentId).get()
+        .then((doc) => {
+            if (doc.exists) {
+                // Il documento è stato trovato, quindi puoi ottenere i giocatori associati
+                const players = doc.data().players;
+
+                // Manipola i dati come desideri, ad esempio, stampa l'array dei giocatori
+                const playersList = document.getElementById('playersList');
+                playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
+            } else {
+                // Il documento non è stato trovato
+                const playersList = document.getElementById('playersList');
+                playersList.textContent = 'Documento non trovato.';
+            }
+        })
+        .catch((error) => {
+            console.error('Errore nella query Firestore:', error);
+        });
+});
+
+
+
+
+// campaign.js
+/*document.addEventListener('DOMContentLoaded', () => {
     // Recupera il valore intero dalla query URL
     const urlParams = new URLSearchParams(window.location.search);
     //const intValue = parseInt(urlParams.get('id'), 10);
@@ -38,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const campagna = campagneData[key];
                     const players = data.giocatori; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
                     playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;   
-                }*/
+                }
                 for (let i = 0; i < querySnapshot.size; i++) {
                     const doc = querySnapshot.docs[i];
                     console.log(doc);
@@ -46,18 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(playersArr);    
                 }
             }
-/*
+
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 const players = data.giocatori; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
                 playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
-            }); */
+            }); 
         })
         .catch((error) => {
             console.error('Errore nella query Firestore:', error);
         });
 });
-
+*/
 
 
 
