@@ -15,7 +15,50 @@ body {
     /*background: #cba667;*/
 }
 
-/* TITOLI */
+/* ******** BOTTONE ADD ******** */
+.top-right {
+    display: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2.5rem;
+}
+.top-right #add {
+    top: 3%;
+    right: 3%;
+    border-radius: 2.5rem;
+    position: absolute;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.45rem;
+    transition: 0.2s;
+}
+.top-right #add:hover {
+    border-radius: 2.5rem;
+    letter-spacing: 0.2rem;
+    padding: 0.6rem 1.55rem;
+    background: var(--clr);
+    color: var(--clr);
+    /* box-shadow: 0 0 35px var(--clr); */
+    animation: box 3s infinite;
+}
+.top-right #add::before {
+    content: "";
+    border-radius: 2.5rem;
+    position: absolute;
+    inset: 2px;
+    background: #272822;
+}
+.top-right #add span {
+    border-radius: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+/* ******** TITOLI ******** */
 .four h1 {
     text-align: center; 
     padding-bottom: 0.7em;
@@ -41,8 +84,7 @@ body {
     /*background-color: #777;*/
 }
 
-/* BOTTONI MENU */
-
+/* ******** BOTTONI MENU ******** */
 .button-container .campButton:hover {
     letter-spacing: 0.2rem;
     padding: 1.1rem 3.1rem;
