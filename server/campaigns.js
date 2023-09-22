@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const db = firebase.firestore();
 
     // Esegui una query al database Firestore utilizzando il valore intero
-    db.collection("ArcaneTomesTavernDB").doc("campagne")
-    .where('intField', '==', intValue).get()
+    //db.collection("ArcaneTomesTavernDB").doc("campagne")
+    db.collection("campaigns")
+    .where('id_campagna', '==', intValue).get('players')
         .then((querySnapshot) => {
             const playersList = document.getElementById('playersList');
             if (querySnapshot.empty) {
@@ -30,11 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            if(querySnapshot.exists) {
+               /* const campagneData = querySnapshot.data();
+                for (const key in campagneData) {
+                    const campagna = campagneData[key];
+                    const players = data.giocatori; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
+                    playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;   
+                }*/
+                for (let i = 0; i < querySnapshot.size; i++) {
+                    const doc = querySnapshot.docs[i];
+                    console.log(doc);
+                    const playersArr = doc.data().players;
+                    console.log(playersArr);    
+                }
+            }
+/*
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
                 const players = data.giocatori; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
                 playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
-            });
+            }); */
         })
         .catch((error) => {
             console.error('Errore nella query Firestore:', error);
