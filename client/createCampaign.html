@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserisci Record in Firestore</title>
+    <title>AGGIUNGI UNA CAMPAGNA</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/createCampaign.css">
 </head>
 <body>
-    <h1>Inserisci un nuovo record in Firestore</h1>
+    <h1>NUOVA CAMPAGNA</h1>
 
     <!-- Form per inserire i dati -->
     <form id="form">
-       <!-- <label for="id_campagna">ID Campagna:</label>
-        <input type="number" id="id_campagna" required><br><br> -->
-
-        <label for="nome_campagna">Nome Campagna:</label>
-        <input type="text" id="nome_campagna" required><br><br>
-
-        <label for="giocatori">Giocatori (separati da virgola):</label>
-        <input type="text" id="giocatori"><br><br>
-
-        <fieldset>
+        
+        <fieldset id = "set-nome">
+            <legend for="nome_campagna">Nome Campagna</legend>
+            <input type="text" id="nome_campagna" required><br><br>
+        </fieldset>
+        
+        <br>
+        
+        <fieldset id = "set-giocatori">
+            <legend for="giocatori">Giocatori (separati da virgola)</legend>
+            <input type="text" id="giocatori"><br><br>
+        </fieldset>
+        
+        <br>
+        
+        <fieldset id = "set-tipo">
             <legend>Tipi Di Campagna</legend>
             <select name="selezione-campagne" id="selezione-campagne" required>
                 <option value="null" selected="selected">seleziona una campagna</option>
@@ -27,9 +35,17 @@
                 <option value="bi_shot">Bi shot</option>
                 <option value="campaign">Campagna</option>
             </select>
-            </fieldset>
+        </fieldset>
 
-        <button type="submit">Inserisci Record</button>
+        <br>
+        <br>
+        
+        <div  type="submit" id = "dm-div-container" class = "button-container">
+            <button class="campButton" style="--clr: #d5a24c;">
+                <span>CREA LA CAMPAGNA</span><i></i>
+            </button>
+        </div>
+
     </form>
 
     <!-- Includi Firebase SDK versione 8.x.x -->
