@@ -104,7 +104,7 @@ form.addEventListener("submit", function (e) {
             const bonusAttacco = input.querySelector("[name='attacco-bonus[]']").value;
             const dannoAttacco = input.querySelector("[name='attacco-danno[]']").value;
             const tipoAttacco = input.querySelector("[name='attacco-tipo[]']").value;
-            equipaggiamento.push({ nome: nomeAttacco,bonus: bonusAttacco, danno: dannoAttacco, tipo: tipoAttacco });
+            attacchi.push({ nome: nomeAttacco,bonus: bonusAttacco, danno: dannoAttacco, tipo: tipoAttacco });
         });
 
     //const database = firebase.database();
