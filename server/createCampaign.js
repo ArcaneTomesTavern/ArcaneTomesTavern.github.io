@@ -34,7 +34,7 @@ const selezione_campagne = document.getElementById('selezione-campagne');
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const idCampagna = parseInt(idCampagnaInput.value);
+   // const idCampagna = parseInt(idCampagnaInput.value);
     const nomeCampagna = nomeCampagnaInput.value;
     const giocatori = giocatoriInput.value.split(",").map((giocatore) => giocatore.trim());
     if(selezione_campagne.value != null){
