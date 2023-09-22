@@ -25,7 +25,7 @@ db.collection('campaigns')
     .then((querySnapshot) => {
         for (let i = 0; i < querySnapshot.size; i++) {
             const doc = querySnapshot.docs[i];
-            
+            console.log(doc);
             // Ottieni solo il nome della campagna dal documento
             const nomeCampagna = doc.data().campaign_name;
             
