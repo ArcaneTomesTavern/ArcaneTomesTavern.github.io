@@ -20,7 +20,6 @@ const db = firebase.firestore();
 var cont = 0;
 
 db.collection('campaigns')
-    //.orderBy('campaign_name')
     .get('campaign_name')
     .then((querySnapshot) => {
         for (let i = 0; i < querySnapshot.size; i++) {
@@ -28,8 +27,28 @@ db.collection('campaigns')
             // Ottieni solo il nome della campagna dal documento
             const nomeCampagna = doc.data().campaign_name;
             
-            // Puoi fare qualcosa con il nome della campagna, ad esempio stamparlo
-            console.log('Nome Campagna:', nomeCampagna);
+            const button = document.createElement('button');
+
+            button.value = cont;
+            cont++;
+            button.className = "campButton";
+            button.id = nomeCampagna.replace(/ /g, "_") ;
+            button.style = "--clr:#d5a24c";
+            //span dentro al bottone
+            const span = document.createElement('span');
+            span.textContent = nomeCampagna;
+            button.append(span);
+            //i dentro al bottone
+            button.append(document.createElement('i'));
+    
+            //button.textContent = campagna.nome_campagna;
+            button.addEventListener('click', () => {
+              console.log(`Campagna selezionata: ${nomeCampagna}`);
+              window.location.href = `client/campaigns.html?value=${button.value}`;
+            });
+  
+            // Aggiungi il pulsante alla pagina HTML
+            campagneButtons.appendChild(button);
         }
     })
     .catch((error) => {
