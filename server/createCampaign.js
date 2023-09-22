@@ -37,7 +37,7 @@ form.addEventListener("submit", function (e) {
    // const idCampagna = parseInt(idCampagnaInput.value);
     const nomeCampagna = nomeCampagnaInput.value;
     const giocatori = giocatoriInput.value.split(",").map((giocatore) => giocatore.trim());
-    if(selezione_campagne.value != null){
+    if(selezione_campagne.value != "null"){
 
         // Inserisci il nuovo record nel database Firestore
     /* campagneRef.push({
