@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Recupera il valore intero dalla query URL
     const urlParams = new URLSearchParams(window.location.search);
-    const intValue = parseInt(urlParams.get('value'), 10);
+    //const intValue = parseInt(urlParams.get('id'), 10);
+    const stringValue = urlParams.get('id');
 
     // Inizializza Firebase con la tua configurazione
     const firebaseConfig = {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Esegui una query al database Firestore utilizzando il valore intero
     //db.collection("ArcaneTomesTavernDB").doc("campagne")
     db.collection("campaigns")
-    .where('id_campagna', '==', intValue).get('players')
+    .where('Document ID', '==', stringValue).get('players')
         .then((querySnapshot) => {
             const playersList = document.getElementById('playersList');
             if (querySnapshot.empty) {
