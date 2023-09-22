@@ -17,7 +17,8 @@ const idPlayerInput = document.getElementById("id");
 const form = document.getElementById("giocatore-form");
 
 // Riferimento alla collezione "ArcaneTomesTavern/campagne"
-const giocatoriRef = db.collection("ArcaneTomesTavernDB").doc("giocatori");
+//const giocatoriRef = db.collection("ArcaneTomesTavernDB").doc("giocatori");
+const giocatoriRef = db.collection("players");
 
 
 form.addEventListener("submit", function (e) {
@@ -66,7 +67,7 @@ form.addEventListener("submit", function (e) {
     //const giocatoriRef = database.ref("giocatori");
 
     // Inserisci i dati nel database
-    giocatoriRef.update({
+    /*giocatoriRef.update({
         [idPlayer] : {
             id_player : idPlayer,
             nome_personaggio: nome_personaggio,
@@ -92,7 +93,31 @@ form.addEventListener("submit", function (e) {
             dadi_vita: dadi_vita,
             equipaggiamento: equipaggiamento,
             magie: magie   
-        }
+        }*/
+    giocatoriRef.add({
+            nome_personaggio: nome_personaggio,
+            background:background,
+            classe: classe,
+            livello: livello,
+            nome_giocatore: nome_giocatore,
+            razza: razza,
+            allineamento: allineamento,
+            esperienza: esperienza,
+            tratti_caratteriali: tratti_caratteriali,
+            percezione_passiva: percezione_passiva,
+            ideali: ideali,
+            legami: legami,
+            difetti: difetti,
+            ispirazione: ispirazione,
+            bonus_competenza: bonus_competenza,
+            iniziativa: iniziativa,
+            classe_armatura: classe_armatura,
+            max_punti_ferita: max_punti_ferita,
+            curr_punti_ferita: curr_punti_ferita,
+            temp_punti_ferita: temp_punti_ferita,
+            dadi_vita: dadi_vita,
+            equipaggiamento: equipaggiamento,
+            magie: magie
     }).then(() => {
         alert("Giocatore inserito con successo!");
         form.reset();

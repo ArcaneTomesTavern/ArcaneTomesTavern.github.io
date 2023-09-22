@@ -25,9 +25,10 @@ const db = firebase.firestore();
 
 // Riferimenti agli input del form
 const form = document.getElementById("form");
-const idCampagnaInput = document.getElementById("id_campagna");
+//const idCampagnaInput = document.getElementById("id_campagna");
 const nomeCampagnaInput = document.getElementById("nome_campagna");
 const giocatoriInput = document.getElementById("giocatori");
+const selezione_campagne = document.getElementById('selezione-campagne');
 
 // Gestisci l'invio del form
 form.addEventListener("submit", function (e) {
@@ -36,27 +37,30 @@ form.addEventListener("submit", function (e) {
     const idCampagna = parseInt(idCampagnaInput.value);
     const nomeCampagna = nomeCampagnaInput.value;
     const giocatori = giocatoriInput.value.split(",").map((giocatore) => giocatore.trim());
+    if(selezione_campagne.value != null){
 
-
-    const campagneRef = db.collection("campaigns").add({
-        id_campagna: idCampagna,
-        nome_campagna: nomeCampagna,
-        giocatori: giocatori
-    });
-
-    // Inserisci il nuovo record nel database Firestore
-   /* campagneRef.push({
-        //[idCampagna]: {
-            id_campagna: idCampagna,
-            nome_campagna: nomeCampagna,
-            giocatori: giocatori
-        //}
-    })
-    .then(() => {
-        console.log("Record inserito con successo!");
-        // Puoi effettuare azioni aggiuntive qui, se necessario
-    })
-    .catch((error) => {
-        console.error("Errore nell'inserimento del record:", error);
-    });*/
+        // Inserisci il nuovo record nel database Firestore
+    /* campagneRef.push({
+            //[idCampagna]: {
+                id_campagna: idCampagna,
+                nome_campagna: nomeCampagna,
+                giocatori: giocatori
+            //}
+        })*/
+        const campagneRef = db.collection("campaigns").add({
+        //    id_campagna: idCampagna,
+            campaign_name: nomeCampagna,
+            players: giocatori,
+            campaign_type: selezione_campagne.value
+        })
+        .then(() => {
+            console.log("Record inserito con successo!");
+            // Puoi effettuare azioni aggiuntive qui, se necessario
+        })
+        .catch((error) => {
+            console.error("Errore nell'inserimento del record:", error);
+        });
+    } else {
+        console.log("selezionare un tipo di campagna!");
+    }   
 });
