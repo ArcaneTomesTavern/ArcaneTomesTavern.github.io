@@ -19,14 +19,33 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 var cont = 0;
 
+db.collection('campaigns')
+    //.orderBy('campaign_name')
+    .get('campaign_name')
+    .then((querySnapshot) => {
+        for (let i = 0; i < querySnapshot.size; i++) {
+            const doc = querySnapshot.docs[i];
+            // Ottieni solo il nome della campagna dal documento
+            const nomeCampagna = doc.data().campaign_name;
+            
+            // Puoi fare qualcosa con il nome della campagna, ad esempio stamparlo
+            console.log('Nome Campagna:', nomeCampagna);
+        }
+    })
+    .catch((error) => {
+        console.error('Errore nel recupero delle campagne:', error);
+    });
+
+
 //db.collection("ArcaneTomesTavernDB").doc("campagne").get()
-db.collection("campaigns").get()
+/*db.collection("campaigns").get()
   .then((querySnapshot) => {
     //const campagneButtons = document.getElementById('campagneButtons');
     const campagneButtons = document.getElementById('buttonContainer');
 
     if(querySnapshot.exists) {
       const campagneData = querySnapshot.data();
+      
       for (const key in campagneData) {
         const campagna = campagneData[key];
         // Creazione di un pulsante per la campagna
@@ -58,3 +77,4 @@ db.collection("campaigns").get()
   .catch((error) => {
     console.error('Errore nel recupero delle campagne:', error);
   });
+*/
