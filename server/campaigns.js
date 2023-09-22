@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Riferimento al tuo database Firestore
     const db = firebase.firestore();
+    const campagneButtons = document.getElementById('buttonContainer');
 
     // Ricerca il documento specifico utilizzando l'ID passato nell'URL
     db.collection("campaigns").doc(documentId).get()
@@ -27,11 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 const players = doc.data().players;
 
                 // Manipola i dati come desideri, ad esempio, stampa l'array dei giocatori
-                const playersList = document.getElementById('playersList');
-                playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
+                //const playersList = document.getElementById('playersList');
+                //playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
+                for(let i = 0; i < players.size; i++){
+                    db.collection("players").doc(players[i]).get('nome_giocatore').then((_doc) => {
+                        if(_doc.exists){
+                            const playerName = _doc.data().nome_giocatore;
+                            const button = document.createElement('button');
+                            button.className = "campButton";
+                            button.id = playerName.replace(/ /g, "_") ;
+                            button.style = "--clr:#d5a24c";
+                            //span dentro al bottone
+                            const span = document.createElement('span');
+                            span.textContent = playerName;
+                            button.append(span);
+                            //i dentro al bottone
+                            button.append(document.createElement('i'));
+                            // Aggiungi il pulsante alla pagina HTML
+                            campagneButtons.appendChild(button);
+                        }
+                    });
+                }
             } else {
                 // Il documento non è stato trovato
-                const playersList = document.getElementById('playersList');
                 playersList.textContent = 'Documento non trovato.';
             }
         })
