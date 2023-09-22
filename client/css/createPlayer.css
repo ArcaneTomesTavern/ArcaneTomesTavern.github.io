@@ -25,7 +25,7 @@
     width: 500px; /* Imposta la larghezza del rettangolo */
 }
 
-.prima_colonna, .seconda_colonna {
+.prima_colonna, .seconda_colonna, .terza_colonna{
     display: inline-block;
     width: 20%; /* Imposta la larghezza desiderata per ciascun div */
     vertical-align: top; /* Allinea i div in cima uno all'altro (opzionale) */
@@ -58,6 +58,15 @@
     width: 300px; /* Imposta la larghezza del rettangolo */
 }
 
+.rettangolo_HP {
+    border: 2px solid #000; /* Imposta uno stile di bordo */
+    padding: 10px; /* Aggiunge spazio interno al rettangolo */
+    margin: 10px; /* Aggiunge margine esterno al rettangolo */
+    background-color: #f0f0f0;  /*Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width: 300px; /* Imposta la larghezza del rettangolo */
+}
+
 .confirm {
     border: 2px solid green; /* Imposta uno stile di bordo */
     padding: 20px; /* Aggiunge spazio interno al rettangolo */
@@ -67,10 +76,12 @@
     width: 100px; /* Imposta la larghezza del rettangolo */
     color: white; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
 }
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
     /*background-image: url("../../server/resources/backgroundPlayer.jpg");
     color: white;*/ 
 }

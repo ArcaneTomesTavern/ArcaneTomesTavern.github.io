@@ -42,6 +42,9 @@ form.addEventListener("submit", function (e) {
     const saggezza = parseInt(document.getElementById("saggezza").value);
     const carisma = parseInt(document.getElementById("carisma").value);
 
+    const ispirazione = document.getElementById("ispirazione").value;
+    const bonus_competenza = parseInt(document.getElementById("bonus_competenza").value);
+
     const acrobazia = parseInt(document.getElementById("acrobazia").value);
     const addestrare_animali = parseInt(document.getElementById("acrobazia").value);
     const arcano = parseInt(document.getElementById("acrobazia").value);
@@ -61,20 +64,21 @@ form.addEventListener("submit", function (e) {
     const sopravvivenza = parseInt(document.getElementById("acrobazia").value);
     const storia = parseInt(document.getElementById("acrobazia").value);
 
+    const classe_armatura = parseInt(document.getElementById("classe_armatura").value);
+    const iniziativa = parseInt(document.getElementById("iniziativa").value);
+    const velocita = parseInt(document.getElementById("velocita").value);
 
     const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
     const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
     const ideali = document.getElementById("ideali").value;
     const legami = document.getElementById("legami").value;
     const difetti = document.getElementById("difetti").value;
-    const ispirazione = document.getElementById("ispirazione").value;
-    const bonus_competenza = parseInt(document.getElementById("bonus_competenza").value);
-    const iniziativa = parseInt(document.getElementById("iniziativa").value);
-    const classe_armatura = parseInt(document.getElementById("classe_armatura").value);
     const max_punti_ferita = parseInt(document.getElementById("max_punti_ferita").value);
     const curr_punti_ferita = parseInt(document.getElementById("curr_punti_ferita").value);
     const temp_punti_ferita = parseInt(document.getElementById("temp_punti_ferita").value);
-    const dadi_vita = parseInt(document.getElementById("dadi_vita").value);
+    const dadi_vita = document.getElementById("dadi_vita").value;
+    const ts_morte_successo = 0;
+    const ts_morte_fallito = 0;
 
     const equipaggiamento = [];
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
@@ -133,19 +137,24 @@ form.addEventListener("submit", function (e) {
             rapidita_mano: rapidita_mano,
             religione: religione,
             sopravvivenza: sopravvivenza,
-            storia: storia, 
+            storia: storia,
+            
+            classe_armatura: classe_armatura,
+            iniziativa: iniziativa,
+            velocita: velocita,
+
+            max_punti_ferita: max_punti_ferita,
+            curr_punti_ferita: curr_punti_ferita,
+            temp_punti_ferita: temp_punti_ferita,
+            dadi_vita: dadi_vita,
+            ts_morte_successo: ts_morte_successo,
+            ts_morte_fallito: ts_morte_fallito,
 
             tratti_caratteriali: tratti_caratteriali,
             percezione_passiva: percezione_passiva,
             ideali: ideali,
             legami: legami,
             difetti: difetti,
-            iniziativa: iniziativa,
-            classe_armatura: classe_armatura,
-            max_punti_ferita: max_punti_ferita,
-            curr_punti_ferita: curr_punti_ferita,
-            temp_punti_ferita: temp_punti_ferita,
-            dadi_vita: dadi_vita,
 
             equipaggiamento: equipaggiamento,
             magie: magie
