@@ -25,7 +25,7 @@ db.collection('campaigns')
     .then((querySnapshot) => {
         for (let i = 0; i < querySnapshot.size; i++) {
             const doc = querySnapshot.docs[i];
-            console.log(doc.ref.id);
+            //console.log(doc.ref.id);
             // Ottieni solo il nome della campagna dal documento
             const nomeCampagna = doc.data().campaign_name;
             
@@ -46,7 +46,8 @@ db.collection('campaigns')
             //button.textContent = campagna.nome_campagna;
             button.addEventListener('click', () => {
               console.log(`Campagna selezionata: ${nomeCampagna}`);
-              window.location.href = `client/campaigns.html?value=${button.value}`;
+              console.log(`Ref ID: ${doc.ref.id}`);
+              window.location.href = `client/campaigns.html?id=${doc.ref.id}`;
             });
   
             // Aggiungi il pulsante alla pagina HTML
