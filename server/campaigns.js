@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const db = firebase.firestore();
 
     // Esegui una query al database Firestore utilizzando il valore intero
-    db.collection('campaigns').where('intField', '==', intValue).get()
+    db.collection("ArcaneTomesTavernDB").doc("campagne")
+    .where('intField', '==', intValue).get()
         .then((querySnapshot) => {
             const playersList = document.getElementById('playersList');
             if (querySnapshot.empty) {
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
-                const players = data.players; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
+                const players = data.giocatori; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
                 playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
             });
         })

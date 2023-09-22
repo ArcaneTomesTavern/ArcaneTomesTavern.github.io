@@ -46,7 +46,7 @@ db.collection("ArcaneTomesTavernDB").doc("campagne").get()
         //button.textContent = campagna.nome_campagna;
         button.addEventListener('click', () => {
           console.log(`Campagna selezionata: ${campagna.nome_campagna}`);
-          window.location.href = `campaign.html?value=${button.value}`;
+          window.location.href = `client/campaigns.html?value=${button.value}`;
         });
 
         // Aggiungi il pulsante alla pagina HTML
