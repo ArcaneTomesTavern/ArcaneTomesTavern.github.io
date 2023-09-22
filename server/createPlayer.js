@@ -26,13 +26,22 @@ form.addEventListener("submit", function (e) {
     
     const idPlayer = parseInt(idPlayerInput.value);
     const nome_personaggio = document.getElementById("nome_personaggio").value;
-    const background = document.getElementById("background").value;
-    const nome_giocatore = document.getElementById("nome_giocatore").value;
+
     const classe = document.getElementById("classe").value;
     const livello = parseFloat(document.getElementById("livello").value);
+    const background = document.getElementById("background").value;
+    const nome_giocatore = document.getElementById("nome_giocatore").value;
     const razza = document.getElementById("razza").value;
     const allineamento = document.getElementById("allineamento").value;
     const esperienza = document.getElementById("esperienza").value;
+
+    const forza = parseInt(document.getElementById("forza").value);
+    const destrezza = parseInt(document.getElementById("destrezza").value);
+    const costituzione = parseInt(document.getElementById("costituzione").value);
+    const intelligenza = parseInt(document.getElementById("intelligenza").value);
+    const saggezza = parseInt(document.getElementById("saggezza").value);
+    const carisma = parseInt(document.getElementById("carisma").value);
+
     const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
     const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
     const ideali = document.getElementById("ideali").value;
@@ -66,43 +75,22 @@ form.addEventListener("submit", function (e) {
     //const database = firebase.database();
     //const giocatoriRef = database.ref("giocatori");
 
-    // Inserisci i dati nel database
-    /*giocatoriRef.update({
-        [idPlayer] : {
-            id_player : idPlayer,
-            nome_personaggio: nome_personaggio,
-            background:background,
-            classe: classe,
-            livello: livello,
-            nome_giocatore: nome_giocatore,
-            razza: razza,
-            allineamento: allineamento,
-            esperienza: esperienza,
-            tratti_caratteriali: tratti_caratteriali,
-            percezione_passiva: percezione_passiva,
-            ideali: ideali,
-            legami: legami,
-            difetti: difetti,
-            ispirazione: ispirazione,
-            bonus_competenza: bonus_competenza,
-            iniziativa: iniziativa,
-            classe_armatura: classe_armatura,
-            max_punti_ferita: max_punti_ferita,
-            curr_punti_ferita: curr_punti_ferita,
-            temp_punti_ferita: temp_punti_ferita,
-            dadi_vita: dadi_vita,
-            equipaggiamento: equipaggiamento,
-            magie: magie   
-        }*/
+    //Inserisci dati nel DB
     giocatoriRef.add({
             nome_personaggio: nome_personaggio,
-            background:background,
             classe: classe,
             livello: livello,
+            background:background,
             nome_giocatore: nome_giocatore,
             razza: razza,
             allineamento: allineamento,
             esperienza: esperienza,
+            forza: forza,
+            destrezza: destrezza,
+            costituzione: costituzione,
+            intelligenza: intelligenza,
+            saggezza: saggezza,
+            carisma: carisma,
             tratti_caratteriali: tratti_caratteriali,
             percezione_passiva: percezione_passiva,
             ideali: ideali,
