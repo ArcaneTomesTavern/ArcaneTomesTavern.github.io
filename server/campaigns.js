@@ -1,5 +1,44 @@
+// campaign.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Recupera il valore intero dalla query URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const intValue = parseInt(urlParams.get('value'), 10);
+
+    // Inizializza Firebase con la tua configurazione
+    const firebaseConfig = {
+        // La tua configurazione Firebase
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Riferimento al tuo database Firestore
+    const db = firebase.firestore();
+
+    // Esegui una query al database Firestore utilizzando il valore intero
+    db.collection('campaigns').where('intField', '==', intValue).get()
+        .then((querySnapshot) => {
+            const playersList = document.getElementById('playersList');
+            if (querySnapshot.empty) {
+                playersList.textContent = 'Nessun risultato trovato.';
+                return;
+            }
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const players = data.players; // Supponiamo che i giocatori siano memorizzati in un campo "players" nell'array
+                playersList.textContent = `Array di giocatori: ${JSON.stringify(players)}`;
+            });
+        })
+        .catch((error) => {
+            console.error('Errore nella query Firestore:', error);
+        });
+});
+
+
+
+
 // Inizializza Firebase con la tua configurazione
-const firebaseConfig = {
+/*const firebaseConfig = {
     apiKey: "AIzaSyCEc_jt85Nr4KS-4wXSPfAscmc0Vt0o4BM",
     authDomain: "arcanetomestavern.firebaseapp.com",
     projectId: "arcanetomestavern",
@@ -46,3 +85,4 @@ campagneRef.get()
     .catch((error) => {
         console.error("Errore nella query:", error);
     });
+    */
