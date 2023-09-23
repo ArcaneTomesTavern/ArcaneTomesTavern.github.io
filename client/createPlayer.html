@@ -12,7 +12,7 @@
         <label for="id">ID:</label>
         <input type="number" id="id" name="id" required><br><br><hr>
 
-        <label for="nome_personaggio">Nome Personaggio:</label>
+        <label for="nome_personaggio" class="rettangolo_singolo">Nome Personaggio:</label>
         <input type="text" id="nome_personaggio" name="nome_personaggio" required><br><br>
 
         <div class="rettangolo">
@@ -56,6 +56,7 @@
 
             <label for="carisma">Carisma:</label>
             <input type="number" id="carisma" name="carisma" required><br><br><br><br><br><br><br>
+
          </div>
 
         <div class="seconda_colonna"> 
@@ -64,6 +65,9 @@
             
             <label for="bonus_competenza" class="rettangolo_singolo">Bonus Competenza:</label>
             <input type="number" id="bonus_competenza" name="bonus_competenza" required><br><br>
+
+            <label for="percezione_passiva" class="rettangolo_singolo">Percezione Passiva:</label>
+            <input type="number" id="percezione_passiva" name="percezione_passiva" required><br><br><br>
 
             <div class="rettangolo_ts">
                 <label for="forza">Forza:</label>
@@ -140,11 +144,11 @@
                 <label for="storia">Storia:</label>
                 <input type="number" id="storia" name="storia" required><br>
             </div>
-
         </div>
 
+
         <div class="terza_colonna">
-            <br>
+            <br><br>    
             <label for="classe_armatura" class="rettangolo_singolo">Classe Armatura:</label>
             <input type="number" id="classe_armatura" name="classe_armatura" required><br><br>
 
@@ -166,27 +170,23 @@
 
                 <label for="dadi_vita">Dadi Vita:</label>
                 <input type="text" id="dadi_vita" name="dadi_vita" required><br>
-            </div>
+            </div><br>
 
             <label for="ts_morte_successo" class="rettangolo_singolo">TS Morte Succcesso: 0</label><br><br>
-            <label for="ts_morte_fallito" class="rettangolo_singolo">TS Morte Fallito: 0</label><br><br>
+            <label for="ts_morte_fallito" class="rettangolo_singolo">TS Morte Fallito: 0</label><br><br><br><br><br>
 
+            <label for="tratti_caratteriali" class="rettangolo_singolo">Tratti Caratteriali:</label>
+            <input type="text" id="tratti_caratteriali" name="tratti_caratteriali" required><br><br>
+
+            <label for="ideali" class="rettangolo_singolo">Ideali:</label>
+            <input type="text" id="ideali" name="ideali" required><br><br>
+
+            <label for="legami" class="rettangolo_singolo">Legami:</label>
+            <input type="text" id="legami" name="legami" required><br><br>
+
+            <label for="difetti" class="rettangolo_singolo">Difetti:</label>
+            <input type="text" id="difetti" name="difetti" required><br><br>
         </div><br><br>
-
-        <label for="tratti_caratteriali">Tratti Caratteriali:</label>
-        <input type="text" id="tratti_caratteriali" name="tratti_caratteriali" required><br><br>
-
-        <label for="ideali">Ideali:</label>
-        <input type="text" id="ideali" name="ideali" required><br><br>
-
-        <label for="legami">Legami:</label>
-        <input type="text" id="legami" name="legami" required><br><br>
-
-        <label for="difetti">Difetti:</label>
-        <input type="text" id="difetti" name="difetti" required><br><br>
-
-        <label for="percezione_passiva" class="rettangolo_singolo">Percezione Passiva:</label>
-        <input type="number" id="percezione_passiva" name="percezione_passiva" required><br><br>
                   
         <div class="container">
             <div class="section">
@@ -237,10 +237,8 @@
               </div>
               <button type="button" onclick="aggiungiAttacchi()">Aggiungi Attacco/Incantesimo</button>
             </div>
-          </div>
-          
-          
-        
+        </div>
+         
         <br><br><hr>
         <button type="submit" class="confirm">Salva Giocatore</button>
 
