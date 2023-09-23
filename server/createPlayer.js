@@ -24,7 +24,6 @@ const giocatoriRef = db.collection("players");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     
-    const idPlayer = parseInt(idPlayerInput.value);
     const nome_personaggio = document.getElementById("nome_personaggio").value;
 
     const classe = document.getElementById("classe").value;
@@ -130,6 +129,7 @@ form.addEventListener("submit", function (e) {
 
             ispirazione: ispirazione,
             bonus_competenza: bonus_competenza,
+            percezione_passiva: percezione_passiva,
 
             acrobazia: acrobazia,
             addestrare_animali: addestrare_animali,
@@ -162,7 +162,6 @@ form.addEventListener("submit", function (e) {
             ts_morte_fallito: ts_morte_fallito,
 
             tratti_caratteriali: tratti_caratteriali,
-            percezione_passiva: percezione_passiva,
             ideali: ideali,
             legami: legami,
             difetti: difetti,
