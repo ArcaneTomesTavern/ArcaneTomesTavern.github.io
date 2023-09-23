@@ -169,7 +169,8 @@
             </div>
 
             <label for="ts_morte_successo" class="rettangolo_singolo">TS Morte Succcesso: 0</label><br><br>
-            <label for="ts_morte_fallito" class="rettangolo_singolo">TS Morte Fallito: 0</label>
+            <label for="ts_morte_fallito" class="rettangolo_singolo">TS Morte Fallito: 0</label><br><br>
+
         </div><br><br>
 
         <label for="tratti_caratteriali">Tratti Caratteriali:</label>
@@ -186,51 +187,61 @@
 
         <label for="percezione_passiva" class="rettangolo_singolo">Percezione Passiva:</label>
         <input type="number" id="percezione_passiva" name="percezione_passiva" required><br><br>
-
-        <h2>Equipaggiamento</h2>
-        <div id="equipaggiamento-container">
-        <!-- Campi di input per il primo oggetto di equipaggiamento -->
-        <div class="equipaggiamento">
-            <label for="equipaggiamento-nome">Nome Oggetto di Equipaggiamento:</label>
-            <input type="text" name="equipaggiamento-nome[]" required>
-            <label for="equipaggiamento-tipo">Tipo Oggetto di Equipaggiamento:</label>
-            <input type="text" name="equipaggiamento-tipo[]" required>
-            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button>
-        </div>
-        </div>
-        <button type="button" onclick="aggiungiEquipaggiamento()">Aggiungi Equipaggiamento</button>
-
-        <h2>Magie</h2>
-        <div id="magie-container">
-        <!-- Campi di input per la prima magia -->
-        <div class="magia">
-            <label for="magia-nome">Nome Magia:</label>
-            <input type="text" name="magia-nome[]" required>
-            <label for="magia-livello">Livello Magia:</label>
-            <input type="number" name="magia-livello[]" required>
-            <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button>
-        </div>
-        </div>
-        <button type="button" onclick="aggiungiMagia()">Aggiungi Magia</button>
-
-        <h2>Attacchi & Incantesimi</h2>
-        <div id="attacchi-container">
-        <!-- Campi di input per il primo oggetto di equipaggiamento -->
-        <div class="attacchi">
-            <label for="attacco-nome">Nome Arma/Incantesimo:</label>
-            <input type="text" name="attacco-nome[]" required>
-            <label for="attacco-bonus">Bonus Attc.:</label>
-            <input type="text" name="attacco-bonus[]" required>
-            <label for="attacco-danno">Danno Attc.:</label>
-            <input type="text" name="attacco-danno[]" required>
-            <label for="attacco-tipo">Tipo Attc.:</label>
-            <input type="text" name="attacco-tipo[]" required>
-            <button type="button" onclick="rimuoviAttacco(this)">Rimuovi Attacco/Incantesimo</button>
-        </div>
-        </div>
-        <button type="button" onclick="aggiungiAttacchi()">Aggiungi Attacco/Incantesimo</button>
-
-        <hr>
+                  
+        <div class="container">
+            <div class="section">
+              <h2>Equipaggiamento</h2>
+              <div id="equipaggiamento-container">
+                <!-- Campi di input per il primo oggetto di equipaggiamento -->
+                <div class="equipaggiamento">
+                  <label for="equipaggiamento-nome">Nome Oggetto:</label>
+                  <input type="text" name="equipaggiamento-nome[]" required><br>
+                  <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
+                  <input type="text" name="equipaggiamento-tipo[]" required><br>
+                  <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button><br>
+                </div>
+              </div>
+              <button type="button" onclick="aggiungiEquipaggiamento()">Aggiungi Equipaggiamento</button>
+            </div>
+          
+            <div class="section">
+              <h2>Magie</h2>
+              <div id="magie-container">
+                <!-- Campi di input per la prima magia -->
+                <div class="magia">
+                  <label for="magia-nome">Nome Magia:</label>
+                  <input type="text" name="magia-nome[]" required><br>
+                  <label for="magia-livello">Livello Magia:</label>
+                  <input type="number" name="magia-livello[]" required><br>
+                  <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button><br>
+                </div>
+              </div>
+              <button type="button" onclick="aggiungiMagia()">Aggiungi Magia</button>
+            </div>
+          
+            <div class="section">
+              <h2>Attacchi & Incantesimi</h2>
+              <div id="attacchi-container">
+                <!-- Campi di input per il primo oggetto di equipaggiamento -->
+                <div class="attacchi">
+                  <label for="attacco-nome">Nome Arma/Incantesimo:</label>
+                  <input type="text" name="attacco-nome[]" required><br>
+                  <label for="attacco-bonus">Bonus Attc.:</label>
+                  <input type="text" name="attacco-bonus[]" required><br>
+                  <label for="attacco-danno">Danno Attc.:</label>
+                  <input type="text" name="attacco-danno[]" required><br>
+                  <label for="attacco-tipo">Tipo Attc.:</label>
+                  <input type="text" name="attacco-tipo[]" required><br>
+                  <button type="button" onclick="rimuoviAttacco(this)">Rimuovi Attacco/Incantesimo</button><br>
+                </div>
+              </div>
+              <button type="button" onclick="aggiungiAttacchi()">Aggiungi Attacco/Incantesimo</button>
+            </div>
+          </div>
+          
+          
+        
+        <br><br><hr>
         <button type="submit" class="confirm">Salva Giocatore</button>
 
     </form>
@@ -249,11 +260,12 @@
         const nuovoEquipaggiamento = document.createElement("div");
         nuovoEquipaggiamento.className = "equipaggiamento";
         nuovoEquipaggiamento.innerHTML = `
-            <label for="equipaggiamento-nome">Nome Oggetto di Equipaggiamento:</label>
-            <input type="text" name="equipaggiamento-nome[]" required>
-            <label for="equipaggiamento-tipo">Tipo Oggetto di Equipaggiamento:</label>
-            <input type="text" name="equipaggiamento-tipo[]" required>
-            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button>
+            <br>
+            <label for="equipaggiamento-nome">Nome Oggetto:</label>
+            <input type="text" name="equipaggiamento-nome[]" required><br>
+            <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
+            <input type="text" name="equipaggiamento-tipo[]" required><br>
+            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button><br>
         `;
 
         equipaggiamentoContainer.appendChild(nuovoEquipaggiamento);
@@ -271,11 +283,12 @@
         const nuovaMagia = document.createElement("div");
         nuovaMagia.className = "magia";
         nuovaMagia.innerHTML = `
+            <br>
             <label for="magia-nome">Nome Magia:</label>
-            <input type="text" name="magia-nome[]" required>
+            <input type="text" name="magia-nome[]" required><br>
             <label for="magia-livello">Livello Magia:</label>
-            <input type="number" name="magia-livello[]" required>
-            <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button>
+            <input type="number" name="magia-livello[]" required><br>
+            <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button><br>
         `;
 
         magieContainer.appendChild(nuovaMagia);
@@ -293,15 +306,16 @@
         const attacchi = document.createElement("div");
         attacchi.className = "attacchi";
         attacchi.innerHTML = `
+            <br>
             <label for="attacco-nome">Nome Arma/Incantesimo:</label>
-            <input type="text" name="attacco-nome[]" required>
+            <input type="text" name="attacco-nome[]" required><br>
             <label for="attacco-bonus">Bonus Attc.:</label>
-            <input type="text" name="attacco-bonus[]" required>
+            <input type="text" name="attacco-bonus[]" required><br>
             <label for="attacco-danno">Danno Attc.:</label>
-            <input type="text" name="attacco-danno[]" required>
+            <input type="text" name="attacco-danno[]" required><br>
             <label for="attacco-tipo">Tipo Attc.:</label>
-            <input type="text" name="attacco-tipo[]" required>
-            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button>
+            <input type="text" name="attacco-tipo[]" required><br>
+            <button type="button" onclick="rimuoviAttacco(this)">Rimuovi Attacco/Incantesimo</button><br>
         `;
 
         attacchiContainer.appendChild(attacchi);

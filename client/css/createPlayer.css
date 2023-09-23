@@ -29,6 +29,7 @@
     display: inline-block;
     width: 20%; /* Imposta la larghezza desiderata per ciascun div */
     vertical-align: top; /* Allinea i div in cima uno all'altro (opzionale) */
+    margin-right: 10px; /* Imposta la distanza desiderata tra le colonne */ 
 } 
 
 .seconda_colonna {
@@ -67,6 +68,32 @@
     width: 300px; /* Imposta la larghezza del rettangolo */
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.section {
+    flex-basis: 30%; /* Imposta la larghezza desiderata per ciascuna sezione */
+    text-align: left;
+}
+  
+.section h2 {
+    margin-bottom: 10px; /* Aggiunge spazio tra l'h2 e il contenuto sottostante */
+}
+  
+.section > div {
+    text-align: left; /* Allinea il contenuto del div funzionale a sinistra */
+    margin-bottom: 10px; /* Aggiunge spazio tra il div funzionale e il pulsante "Aggiungi" */
+}
+  
+button[type="button"] {
+    margin-top: 10px; /* Aggiunge spazio tra il div funzionale e il pulsante "Aggiungi" */
+}
+  
+  
+  
+
 .confirm {
     border: 2px solid green; /* Imposta uno stile di bordo */
     padding: 20px; /* Aggiunge spazio interno al rettangolo */
@@ -85,3 +112,4 @@ body {
     /*background-image: url("../../server/resources/backgroundPlayer.jpg");
     color: white;*/ 
 }
+
