@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserimento Giocatore</title>
     <link rel="stylesheet" href="../client/css/createPlayer.css">
+    <link rel="stylesheet" href="../client/css/general.css">
 </head>
 <body>
     <h1>Inserimento Giocatore</h1>
     <form id="giocatore-form">
-        <label for="id">ID:</label>
-        <input type="number" id="id" name="id" required><br><br><hr>
 
         <label for="nome_personaggio" class="rettangolo_singolo">Nome Personaggio:</label>
         <input type="text" id="nome_personaggio" name="nome_personaggio" required><br><br>
@@ -70,6 +69,7 @@
             <input type="number" id="percezione_passiva" name="percezione_passiva" required><br><br><br>
 
             <div class="rettangolo_ts">
+                <h2>Tiri Salvezza</h2><br><br>
                 <label for="forza">Forza:</label>
                 <input type="number" id="forza" name="forza" required><br>
 
@@ -146,7 +146,6 @@
             </div>
         </div>
 
-
         <div class="terza_colonna">
             <br><br>    
             <label for="classe_armatura" class="rettangolo_singolo">Classe Armatura:</label>
@@ -175,17 +174,17 @@
             <label for="ts_morte_successo" class="rettangolo_singolo">TS Morte Succcesso: 0</label><br><br>
             <label for="ts_morte_fallito" class="rettangolo_singolo">TS Morte Fallito: 0</label><br><br><br><br><br>
 
-            <label for="tratti_caratteriali" class="rettangolo_singolo">Tratti Caratteriali:</label>
-            <input type="text" id="tratti_caratteriali" name="tratti_caratteriali" required><br><br>
+            <label for="tratti_caratteriali" class="rettangolo_singolo">Tratti Caratteriali:</label><br><br>
+            <textarea id="tratti_caratteriali" name="tratti_caratteriali"></textarea> <br><br>
 
-            <label for="ideali" class="rettangolo_singolo">Ideali:</label>
-            <input type="text" id="ideali" name="ideali" required><br><br>
+            <label for="ideali" class="rettangolo_singolo">Ideali:</label><br><br>
+            <textarea id="ideali" name="ideali"></textarea> <br><br>
 
-            <label for="legami" class="rettangolo_singolo">Legami:</label>
-            <input type="text" id="legami" name="legami" required><br><br>
+            <label for="legami" class="rettangolo_singolo">Legami:</label><br><br>
+            <textarea id="legami" name="legami"></textarea> <br><br>
 
-            <label for="difetti" class="rettangolo_singolo">Difetti:</label>
-            <input type="text" id="difetti" name="difetti" required><br><br>
+            <label for="difetti" class="rettangolo_singolo">Difetti:</label><br><br>
+            <textarea id="difetti" name="difetti"></textarea> <br><br>
         </div><br><br>
                   
         <div class="container">
