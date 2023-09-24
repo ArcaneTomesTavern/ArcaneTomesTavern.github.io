@@ -22,13 +22,13 @@ const giocatoriRef = db.collection("players");
 
 //INIZIO CARIMANETO IMMAGI
 const storageRef = firebase.storage().ref();
-const imageInput = document.getElementById("image-input"); // Definisci imageInput qui
+ // Definisci imageInput qui
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const file = imageInput.files[0];
-
-    // Verifica se è stato caricato un file
+    //const file = imageInput.files[0];
+    const imageInput = document.getElementById("image-input");
+    /*// Verifica se è stato caricato un file
     if (file) {
         // Genera un nome univoco per il file (ad esempio, timestamp)
         const timestamp = new Date().getTime();
@@ -73,7 +73,7 @@ form.addEventListener("submit", function (e) {
             console.error("Errore durante l'inserimento del giocatore:", error);
             alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
         });
-    }
+    }*/
     //FINE CARICAMENTO IMMAGINI
     
     const nome_personaggio = document.getElementById("nome_personaggio").value;
@@ -255,7 +255,7 @@ form.addEventListener("submit", function (e) {
 
             storia_pg: storia_pg,
 
-            file: file,
+            imageInput: imageInput,
 
             equipaggiamento: equipaggiamento,
             magie: magie,
