@@ -28,18 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const uploadForm = document.getElementById("upload-form");
 
     // Inizializza Firebase con la tua configurazione
-    const firebaseConfig = {
-        apiKey: "Il_tuo_api_key",
-        authDomain: "Il_tuo_auth_domain",
-        projectId: "Il_tuo_project_id",
-        storageBucket: "Il_tuo_storage_bucket",
-        messagingSenderId: "Il_tuo_messaging_sender_id",
-        appId: "Il_tuo_app_id",
-        measurementId: "Il_tuo_measurement_id"
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    const db = firebase.firestore();
     const storage = firebase.storage();
 
     // Riferimento alla collezione "players" nel Firestore
@@ -110,6 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
 
 
 
