@@ -149,6 +149,7 @@ form.addEventListener("submit", function (e) {
     const capelli = document.getElementById("capelli").value;
 
     const storia_pg = document.getElementById("storia_pg");
+    const tesoro = document.getElementById("tesoro");
 
     const equipaggiamento = [];
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
@@ -254,6 +255,7 @@ form.addEventListener("submit", function (e) {
             capelli: capelli,
 
             storia_pg: storia_pg,
+            tesoro: tesoro,
 
             imageInput: imageInput,
 
