@@ -20,6 +20,53 @@ const form = document.getElementById("giocatore-form");
 //const giocatoriRef = db.collection("ArcaneTomesTavernDB").doc("giocatori");
 const giocatoriRef = db.collection("players");
 
+//INIZIO CARIMANETO IMMAGINI
+const storage = firebase.storage();
+
+document.getElementById("upload-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("file-input");
+    const file = fileInput.files[0];
+
+    if (file) {
+        // Crea un riferimento al percorso dell'archivio Firebase in cui desideri memorizzare il file
+        const imageRef = storageRef.child("immagini/" + file.name);
+
+        // Carica l'immagine nell'archivio Firebase
+        imageRef.put(file).then(function(snapshot) {
+            console.log("Caricamento completato!");
+            alert("Immagine caricata con successo!");
+        }).catch(function(error) {
+            console.error("Errore durante il caricamento: " + error.message);
+        });
+    } else {
+        console.log("Nessun file selezionato.");
+    }
+});
+
+// Mostra un'anteprima dell'immagine selezionata
+document.getElementById("file-input").addEventListener("change", function (e) {
+    const preview = document.getElementById("preview");
+    const file = e.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+        document.getElementById("image-preview").style.display = "block";
+    } else {
+        preview.src = "#";
+        document.getElementById("image-preview").style.display = "none";
+    }
+});
+
+//FINE CARICAMENTO IMMAGINI
+
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
