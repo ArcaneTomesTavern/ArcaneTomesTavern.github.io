@@ -248,7 +248,7 @@ form.addEventListener("submit", function (e) {
 
             storia_pg: storia_pg,
 
-            imageInput: imageInput,
+            file: file,
 
             equipaggiamento: equipaggiamento,
             magie: magie,
