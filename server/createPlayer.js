@@ -21,16 +21,11 @@ const form = document.getElementById("giocatore-form");
 const giocatoriRef = db.collection("players");
 
 //INIZIO CARIMANETO IMMAGI
-
-//FINE CARICAMENTO IMMAGINI
-
+const storageRef = firebase.storage().ref();
+const imageInput = document.getElementById("image-input"); // Definisci imageInput qui
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-    //INIZIO CARIMANETO IMMAGI
-    const storageRef = firebase.storage().ref();
-
-    // Ottenere il file dell'input dell'immagine
     const file = imageInput.files[0];
 
     // Verifica se è stato caricato un file
@@ -137,6 +132,12 @@ form.addEventListener("submit", function (e) {
     const legami = document.getElementById("legami").value;
     const difetti = document.getElementById("difetti").value;
 
+    const cp = parseInt(document.getElementById("cp").value);
+    const sp = parseInt(document.getElementById("sp").value);
+    const ep = parseInt(document.getElementById("ep").value);
+    const gp = parseInt(document.getElementById("gp").value);
+    const pp = parseInt(document.getElementById("pp").value);
+
     const comp_linguaggi = document.getElementById("comp_linguaggi").value;
     const privilegi_tratti = document.getElementById("privilegi_tratti").value;
 
@@ -235,6 +236,12 @@ form.addEventListener("submit", function (e) {
             ideali: ideali,
             legami: legami,
             difetti: difetti,
+
+            cp: cp,
+            sp: sp,
+            ep: ep,
+            gp: gp,
+            pp: pp,
 
             comp_linguaggi: comp_linguaggi,
             privilegi_tratti: privilegi_tratti,

@@ -93,7 +93,7 @@
             <label for="acrobazia">Acrobazia:</label>
             <input type="number" id="acrobazia" name="acrobazia" required><br>
 
-            <label for="addestrare_animali">Addestrare_animali:</label>
+            <label for="addestrare_animali">Addestrare Animali:</label>
             <input type="number" id="addestrare_animali" name="addestrare_animali" required><br>
 
             <label for="arcano">Arcano:</label>
@@ -185,7 +185,24 @@
 
         <label for="difetti" class="rettangolo_singolo">Difetti:</label><br><br>
         <textarea id="difetti" name="difetti"></textarea> <br><br>
-    </div><br><br>
+    </div><br>
+
+    <div class="rettangolo_HP">
+      <label for="cp">Monete di Rame (Cp):</label>
+      <input type="number" id="cp" name="cp" required><br>
+
+      <label for="sp">Monete di Argento (Sp):</label>
+      <input type="number" id="sp" name="sp" required><br>
+
+      <label for="ep">Monete d'Electrum (Ep):</label>
+      <input type="number" id="ep" name="ep" required><br>
+
+      <label for="gp">Monete d'Oro (Gp):</label>
+      <input type="number" id="gp" name="gp" required><br>
+
+      <label for="pp">Monete di Platino (Pp):</label>
+      <input type="number" id="pp" name="pp" required><br>
+    </div><br>
 
     <label for="comp_linguaggi" class="rettangolo_singolo">Competenze & Linguaggi:</label><br><br>
     <textarea id="comp_linguaggi" name="comp_linguaggi"></textarea> <br><br>
@@ -219,7 +236,7 @@
     <img id="image-preview" src="" alt="Preview">
     <br><br>
 
-    <label for="storia_pg" class="rettangolo_singolo">Privilegi & Tratti:</label><br><br>
+    <label for="storia_pg" class="rettangolo_singolo">Storia del Personaggio:</label><br><br>
     <textarea id="storia_pg" name="storia_pg"></textarea> <br><br>
               
     <div class="container">
@@ -359,6 +376,9 @@
         const attacchiContainer = document.getElementById("attacchi-container");
         attacchiContainer.removeChild(button.parentNode);
         }
+
+        
+
     </script>
 </body>
 </html>
