@@ -21,7 +21,7 @@ const form = document.getElementById("giocatore-form");
 const giocatoriRef = db.collection("players");
 
 //INIZIO CARIMANETO IMMAGINI
-const storage = firebase.storage();
+
 
 document.getElementById("upload-form").addEventListener("submit", function (e) {
     e.preventDefault();
