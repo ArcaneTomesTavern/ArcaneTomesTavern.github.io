@@ -22,60 +22,13 @@ const giocatoriRef = db.collection("players");
 
 //INIZIO CARIMANETO IMMAGI
 const storageRef = firebase.storage().ref();
+const imageInput = document.getElementById("image-input");
  // Definisci imageInput qui
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-    //const file = imageInput.files[0];
-    const imageInput = document.getElementById("image-input");
-    /*// Verifica se è stato caricato un file
-    if (file) {
-        // Genera un nome univoco per il file (ad esempio, timestamp)
-        const timestamp = new Date().getTime();
-        const fileName = `${timestamp}_${file.name}`;
+    const file = imageInput.files[0];
 
-        // Crea un riferimento al percorso in cui verrà salvata l'immagine
-        const imageRef = storageRef.child(`images/${fileName}`);
-
-        // Carica il file su Firebase Storage
-        imageRef.put(file).then((snapshot) => {
-            // Se il caricamento dell'immagine è riuscito, ottieni il URL dell'immagine
-            imageRef.getDownloadURL().then((imageUrl) => {
-                // Ora puoi inserire l'URL dell'immagine nel documento Firestore
-                giocatoriRef.add({
-                    // ...
-                    image_url: imageUrl, // Personalizza il nome del campo
-                }).then((docRef) => {
-                    console.log("Documento scritto con ID:", docRef.id);
-                    alert("Giocatore inserito con successo!");
-                    form.reset();
-                }).catch((error) => {
-                    console.error("Errore durante l'inserimento del giocatore:", error);
-                    alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
-                });
-            }).catch((error) => {
-                console.error("Errore durante il recupero dell'URL dell'immagine:", error);
-                alert("Si è verificato un errore durante il recupero dell'URL dell'immagine: " + error.message);
-            });
-        }).catch((error) => {
-            console.error("Errore durante il caricamento dell'immagine:", error);
-            alert("Si è verificato un errore durante il caricamento dell'immagine: " + error.message);
-        });
-    } else {
-        // Se l'utente non ha selezionato un'immagine, inserisci solo i dati nel Firestore
-        giocatoriRef.add({
-            // ...
-        }).then((docRef) => {
-            console.log("Documento scritto con ID:", docRef.id);
-            alert("Giocatore inserito con successo!");
-            form.reset();
-        }).catch((error) => {
-            console.error("Errore durante l'inserimento del giocatore:", error);
-            alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
-        });
-    }*/
-    //FINE CARICAMENTO IMMAGINI
-    
     const nome_personaggio = document.getElementById("nome_personaggio").value;
 
     const classe = document.getElementById("classe").value;
@@ -177,95 +130,204 @@ form.addEventListener("submit", function (e) {
             const tipoAttacco = input.querySelector("[name='attacco-tipo[]']").value;
             attacchi.push({ nome: nomeAttacco,bonus: bonusAttacco, danno: dannoAttacco, tipo: tipoAttacco });
         });
+    // Verifica se è stato caricato un file
+    if (file) {
+        // Genera un nome univoco per il file (ad esempio, timestamp)
+        const timestamp = new Date().getTime();
+        const fileName = `${timestamp}_${file.name}`;
 
-    //const database = firebase.database();
-    //const giocatoriRef = database.ref("giocatori");
+        // Crea un riferimento al percorso in cui verrà salvata l'immagine
+        const imageRef = storageRef.child(`images/${fileName}`);
+        
 
-    //Inserisci dati nel DB
-    giocatoriRef.add({
+        // Carica il file su Firebase Storage
+        imageRef.put(file).then((snapshot) => {
+            // Se il caricamento dell'immagine è riuscito, ottieni il URL dell'immagine
+            imageRef.getDownloadURL().then((imageUrl) => {
+                // Ora puoi inserire l'URL dell'immagine nel documento Firestore
+                giocatoriRef.add({
+                    nome_personaggio: nome_personaggio,
+                    classe: classe,
+                    livello: livello,
+                    background:background,
+                    nome_giocatore: nome_giocatore,
+                    razza: razza,
+                    allineamento: allineamento,
+                    esperienza: esperienza,
+
+                    forza: forza,
+                    destrezza: destrezza,
+                    costituzione: costituzione,
+                    intelligenza: intelligenza,
+                    saggezza: saggezza,
+                    carisma: carisma,
+
+                    ispirazione: ispirazione,
+                    bonus_competenza: bonus_competenza,
+                    percezione_passiva: percezione_passiva,
+
+                    acrobazia: acrobazia,
+                    addestrare_animali: addestrare_animali,
+                    arcano: arcano,
+                    atletica: atletica,
+                    furtivita: furtivita,
+                    indagare: indagare,
+                    inganno: inganno,
+                    intimidire: intimidire,
+                    intrattenere: intrattenere,
+                    intuizione: intuizione,
+                    medicina: medicina,
+                    natura: natura,
+                    percezione: percezione,
+                    persuasione: persuasione,
+                    rapidita_mano: rapidita_mano,
+                    religione: religione,
+                    sopravvivenza: sopravvivenza,
+                    storia: storia,
+                    
+                    classe_armatura: classe_armatura,
+                    iniziativa: iniziativa,
+                    velocita: velocita,
+
+                    max_punti_ferita: max_punti_ferita,
+                    curr_punti_ferita: curr_punti_ferita,
+                    temp_punti_ferita: temp_punti_ferita,
+                    dadi_vita: dadi_vita,
+                    ts_morte_successo: ts_morte_successo,
+                    ts_morte_fallito: ts_morte_fallito,
+
+                    tratti_caratteriali: tratti_caratteriali,
+                    ideali: ideali,
+                    legami: legami,
+                    difetti: difetti,
+
+                    cp: cp,
+                    sp: sp,
+                    ep: ep,
+                    gp: gp,
+                    pp: pp,
+
+                    comp_linguaggi: comp_linguaggi,
+                    privilegi_tratti: privilegi_tratti,
+
+                    eta: eta,
+                    altezza: altezza,
+                    peso: peso,
+                    occhi: occhi,
+                    carnagione: carnagione,
+                    capelli: capelli,
+
+                    storia_pg: storia_pg,
+                    tesoro: tesoro,
+
+                    image_url: imageUrl,
+
+                    equipaggiamento: equipaggiamento,
+                    magie: magie,
+                    attacchi: attacchi
+                }).then((docRef) => {
+                    console.log("Documento scritto con ID:", docRef.id);
+                    alert("Giocatore inserito con successo!");
+                    form.reset();
+                }).catch((error) => {
+                    console.error("Errore durante l'inserimento del giocatore:", error);
+                    alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
+                });
+            }).catch((error) => {
+                console.error("Errore durante il recupero dell'URL dell'immagine:", error);
+                alert("Si è verificato un errore durante il recupero dell'URL dell'immagine: " + error.message);
+            });
+        }).catch((error) => {
+            console.error("Errore durante il caricamento dell'immagine:", error);
+            alert("Si è verificato un errore durante il caricamento dell'immagine: " + error.message);
+        });
+    } else {
+        // Se l'utente non ha selezionato un'immagine, inserisci solo i dati nel Firestore
+        giocatoriRef.add({
             nome_personaggio: nome_personaggio,
-            classe: classe,
-            livello: livello,
-            background:background,
-            nome_giocatore: nome_giocatore,
-            razza: razza,
-            allineamento: allineamento,
-            esperienza: esperienza,
+                    classe: classe,
+                    livello: livello,
+                    background:background,
+                    nome_giocatore: nome_giocatore,
+                    razza: razza,
+                    allineamento: allineamento,
+                    esperienza: esperienza,
 
-            forza: forza,
-            destrezza: destrezza,
-            costituzione: costituzione,
-            intelligenza: intelligenza,
-            saggezza: saggezza,
-            carisma: carisma,
+                    forza: forza,
+                    destrezza: destrezza,
+                    costituzione: costituzione,
+                    intelligenza: intelligenza,
+                    saggezza: saggezza,
+                    carisma: carisma,
 
-            ispirazione: ispirazione,
-            bonus_competenza: bonus_competenza,
-            percezione_passiva: percezione_passiva,
+                    ispirazione: ispirazione,
+                    bonus_competenza: bonus_competenza,
+                    percezione_passiva: percezione_passiva,
 
-            acrobazia: acrobazia,
-            addestrare_animali: addestrare_animali,
-            arcano: arcano,
-            atletica: atletica,
-            furtivita: furtivita,
-            indagare: indagare,
-            inganno: inganno,
-            intimidire: intimidire,
-            intrattenere: intrattenere,
-            intuizione: intuizione,
-            medicina: medicina,
-            natura: natura,
-            percezione: percezione,
-            persuasione: persuasione,
-            rapidita_mano: rapidita_mano,
-            religione: religione,
-            sopravvivenza: sopravvivenza,
-            storia: storia,
-            
-            classe_armatura: classe_armatura,
-            iniziativa: iniziativa,
-            velocita: velocita,
+                    acrobazia: acrobazia,
+                    addestrare_animali: addestrare_animali,
+                    arcano: arcano,
+                    atletica: atletica,
+                    furtivita: furtivita,
+                    indagare: indagare,
+                    inganno: inganno,
+                    intimidire: intimidire,
+                    intrattenere: intrattenere,
+                    intuizione: intuizione,
+                    medicina: medicina,
+                    natura: natura,
+                    percezione: percezione,
+                    persuasione: persuasione,
+                    rapidita_mano: rapidita_mano,
+                    religione: religione,
+                    sopravvivenza: sopravvivenza,
+                    storia: storia,
+                    
+                    classe_armatura: classe_armatura,
+                    iniziativa: iniziativa,
+                    velocita: velocita,
 
-            max_punti_ferita: max_punti_ferita,
-            curr_punti_ferita: curr_punti_ferita,
-            temp_punti_ferita: temp_punti_ferita,
-            dadi_vita: dadi_vita,
-            ts_morte_successo: ts_morte_successo,
-            ts_morte_fallito: ts_morte_fallito,
+                    max_punti_ferita: max_punti_ferita,
+                    curr_punti_ferita: curr_punti_ferita,
+                    temp_punti_ferita: temp_punti_ferita,
+                    dadi_vita: dadi_vita,
+                    ts_morte_successo: ts_morte_successo,
+                    ts_morte_fallito: ts_morte_fallito,
 
-            tratti_caratteriali: tratti_caratteriali,
-            ideali: ideali,
-            legami: legami,
-            difetti: difetti,
+                    tratti_caratteriali: tratti_caratteriali,
+                    ideali: ideali,
+                    legami: legami,
+                    difetti: difetti,
 
-            cp: cp,
-            sp: sp,
-            ep: ep,
-            gp: gp,
-            pp: pp,
+                    cp: cp,
+                    sp: sp,
+                    ep: ep,
+                    gp: gp,
+                    pp: pp,
 
-            comp_linguaggi: comp_linguaggi,
-            privilegi_tratti: privilegi_tratti,
+                    comp_linguaggi: comp_linguaggi,
+                    privilegi_tratti: privilegi_tratti,
 
-            eta: eta,
-            altezza: altezza,
-            peso: peso,
-            occhi: occhi,
-            carnagione: carnagione,
-            capelli: capelli,
+                    eta: eta,
+                    altezza: altezza,
+                    peso: peso,
+                    occhi: occhi,
+                    carnagione: carnagione,
+                    capelli: capelli,
 
-            storia_pg: storia_pg,
-            tesoro: tesoro,
+                    storia_pg: storia_pg,
+                    tesoro: tesoro,
 
-            imageInput: imageInput,
-
-            equipaggiamento: equipaggiamento,
-            magie: magie,
-            attacchi: attacchi
-    }).then(() => {
-        alert("Giocatore inserito con successo!");
-        form.reset();
-    }).catch(error => {
-        alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
-    });
+                    equipaggiamento: equipaggiamento,
+                    magie: magie,
+                    attacchi: attacchi
+        }).then((docRef) => {
+            console.log("Documento scritto con ID:", docRef.id);
+            alert("Giocatore inserito con successo!");
+            form.reset();
+        }).catch((error) => {
+            console.error("Errore durante l'inserimento del giocatore:", error);
+            alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
+        });
+    }
 });
