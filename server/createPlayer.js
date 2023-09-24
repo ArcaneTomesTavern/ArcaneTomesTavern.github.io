@@ -26,7 +26,7 @@ const giocatoriRef = db.collection("players");
 document.getElementById("upload-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const fileInput = document.getElementById("file-input");
+    const fileInput = document.getElementById("image-input");
     const file = fileInput.files[0];
 
     if (file) {
@@ -46,7 +46,7 @@ document.getElementById("upload-form").addEventListener("submit", function (e) {
 });
 
 // Mostra un'anteprima dell'immagine selezionata
-document.getElementById("file-input").addEventListener("change", function (e) {
+document.getElementById("image-input").addEventListener("change", function (e) {
     const preview = document.getElementById("preview");
     const file = e.target.files[0];
 
@@ -125,6 +125,13 @@ form.addEventListener("submit", function (e) {
     const dadi_vita = document.getElementById("dadi_vita").value;
     const ts_morte_successo = 0;
     const ts_morte_fallito = 0;
+
+    const eta = parseInt(document.getElementById("eta").value);
+    const altezza = document.getElementById("altezza").value;
+    const peso = document.getElementById("peso").value;
+    const occhi = document.getElementById("occhi").value;
+    const carnagione = document.getElementById("carnagione").value;
+    const capelli = document.getElementById("capelli").value;
 
     const equipaggiamento = [];
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
@@ -212,6 +219,13 @@ form.addEventListener("submit", function (e) {
             ideali: ideali,
             legami: legami,
             difetti: difetti,
+
+            eta: eta,
+            altezza: altezza,
+            peso: peso,
+            occhi: occhi,
+            carnagione: carnagione,
+            capelli: capelli,
 
             equipaggiamento: equipaggiamento,
             magie: magie,

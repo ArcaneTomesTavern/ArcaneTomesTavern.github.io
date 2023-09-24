@@ -4,7 +4,7 @@
     margin: 10px; /* Aggiunge margine esterno al rettangolo */
     background-color: #444; /*Imposta il colore di sfondo del rettangolo */
     border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
-    width: 1000px; /* Imposta la larghezza del rettangolo */
+    width: 1010px; /* Imposta la larghezza del rettangolo */
 }
 
 .rettangolo_singolo {
@@ -92,6 +92,13 @@ button[type="button"] {
     margin-top: 10px; /* Aggiunge spazio tra il div funzionale e il pulsante "Aggiungi" */
     width: 250px;
     height: 20px;
+}
+
+img{
+    margin-top: 10px; /* Aggiunge spazio tra il div funzionale e il pulsante "Aggiungi" */
+    max-width: 300px; 
+    max-height: 300px;
+    margin-left: 20px;
 }
 
 .confirm {
