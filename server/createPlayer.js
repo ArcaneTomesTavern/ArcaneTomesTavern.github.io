@@ -103,6 +103,7 @@ form.addEventListener("submit", function (e) {
 
     const storia_pg = document.getElementById("storia_pg").value;
     const tesoro = document.getElementById("tesoro").value;
+    const allenze_organizzazioni = document.getElementById("allenze_organizzazioni").value;
 
     const equipaggiamento = [];
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
@@ -219,6 +220,7 @@ form.addEventListener("submit", function (e) {
 
                     storia_pg: storia_pg,
                     tesoro: tesoro,
+                    allenze_organizzazioni: allenze_organizzazioni,
 
                     image_url: imageUrl,
 
@@ -317,6 +319,7 @@ form.addEventListener("submit", function (e) {
 
                     storia_pg: storia_pg,
                     tesoro: tesoro,
+                    allenze_organizzazioni: allenze_organizzazioni,
 
                     equipaggiamento: equipaggiamento,
                     magie: magie,
