@@ -187,6 +187,17 @@
         <textarea id="difetti" name="difetti"></textarea> <br><br>
     </div><br><br>
 
+    <div class="container">
+      <div class="section">
+        <label for="comp_linguaggi" class="rettangolo_singolo">Competenze & Linguaggi:</label><br><br>
+        <textarea id="comp_linguaggi" name="comp_linguaggi"></textarea> <br><br>
+      </div>
+      <div class="section">
+        <label for="privilegi_tratti" class="rettangolo_singolo">Privilegi & Tratti:</label><br><br>
+        <textarea id="privilegi_tratti" name="privilegi_tratti"></textarea> <br><br>
+      </div>
+    </div>
+
     <div class="rettangolo">
       <label for="eta">Età:</label>
       <input type="number" id="eta" name="eta" required>
@@ -205,7 +216,7 @@
 
       <label for="capelli">Capelli:</label>
       <input type="text" id="capelli" name="capelli" required><br><br>
-  </div><br>
+    </div><br>
 
     <br>
     <h1>Caricamento Aspetto</h1>
@@ -351,59 +362,59 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-    const imageInput = document.getElementById("image-input");
-    const imagePreview = document.getElementById("image-preview");
-    const uploadForm = document.getElementById("upload-form");
+        const imageInput = document.getElementById("image-input");
+        const imagePreview = document.getElementById("image-preview");
+        const uploadForm = document.getElementById("upload-form");
 
-    // Aggiungi un gestore di eventi per il cambiamento dell'input del file
-    imageInput.addEventListener("change", function () {
-        const file = imageInput.files[0];
+        // Aggiungi un gestore di eventi per il cambiamento dell'input del file
+        imageInput.addEventListener("change", function () {
+            const file = imageInput.files[0];
 
-        if (file) {
-            // Leggi il file selezionato come URL dati
-            const reader = new FileReader();
+            if (file) {
+                // Leggi il file selezionato come URL dati
+                const reader = new FileReader();
 
-            reader.onload = function (e) {
-                // Imposta l'URL dati come sorgente dell'immagine di anteprima
-                imagePreview.src = e.target.result;
-            };
+                reader.onload = function (e) {
+                    // Imposta l'URL dati come sorgente dell'immagine di anteprima
+                    imagePreview.src = e.target.result;
+                };
 
-            // Leggi il file come URL dati
-            reader.readAsDataURL(file);
-        } else {
-            // Se l'utente annulla la selezione dell'immagine, reimposta l'anteprima
-            imagePreview.src = "";
-        }
-    });
-
-    // Aggiungi un gestore di eventi per l'invio del modulo
-    uploadForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        // Esegui l'invio dei dati al server, ad esempio tramite AJAX o Fetch
-        // Includi il file come parte della richiesta
-        const formData = new FormData();
-        formData.append("image", imageInput.files[0]);
-
-        // Esempio di invio dei dati utilizzando Fetch API
-        fetch("/upload", {
-            method: "POST",
-            body: formData,
-        })
-        .then((response) => {
-            // Gestisci la risposta dal server
-            if (response.ok) {
-                // L'immagine è stata caricata con successo
-                console.log("Immagine caricata con successo");
+                // Leggi il file come URL dati
+                reader.readAsDataURL(file);
             } else {
-                console.error("Errore durante il caricamento dell'immagine");
+                // Se l'utente annulla la selezione dell'immagine, reimposta l'anteprima
+                imagePreview.src = "";
             }
-        })
-        .catch((error) => {
-            console.error("Si è verificato un errore durante la richiesta:", error);
+        });
+
+        // Aggiungi un gestore di eventi per l'invio del modulo
+        uploadForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Esegui l'invio dei dati al server, ad esempio tramite AJAX o Fetch
+            // Includi il file come parte della richiesta
+            const formData = new FormData();
+            formData.append("image", imageInput.files[0]);
+
+            // Esempio di invio dei dati utilizzando Fetch API
+            fetch("/upload", {
+                method: "POST",
+                body: formData,
+            })
+            .then((response) => {
+                // Gestisci la risposta dal server
+                if (response.ok) {
+                    // L'immagine è stata caricata con successo
+                    console.log("Immagine caricata con successo");
+                } else {
+                    console.error("Errore durante il caricamento dell'immagine");
+                }
+            })
+            .catch((error) => {
+                console.error("Si è verificato un errore durante la richiesta:", error);
+            });
         });
     });
-});
 
     </script>
 </body>

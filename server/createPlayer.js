@@ -22,48 +22,50 @@ const giocatoriRef = db.collection("players");
 
 //INIZIO CARIMANETO IMMAGINI
 
+document.addEventListener("DOMContentLoaded", function () {
+    const imageInput = document.getElementById("image-input");
+    const imagePreview = document.getElementById("image-preview");
 
-document.getElementById("upload-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+    // Aggiungi un gestore di eventi per il cambiamento dell'input del file
+    imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
 
-    const fileInput = document.getElementById("image-input");
-    const file = fileInput.files[0];
+        if (file) {
+            // Leggi il file selezionato come URL dati
+            const reader = new FileReader();
 
-    if (file) {
-        // Crea un riferimento al percorso dell'archivio Firebase in cui desideri memorizzare il file
-        const imageRef = storageRef.child("immagini/" + file.name);
+            reader.onload = function (e) {
+                // Imposta l'URL dati come sorgente dell'immagine di anteprima
+                imagePreview.src = e.target.result;
+            };
 
-        // Carica l'immagine nell'archivio Firebase
-        imageRef.put(file).then(function(snapshot) {
-            console.log("Caricamento completato!");
-            alert("Immagine caricata con successo!");
-        }).catch(function(error) {
-            console.error("Errore durante il caricamento: " + error.message);
-        });
-    } else {
-        console.log("Nessun file selezionato.");
-    }
+            // Leggi il file come URL dati
+            reader.readAsDataURL(file);
+        } else {
+            // Se l'utente annulla la selezione dell'immagine, reimposta l'anteprima
+            imagePreview.src = "";
+        }
+    });
+
+    // Aggiungi un gestore di eventi per l'invio del modulo (Potresti anche gestire questo in un file separato)
+    imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
+
+        if (file) {
+            // Esegui l'invio dell'immagine a Firebase Storage
+            const storageRef = firebase.storage().ref();
+            const imageRef = storageRef.child("images/" + file.name);
+
+            imageRef.put(file).then(function (snapshot) {
+                console.log("Caricamento dell'immagine completato!");
+                alert("Immagine caricata con successo!");
+            }).catch(function (error) {
+                console.error("Errore durante il caricamento dell'immagine:", error);
+            });
+        }
+    });
 });
 
-// Mostra un'anteprima dell'immagine selezionata
-document.getElementById("image-input").addEventListener("change", function (e) {
-    const preview = document.getElementById("preview");
-    const file = e.target.files[0];
-
-    if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-        };
-
-        reader.readAsDataURL(file);
-        document.getElementById("image-preview").style.display = "block";
-    } else {
-        preview.src = "#";
-        document.getElementById("image-preview").style.display = "none";
-    }
-});
 
 //FINE CARICAMENTO IMMAGINI
 
@@ -114,17 +116,21 @@ form.addEventListener("submit", function (e) {
     const iniziativa = parseInt(document.getElementById("iniziativa").value);
     const velocita = parseInt(document.getElementById("velocita").value);
 
-    const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
-    const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
-    const ideali = document.getElementById("ideali").value;
-    const legami = document.getElementById("legami").value;
-    const difetti = document.getElementById("difetti").value;
     const max_punti_ferita = parseInt(document.getElementById("max_punti_ferita").value);
     const curr_punti_ferita = parseInt(document.getElementById("curr_punti_ferita").value);
     const temp_punti_ferita = parseInt(document.getElementById("temp_punti_ferita").value);
     const dadi_vita = document.getElementById("dadi_vita").value;
     const ts_morte_successo = 0;
     const ts_morte_fallito = 0;
+
+    const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
+    const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
+    const ideali = document.getElementById("ideali").value;
+    const legami = document.getElementById("legami").value;
+    const difetti = document.getElementById("difetti").value;
+
+    const comp_linguaggi = document.getElementById("comp_linguaggi").value;
+    const privilegi_tratti = document.getElementById("privilegi_tratti").value;
 
     const eta = parseInt(document.getElementById("eta").value);
     const altezza = document.getElementById("altezza").value;
@@ -220,12 +226,17 @@ form.addEventListener("submit", function (e) {
             legami: legami,
             difetti: difetti,
 
+            comp_linguaggi: comp_linguaggi,
+            privilegi_tratti: privilegi_tratti,
+
             eta: eta,
             altezza: altezza,
             peso: peso,
             occhi: occhi,
             carnagione: carnagione,
             capelli: capelli,
+
+            imageInput: imageInput,
 
             equipaggiamento: equipaggiamento,
             magie: magie,
