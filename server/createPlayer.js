@@ -25,6 +25,25 @@ const giocatoriRef = db.collection("players");
 document.addEventListener("DOMContentLoaded", function () {
     const imageInput = document.getElementById("image-input");
     const imagePreview = document.getElementById("image-preview");
+    const uploadForm = document.getElementById("upload-form");
+
+    // Inizializza Firebase con la tua configurazione
+    const firebaseConfig = {
+        apiKey: "Il_tuo_api_key",
+        authDomain: "Il_tuo_auth_domain",
+        projectId: "Il_tuo_project_id",
+        storageBucket: "Il_tuo_storage_bucket",
+        messagingSenderId: "Il_tuo_messaging_sender_id",
+        appId: "Il_tuo_app_id",
+        measurementId: "Il_tuo_measurement_id"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    // Riferimento alla collezione "players" nel Firestore
+    const giocatoriRef = db.collection("players");
 
     // Aggiungi un gestore di eventi per il cambiamento dell'input del file
     imageInput.addEventListener("change", function () {
@@ -47,24 +66,51 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Aggiungi un gestore di eventi per l'invio del modulo (Potresti anche gestire questo in un file separato)
-    imageInput.addEventListener("change", function () {
-        const file = imageInput.files[0];
+    // Aggiungi un gestore di eventi per l'invio del modulo
+    uploadForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-        if (file) {
-            // Esegui l'invio dell'immagine a Firebase Storage
-            const storageRef = firebase.storage().ref();
-            const imageRef = storageRef.child("images/" + file.name);
+        // Esegui l'invio dei dati al server, ad esempio tramite AJAX o Fetch
+        // Includi il file come parte della richiesta
+        const formData = new FormData();
+        formData.append("image", imageInput.files[0]);
 
-            imageRef.put(file).then(function (snapshot) {
-                console.log("Caricamento dell'immagine completato!");
-                alert("Immagine caricata con successo!");
-            }).catch(function (error) {
-                console.error("Errore durante il caricamento dell'immagine:", error);
-            });
-        }
+        // Esempio di invio dei dati utilizzando Fetch API
+        fetch("/upload", {
+            method: "POST",
+            body: formData,
+        })
+        .then((response) => {
+            // Gestisci la risposta dal server
+            if (response.ok) {
+                // L'immagine è stata caricata con successo
+                console.log("Immagine caricata con successo");
+
+                // Ottieni l'URL dell'immagine caricata
+                storage.ref("images/" + imageInput.files[0].name).getDownloadURL().then(function (imageUrl) {
+                    // Aggiungi l'URL dell'immagine ai dati che stai inserendo in Firestore
+                    giocatoriRef.add({
+                        // ... altri campi dati ...
+                        image_url: imageUrl, // Personalizza il nome del campo
+                    }).then(function (docRef) {
+                        console.log("Documento scritto con ID: ", docRef.id);
+                        alert("Giocatore inserito con successo!");
+                        uploadForm.reset();
+                    }).catch(function (error) {
+                        console.error("Errore durante l'inserimento del giocatore: ", error);
+                        alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
+                    });
+                });
+            } else {
+                console.error("Errore durante il caricamento dell'immagine");
+            }
+        })
+        .catch((error) => {
+            console.error("Si è verificato un errore durante la richiesta:", error);
+        });
     });
 });
+
 
 
 //FINE CARICAMENTO IMMAGINI
