@@ -20,94 +20,66 @@ const form = document.getElementById("giocatore-form");
 //const giocatoriRef = db.collection("ArcaneTomesTavernDB").doc("giocatori");
 const giocatoriRef = db.collection("players");
 
-//INIZIO CARIMANETO IMMAGINI
-
-document.addEventListener("DOMContentLoaded", function () {
-    const imageInput = document.getElementById("image-input");
-    const imagePreview = document.getElementById("image-preview");
-    const uploadForm = document.getElementById("upload-form");
-
-    // Inizializza Firebase con la tua configurazione
-    const storage = firebase.storage();
-
-    // Riferimento alla collezione "players" nel Firestore
-    const giocatoriRef = db.collection("players");
-
-    // Aggiungi un gestore di eventi per il cambiamento dell'input del file
-    imageInput.addEventListener("change", function () {
-        const file = imageInput.files[0];
-
-        if (file) {
-            // Leggi il file selezionato come URL dati
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                // Imposta l'URL dati come sorgente dell'immagine di anteprima
-                imagePreview.src = e.target.result;
-            };
-
-            // Leggi il file come URL dati
-            reader.readAsDataURL(file);
-        } else {
-            // Se l'utente annulla la selezione dell'immagine, reimposta l'anteprima
-            imagePreview.src = "";
-        }
-    });
-
-    // Aggiungi un gestore di eventi per l'invio del modulo
-    uploadForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        // Esegui l'invio dei dati al server, ad esempio tramite AJAX o Fetch
-        // Includi il file come parte della richiesta
-        const formData = new FormData();
-        formData.append("image", imageInput.files[0]);
-
-        // Esempio di invio dei dati utilizzando Fetch API
-        fetch("/upload", {
-            method: "POST",
-            body: formData,
-        })
-        .then((response) => {
-            // Gestisci la risposta dal server
-            if (response.ok) {
-                // L'immagine è stata caricata con successo
-                console.log("Immagine caricata con successo");
-
-                // Ottieni l'URL dell'immagine caricata
-                storage.ref("images/" + imageInput.files[0].name).getDownloadURL().then(function (imageUrl) {
-                    // Aggiungi l'URL dell'immagine ai dati che stai inserendo in Firestore
-                    giocatoriRef.add({
-                        // ... altri campi dati ...
-                        image_url: imageUrl, // Personalizza il nome del campo
-                    }).then(function (docRef) {
-                        console.log("Documento scritto con ID: ", docRef.id);
-                        alert("Giocatore inserito con successo!");
-                        uploadForm.reset();
-                    }).catch(function (error) {
-                        console.error("Errore durante l'inserimento del giocatore: ", error);
-                        alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
-                    });
-                });
-            } else {
-                console.error("Errore durante il caricamento dell'immagine");
-            }
-        })
-        .catch((error) => {
-            console.error("Si è verificato un errore durante la richiesta:", error);
-        });
-    });
-});
-
-
-
-
+//INIZIO CARIMANETO IMMAGI
 
 //FINE CARICAMENTO IMMAGINI
 
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
+    //INIZIO CARIMANETO IMMAGI
+    const storageRef = firebase.storage().ref();
+
+    // Ottenere il file dell'input dell'immagine
+    const file = imageInput.files[0];
+
+    // Verifica se è stato caricato un file
+    if (file) {
+        // Genera un nome univoco per il file (ad esempio, timestamp)
+        const timestamp = new Date().getTime();
+        const fileName = `${timestamp}_${file.name}`;
+
+        // Crea un riferimento al percorso in cui verrà salvata l'immagine
+        const imageRef = storageRef.child(`images/${fileName}`);
+
+        // Carica il file su Firebase Storage
+        imageRef.put(file).then((snapshot) => {
+            // Se il caricamento dell'immagine è riuscito, ottieni il URL dell'immagine
+            imageRef.getDownloadURL().then((imageUrl) => {
+                // Ora puoi inserire l'URL dell'immagine nel documento Firestore
+                giocatoriRef.add({
+                    // ...
+                    image_url: imageUrl, // Personalizza il nome del campo
+                }).then((docRef) => {
+                    console.log("Documento scritto con ID:", docRef.id);
+                    alert("Giocatore inserito con successo!");
+                    form.reset();
+                }).catch((error) => {
+                    console.error("Errore durante l'inserimento del giocatore:", error);
+                    alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
+                });
+            }).catch((error) => {
+                console.error("Errore durante il recupero dell'URL dell'immagine:", error);
+                alert("Si è verificato un errore durante il recupero dell'URL dell'immagine: " + error.message);
+            });
+        }).catch((error) => {
+            console.error("Errore durante il caricamento dell'immagine:", error);
+            alert("Si è verificato un errore durante il caricamento dell'immagine: " + error.message);
+        });
+    } else {
+        // Se l'utente non ha selezionato un'immagine, inserisci solo i dati nel Firestore
+        giocatoriRef.add({
+            // ...
+        }).then((docRef) => {
+            console.log("Documento scritto con ID:", docRef.id);
+            alert("Giocatore inserito con successo!");
+            form.reset();
+        }).catch((error) => {
+            console.error("Errore durante l'inserimento del giocatore:", error);
+            alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
+        });
+    }
+    //FINE CARICAMENTO IMMAGINI
     
     const nome_personaggio = document.getElementById("nome_personaggio").value;
 
@@ -174,6 +146,8 @@ form.addEventListener("submit", function (e) {
     const occhi = document.getElementById("occhi").value;
     const carnagione = document.getElementById("carnagione").value;
     const capelli = document.getElementById("capelli").value;
+
+    const storia_pg = document.getElementById("storia_pg");
 
     const equipaggiamento = [];
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
@@ -271,6 +245,8 @@ form.addEventListener("submit", function (e) {
             occhi: occhi,
             carnagione: carnagione,
             capelli: capelli,
+
+            storia_pg: storia_pg,
 
             imageInput: imageInput,
 
