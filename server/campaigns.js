@@ -56,3 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Errore nella query Firestore:', error);
         });
 });
+
+const add_button = document.getElementById("add");
+add_button.addEventListener('click', function(){
+  window.location.href = '../client/createPlayer.html';
+});
