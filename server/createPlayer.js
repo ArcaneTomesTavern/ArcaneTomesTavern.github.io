@@ -101,8 +101,8 @@ form.addEventListener("submit", function (e) {
     const carnagione = document.getElementById("carnagione").value;
     const capelli = document.getElementById("capelli").value;
 
-    const storia_pg = document.getElementById("storia_pg");
-    const tesoro = document.getElementById("tesoro");
+    const storia_pg = document.getElementById("storia_pg").value;
+    const tesoro = document.getElementById("tesoro").value;
 
     const equipaggiamento = [];
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
