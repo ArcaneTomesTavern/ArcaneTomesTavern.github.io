@@ -46,7 +46,7 @@ form.addEventListener("submit", function (e) {
     const saggezza = parseInt(document.getElementById("saggezza").value);
     const carisma = parseInt(document.getElementById("carisma").value);
 
-    const ispirazione = document.getElementById("ispirazione").value;
+    const ispirazione = false;
     const bonus_competenza = parseInt(document.getElementById("bonus_competenza").value);
 
     const acrobazia = parseInt(document.getElementById("acrobazia").value);
