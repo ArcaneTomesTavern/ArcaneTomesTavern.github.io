@@ -396,7 +396,32 @@
         attacchiContainer.removeChild(button.parentNode);
         }
 
-        
+        // Ottieni riferimenti agli elementi HTML
+        const inputFile = document.getElementById('image-input');
+        const imagePreview = document.getElementById('image-preview');
+
+        // Aggiungi un gestore di eventi per l'evento "change" dell'input file
+        inputFile.addEventListener('change', function () {
+          const file = inputFile.files[0];
+
+          if (file) {
+            // Leggi il contenuto del file come URL dati
+            const reader = new FileReader();
+            
+            reader.onload = function (e) {
+              // Assegna l'URL dati come sorgente dell'immagine di preview
+              imagePreview.src = e.target.result;
+              imagePreview.style.display = 'block'; // Mostra l'immagine di preview
+            };
+
+            // Leggi il contenuto del file come URL dati
+            reader.readAsDataURL(file);
+          } else {
+            // Se l'utente annulla la selezione, nascondi l'immagine di preview
+            imagePreview.style.display = 'none';
+          }
+        });
+
 
     </script>
 </body>
