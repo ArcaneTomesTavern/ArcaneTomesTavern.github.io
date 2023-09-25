@@ -73,8 +73,8 @@ form.addEventListener("submit", function (e) {
     const velocita = parseInt(document.getElementById("velocita").value);
 
     const max_punti_ferita = parseInt(document.getElementById("max_punti_ferita").value);
-    const curr_punti_ferita = parseInt(document.getElementById("curr_punti_ferita").value);
-    const temp_punti_ferita = parseInt(document.getElementById("temp_punti_ferita").value);
+    const curr_punti_ferita = 0;
+    const temp_punti_ferita = 0;
     const dadi_vita = document.getElementById("dadi_vita").value;
     const ts_morte_successo = 0;
     const ts_morte_fallito = 0;
