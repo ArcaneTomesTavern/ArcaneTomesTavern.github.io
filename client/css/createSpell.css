@@ -17,14 +17,15 @@ body {
     color: white;
     /*background: #cba667;*/
 }
+textarea{
+    resize: vertical;
+}
 #form{
     width: 60%;
 }
-
 .hidden{
     display: none;
 }
-
 .field-set{
     align-content: center;
     justify-content: center;

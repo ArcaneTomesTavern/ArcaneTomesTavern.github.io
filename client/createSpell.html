@@ -86,7 +86,7 @@
                 <option value="reazione">Reazione</option>
                 <option value="speciale">Speciale</option>
             </select><br><br>
-            <textarea name="material-components-description" id="material-components-description" cols="30" rows="10" hidden></textarea>
+            <textarea name="reaction-time-description" id="reaction-time-description" cols="30" rows="10" hidden></textarea>
             <br class = "br-h-t"hidden><br class="br-h-t" hidden>
         </fieldset>
 
@@ -96,8 +96,8 @@
             <button class="components-button" class="choise-btn" id="b-S" style="--clr: #d5a24c;"><span>S</span></button>
             <button class="components-button" class="choise-btn" id="b-M" style="--clr: #d5a24c;"><span>M</span></button>
             <br><br>
-            <textarea name="material-components-description" class = "hidden" id="material-components-description" cols="30" rows="10"></textarea>
-            <br class = "hidden"><br class = "hidden">
+            <textarea name="material-components-description" id="material-components-description" cols="30" rows="10" class="hidden"></textarea>
+            <br class="hidden"><br class="hidden">
         </fieldset>
 
         <fieldset class="field-set">
@@ -138,11 +138,28 @@
             <legend>DESCRIZIONE MAGIA</legend><br>
             <textarea name="descrizione" id="spell-description" cols="30" rows="10"></textarea><br><br>
         </fieldset>
+
+        <fieldset class="field-set">
+            <legend>ALTRI ATTRIBUTI</legend><br>
+            <input type="checkbox" ><label for="ritual-spell">Magia con rituale?</label>
+            <br><br>
+            <input type="checkbox" ><label for="higher-lv-scaling">Livelli più alti di scalatura?</label>
+            <select name="higher-lv-scaling-type" id="higher-lv-scaling-type">
+                <option value="null" disabled selected>Livello di scalatura</option>
+                <option value="lv-player">Livello giocatore</option>
+                <option value="spell-scale">Scala intantesimi</option>
+                <option value="spell-lv">Livello magia</option>
+            </select>
+            <br><br>
+            <select name="class" id="class" required><option value="null" disabled selected>Classe</option></select>
+            <select name="school" id="school" hidden><option value="null" disabled selected>Scuola</option></select>
+            <br><br>
+        </fieldset>
         
         <!-- CREA UNA MAGIA DA UNA NOTA -->
+        <button type="submit" class="confirm">Salva Magia</button>
     </form>
     
-    <button type="submit" class="confirm">Salva Magia</button>
 
     <!-- Includi Firebase SDK versione 8.x.x -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>

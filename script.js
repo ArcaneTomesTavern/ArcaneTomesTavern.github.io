@@ -63,3 +63,8 @@ const add_button = document.getElementById("add");
 add_button.addEventListener('click', function(){
   window.location.href = '../client/createCampaign.html';
 });
+
+const magic_button = document.getElementById("magic");
+magic_button.addEventListener('click', function(){
+  window.location.href = '../client/createSpell.html';
+});
