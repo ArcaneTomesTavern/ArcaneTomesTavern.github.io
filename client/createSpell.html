@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell Laboratory</title>
+    
+    <link rel="stylesheet" href="css/createSpell.css">
+</head>
+<body>
+
+    <div class = "spell-menu" >
+        <button id = "from-existing" class="spell-button" style="--clr: #d5a24c;" hidden>
+            <span>MODIFICA UNA MAGIA ESISTENTE</span><i></i>
+        </button>
+        <button id = "from-scratch" class="spell-button" style="--clr: #d5a24c;" hidden>
+            <span>CREA UNA NUOVA MAGIA DA ZERO</span><i></i>
+        </button>
+    </div>
+    <div class="four"> <h1>LABORATORIO DELLE MAGIE</h1> </div>  
+    
+    <form id="form">
+        
+        <!-- CREA UNA MAGIA DA ZERO -->
+        <fieldset class="field-set">
+            <legend>NOME MAGIA</legend><br>
+            <input type="text" id="spell-name" required><br><br>
+        </fieldset>
+
+        <fieldset class="field-set">
+            <legend>LIVELLO MAGIA</legend><br>
+            <select name="spell-level" id="spell-level" required>
+                <option value="null" selected disabled>Seleziona il livello</option>
+                <option value="1">lv 1</option>
+                <option value="2">lv 2</option>
+                <option value="3">lv 3</option>
+                <option value="4">lv 4</option>
+                <option value="5">lv 5</option>
+                <option value="6">lv 6</option>
+                <option value="7">lv 7</option>
+                <option value="8">lv 8</option>
+                <option value="9">lv 9</option>
+            </select><br><br>
+        </fieldset>
+
+        <fieldset class="field-set">
+            <legend>SCUOLA DI MAGIA</legend><br>
+            <select name="spell-tag" id="spell-tag" required>
+                <option value="null" selected disabled>Scuola di magia</option>
+                <option value="abiurazione">Abiurazione</option>
+                <option value="evocazione">Evocazione</option>
+                <option value="divinazione">Divinazione</option>
+                <option value="incantamento">Incantamento</option>
+                <option value="evocazione">Evocazione</option>
+                <option value="illusione">Illusione</option>
+                <option value="negromanzia">Negromanzia</option>
+                <option value="trasmutazione">Trasmutazione</option>
+            </select><br><br>
+        </fieldset>    
+
+        <fieldset class="field-set">
+            <legend>TEMPO DI LANCIO</legend><br>
+            <input type="number" id="spell-time" min="0" required>
+            <select name="spell-time" id="spell-time-action" required>
+                <option value="null" selected disabled>Seleziona una azione</option>
+                <option value="azione">Azione</option>
+                <option value="azione-bonus">Azione-bonus</option>
+                <option value="reazione">Reazione</option>
+                <option value="minuti">Minuti</option>
+                <option value="ore">Ore</option>
+                <option value="instantaneo">Instantaneo</option>
+                <option value="speciale">Speciale</option>
+                <option value="variabile">Variabile</option>
+            </select><br><br>
+        </fieldset>
+        
+        <fieldset class="field-set">
+            <legend>TIPOLOGIA</legend><br>
+            <select name="spell-type" id="spell-type" required>
+                <option value="null" selected disabled>Seleziona una tipologia</option>
+                <option value="azione">Azione</option>
+                <option value="azione-bonus">Azione-bonus</option>
+                <option value="ora">Ora</option>
+                <option value="minuto">Minuto</option>
+                <option value="nessuna-azione">Nessuna azione</option>
+                <option value="reazione">Reazione</option>
+                <option value="speciale">Speciale</option>
+            </select><br><br>
+            <textarea name="material-components-description" id="material-components-description" cols="30" rows="10" hidden></textarea>
+            <br class = "br-h-t"hidden><br class="br-h-t" hidden>
+        </fieldset>
+
+        <fieldset class="field-set"><br>
+            <legend>COMPONENTI</legend>
+            <button class="components-button" class="choise-btn" id="b-V" style="--clr: #d5a24c;"><span>V</span></button>
+            <button class="components-button" class="choise-btn" id="b-S" style="--clr: #d5a24c;"><span>S</span></button>
+            <button class="components-button" class="choise-btn" id="b-M" style="--clr: #d5a24c;"><span>M</span></button>
+            <br><br>
+            <textarea name="material-components-description" class = "hidden" id="material-components-description" cols="30" rows="10"></textarea>
+            <br class = "hidden"><br class = "hidden">
+        </fieldset>
+
+        <fieldset class="field-set">
+            <legend>TIPOLOGIA EFFETTO</legend><br>
+            <select name="range-type" id="range-type" required>
+                <option value="null" disabled selected>Scegli una tipologia</option>
+                <option value="te-stesso">Te stesso</option>
+                <option value="toccare">Toccare</option>
+                <option value="a-distanza">A distanza</option>
+                <option value="vista">Vista</option>
+                <option value="illimitato">Illimitato</option>
+            </select>
+            <input type="number" id="range-type-int" min="0" required><br><br>
+        </fieldset>
+        
+        <fieldset class="field-set">
+            <legend>DURATA</legend><br>
+            <select name="tipo-durata" id="duration-type" required>
+                <option value="null" disabled selected>Seleziona la durata</option>
+                <option value="concentrazione">Concentrazione</option>
+                <option value="istantaneo">Istantaneo</option>
+                <option value="speciale">Speciale</option>
+                <option value="tempo">Tempo </option>
+                <option value="fino-dissipazione">Fino a quando non viene dissipato</option>
+                <option value="fino-annullamento-o-attivazione">Fino all'annullamento o all'attivazione</option>
+            </select>
+            <input type="number" id="duration-type-int"min="0" required> 
+            <select name="durata" id="duration">
+                <option value="null" selected disabled>Durata</option>
+                <option value="round">Round</option>
+                <option value="minuto">Minuto/i</option>
+                <option value="ora">Ora/e</option>
+                <option value="giorno">Giorno/i</option>
+            </select><br><br>   
+        </fieldset>
+        
+        <fieldset class="field-set">
+            <legend>DESCRIZIONE MAGIA</legend><br>
+            <textarea name="descrizione" id="spell-description" cols="30" rows="10"></textarea><br><br>
+        </fieldset>
+        
+        <!-- CREA UNA MAGIA DA UNA NOTA -->
+    </form>
+    
+    <button type="submit" class="confirm">Salva Magia</button>
+
+    <!-- Includi Firebase SDK versione 8.x.x -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- script -->
+    <script src="../server/createSpell.js"></script>
+</body>
+</html>
