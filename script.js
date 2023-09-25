@@ -21,7 +21,7 @@ var cont = 0;
 const campagneButtons = document.getElementById('buttonContainer');
 
 db.collection('campaigns')
-  .orderby('campaign_name')
+  .orderBy('campaign_name')
     .get('campaign_name')
     .then((querySnapshot) => {
         for (let i = 0; i < querySnapshot.size; i++) {
