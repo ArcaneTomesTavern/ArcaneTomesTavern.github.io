@@ -138,7 +138,7 @@ form.addEventListener("submit", function (e) {
         const fileName = `${timestamp}_${file.name}`;
 
         // Crea un riferimento al percorso in cui verrà salvata l'immagine
-        const imageRef = storageRef.child(`images/${fileName}`);
+        const imageRef = storageRef.child(`images/aspetto_players/${fileName}`);
         
 
         // Carica il file su Firebase Storage
