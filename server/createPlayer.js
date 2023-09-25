@@ -37,7 +37,7 @@ form.addEventListener("submit", function (e) {
     const nome_giocatore = document.getElementById("nome_giocatore").value;
     const razza = document.getElementById("razza").value;
     const allineamento = document.getElementById("allineamento").value;
-    const esperienza = document.getElementById("esperienza").value;
+    const esperienza = 0;
 
     const forza = parseInt(document.getElementById("forza").value);
     const destrezza = parseInt(document.getElementById("destrezza").value);
