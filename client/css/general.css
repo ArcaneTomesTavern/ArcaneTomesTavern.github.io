@@ -18,6 +18,11 @@ body {
     font-family: 'Mooli', sans-serif;
     /*background: #cba667;*/
 }
+/* ******** LOADING ******** */
+#loading-img{
+    width: 20%;
+    display: none;
+}
 
 /* ******** BOTTONE ADD ******** */
 .top-right {

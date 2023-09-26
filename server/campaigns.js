@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     firebase.initializeApp(firebaseConfig);
+    //loading
+    document.getElementById("loading-img").style.display = "block";
+    document.getElementById("dm-div-container").style.display = "none";
 
     // Riferimento al tuo database Firestore
     const db = firebase.firestore();
@@ -28,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const players = doc.data().players;
 
                 // Manipola i dati come desideri, ad esempio, stampa l'array dei giocatori
-                for(let i = 0; i < players.length; i++){
+                for (let i = 0; i < players.length; i++) {
                     db.collection("players").doc(players[i]).get('nome_giocatore').then((_doc) => {
-                        if(_doc.exists){
+                        if (_doc.exists) {
                             const playerName = _doc.data().nome_giocatore;
                             const button = document.createElement('button');
                             button.className = "campButton";
-                            button.id = playerName.replace(/ /g, "_") ;
+                            button.id = playerName.replace(/ /g, "_");
                             button.style = "--clr:#d5a24c";
                             //span dentro al bottone
                             const span = document.createElement('span');
@@ -51,13 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Il documento non è stato trovato
                 playersList.textContent = 'Documento non trovato.';
             }
+            //loading
+            document.getElementById("loading-img").style.display = "none";
+            document.getElementById("dm-div-container").style.display = "block";
         })
         .catch((error) => {
             console.error('Errore nella query Firestore:', error);
+            document.getElementById("loading-img").style.display = "none";
+            document.getElementById("dm-div-container").style.display = "block";
         });
 });
 
 const add_button = document.getElementById("add");
-add_button.addEventListener('click', function(){
-  window.location.href = '../client/createPlayer.html';
+add_button.addEventListener('click', function () {
+    window.location.href = '../client/createPlayer.html';
 });
