@@ -71,8 +71,8 @@ document.getElementById("form").addEventListener("submit", function (e) {
     const spell_description = document.getElementById("spell-description").value;
     const spell_class = document.getElementById("class").value;
 
-    if (spell_level !== "null" || spell-tag !== "null" || spell_time_action !== "null" || 
-        spell_type !== "null" || range_type !== "null" || spell_class !== "null"
+    if (spell_level !== "null" || spell_tag !== "null" || spell_time_action !== "null" || 
+        spell_type !== "null" || range_type !== "null" || spell_class !== "null" || duration !== "null"
     ) {
         db.collection('spells').add({
             spell_name: spell_name,
