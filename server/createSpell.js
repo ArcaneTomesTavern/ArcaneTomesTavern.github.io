@@ -70,6 +70,9 @@ document.getElementById("form").addEventListener("submit", function (e) {
     const duration = document.getElementById("duration").value;
     const spell_description = document.getElementById("spell-description").value;
     const spell_class = document.getElementById("class").value;
+    const ritual_spell = document.getElementById("ritual-spell").value;
+    const higher_lv_scaling = document.getElementById("higher-lv-scaling").value;
+    const higher_lv_scaling_type = document.getElementById("higher-lv-scaling-type").value;
 
     if (spell_level !== "null" || spell_tag !== "null" || spell_time_action !== "null" || 
         spell_type !== "null" || range_type !== "null" || spell_class !== "null" || duration !== "null"
@@ -91,7 +94,10 @@ document.getElementById("form").addEventListener("submit", function (e) {
             duration_type_int: duration_type_int,
             duration: duration,
             spell_description: spell_description,
-            spell_class: spell_class
+            spell_class: spell_class,
+            ritual_spell: ritual_spell,
+            higher_level_scaling: higher_lv_scaling,
+            higher_level_scaling_type: higher_lv_scaling_type
         })
             .then(() => {
                 console.log("Record inserito con successo!");
