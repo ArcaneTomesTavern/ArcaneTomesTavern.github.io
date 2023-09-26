@@ -1,20 +1,32 @@
-.container {
-    display: flex; /* Usa un layout flessibile per allineare il testo e l'immagine */
-    align-items: start; /* Allinea verticalmente il contenuto */
-}
-
-#nome_pg {
-    flex: 1; /* Fai in modo che il testo occupi lo spazio rimanente */
-}
-
 #immagineFirebase {
-    max-width: 85px; /* Imposta una larghezza massima per l'immagine */
-    max-height: 85px; /* Imposta un'altezza massima per l'immagine */
-    margin-right: 20px;
+    float: left; /* Posiziona l'immagine a sinistra */
+    margin-right: 10px; /* Aggiunge un margine a destra per separare l'immagine dagli altri elementi */
+    max-width: 110px;
+    max-height: 120px;
+  }
+  
+#nome_pg {
+    margin-top: 0; /* Rimuove il margine superiore predefinito di h2 */
+}
+  
+#dati_class_rank {
+    align-items: baseline;
+    font-size: small;
 }
 
-#dati_class_rank {
-    flex: 1;
+.progress-container {
+    margin-left: 118px; 
+    width: 300px; /* Larghezza del contenitore della barra di avanzamento */
+    height: 5px; /* Altezza della barra di avanzamento */
+    background-color: #f0f0f0; /* Colore di sfondo del contenitore */
+    border: 1px solid #ccc; /* Bordo del contenitore */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0; /* Inizialmente la barra di avanzamento è vuota */
+    background-color: #11ff00; /* Colore della barra di avanzamento */
+    transition: width 0.5s ease; /* Aggiunge una transizione per l'animazione */
 }
 
 body {
