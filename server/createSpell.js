@@ -15,7 +15,6 @@ firebase.initializeApp(firebaseConfig);
 // Ottieni un riferimento al database Firestore
 const db = firebase.firestore();
 
-
 let bV = false, bS = false, bM = false;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,7 +73,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
     const higher_lv_scaling = document.getElementById("higher-lv-scaling").value;
     const higher_lv_scaling_type = document.getElementById("higher-lv-scaling-type").value;
 
-    if (spell_level !== "null" || spell_tag !== "null" || spell_time_action !== "null" || 
+    if (spell_level !== "null" || spell_tag !== "null" || spell_time_action !== "null" ||
         spell_type !== "null" || range_type !== "null" || spell_class !== "null" || duration !== "null"
     ) {
         db.collection('spells').add({
@@ -96,7 +95,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
             spell_description: spell_description,
             spell_class: spell_class,
             ritual_spell: ritual_spell === "on" ? true : false,
-            higher_level_scaling: higher_lv_scaling  === "on" ? true : false,
+            higher_level_scaling: higher_lv_scaling === "on" ? true : false,
             higher_level_scaling_type: higher_lv_scaling_type
         })
             .then(() => {
@@ -250,4 +249,11 @@ function opzioniClasse() {
     }
 }
 
-
+document.getElementById("higher-lv-scaling").addEventListener("click", function () {
+    let isChecked = document.getElementById("higher-lv-scaling").checked;
+    if (isChecked) {
+        document.getElementById("higher-lv-scaling-type").disabled = false;
+    } else {
+        document.getElementById("higher-lv-scaling-type").disabled = true;
+    }
+});
