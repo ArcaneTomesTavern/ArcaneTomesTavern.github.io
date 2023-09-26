@@ -1,0 +1,25 @@
+.container {
+    display: flex; /* Usa un layout flessibile per allineare il testo e l'immagine */
+    align-items: start; /* Allinea verticalmente il contenuto */
+}
+
+#nome_pg {
+    flex: 1; /* Fai in modo che il testo occupi lo spazio rimanente */
+}
+
+#immagineFirebase {
+    max-width: 85px; /* Imposta una larghezza massima per l'immagine */
+    max-height: 85px; /* Imposta un'altezza massima per l'immagine */
+    margin-right: 20px;
+}
+
+#dati_class_rank {
+    flex: 1;
+}
+
+body {
+    align-items: normal;
+    justify-content: right;
+    margin-left: 50px;
+    margin-top: 50px;
+}
