@@ -16,8 +16,9 @@ const playersRef = db.collection("players"); // Sostituisci "players" con il nom
 const playerId = "U50R9nXSG7JV95b2xyMN"; // Sostituisci con l'ID del documento che desideri recuperare
 
 // DIV VARI DEI DATI
-const datiDiv = document.getElementById("dati_class_rank"); // Assicurati di avere un elemento HTML con questo ID
 const nome_pgDIV = document.getElementById("nome_pg");
+const datiDiv = document.getElementById("dati_class_rank"); // Assicurati di avere un elemento HTML con questo ID
+const experience = document.getElementById("exp");
 
 function ottieniEVisualizzaDati() {
     playersRef.doc(playerId).get().then((doc) => {
@@ -27,21 +28,27 @@ function ottieniEVisualizzaDati() {
             // Ottieni i campi dai dati del documento
             const nome_personaggio = data.nome_personaggio;
             const classe = data.classe;
+            const razza = data.razza;
             const livello = data.livello;
+            const esperienza = data.esperienza;
             const imageUrl = data.image_url;
+            
 
             // Aggiungi i dati all'elemento HTML
-            datiDiv.innerHTML = `
-                <p>Classe: ${classe}</p>
-                <p>Livello: ${livello}</p>
-            `;
+            datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
 
             nome_pgDIV.innerHTML = `
                 <p> ${nome_personaggio}</p>
             `;
 
+            experience.innerHTML = ` <br><p>${esperienza}/${level_exp[livello]}</p>
+            `;
+
             const immagineElement = document.getElementById('immagineFirebase');
-            immagineElement.src = imageUrl;
+            immagineElement.src = imageUrl;  
+
+            experience.style.width = `${(esperienza/level_exp[livello])*100}%`; //To do capire funzioanmento di ma esxp per livello in modo che sia graudale
+
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
         }
@@ -54,3 +61,5 @@ function ottieniEVisualizzaDati() {
 // Chiama la funzione per ottenere e visualizzare i dati
 ottieniEVisualizzaDati();
 
+const level_exp = [1, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000,
+     120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000];
