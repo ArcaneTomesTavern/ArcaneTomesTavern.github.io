@@ -69,31 +69,39 @@ document.getElementById("form").addEventListener("submit", function (e) {
     const duration_type_int = document.getElementById("duration-type-int").value;
     const duration = document.getElementById("duration").value;
     const spell_description = document.getElementById("spell-description").value;
+    const spell_class = document.getElementById("class").value;
 
-    db.collection('spells').add({
-        spell_name: spell_name,
-        spell_tag: spell_tag,
-        spell_level: spell_level,
-        spell_time: spell_time,
-        spell_time_action: spell_time_action,
-        spell_type: spell_type,
-        b_V: bV,
-        b_S: bS,
-        b_M: bM,
-        material_components_description: document.getElementById("material-components-description").value,
-        range_type: range_type,
-        range_type_int: range_type_int,
-        duration_type: duration_type,
-        duration_type_int: duration_type_int,
-        duration: duration,
-        spell_description: spell_description
-    })
-        .then(() => {
-            console.log("Record inserito con successo!");
+    if (spell_level !== "null" || spell-tag !== "null" || spell_time_action !== "null" || 
+        spell_type !== "null" || range_type !== "null" || spell_class !== "null"
+    ) {
+        db.collection('spells').add({
+            spell_name: spell_name,
+            spell_tag: spell_tag,
+            spell_level: spell_level,
+            spell_time: spell_time,
+            spell_time_action: spell_time_action,
+            spell_type: spell_type,
+            b_V: bV,
+            b_S: bS,
+            b_M: bM,
+            material_components_description: bM ? document.getElementById("material-components-description").value : "null",
+            range_type: range_type,
+            range_type_int: range_type_int,
+            duration_type: duration_type,
+            duration_type_int: duration_type_int,
+            duration: duration,
+            spell_description: spell_description,
+            spell_class: spell_class
         })
-        .catch((error) => {
-            console.error("Errore nell'inserimento del record:", error);
-        });
+            .then(() => {
+                console.log("Record inserito con successo!");
+            })
+            .catch((error) => {
+                console.error("Errore nell'inserimento del record:", error);
+            });
+    } else {
+        alert("Inserisci tutti i campi!");
+    }
 });
 
 /* SEZIONE SELEZIONE CLASSE */
