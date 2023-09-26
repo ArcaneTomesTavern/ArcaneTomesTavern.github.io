@@ -79,7 +79,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
         b_V: bV,
         b_S: bS,
         b_M: bM,
-        material_components_description: material_components_description,
+        material_components_description: material_components_description.value,
         range_type: range_type,
         range_type_int: range_type_int,
         duration_type: duration_type,
