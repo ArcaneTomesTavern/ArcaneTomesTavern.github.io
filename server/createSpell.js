@@ -94,8 +94,8 @@ document.getElementById("form").addEventListener("submit", function (e) {
             duration: duration,
             spell_description: spell_description,
             spell_class: spell_class,
-            ritual_spell: ritual_spell === "on" ? true : false,
-            higher_level_scaling: higher_lv_scaling === "on" ? true : false,
+            ritual_spell: ritual_spell.checked ? true : false,
+            higher_level_scaling: higher_lv_scaling.checked ? true : false,
             higher_level_scaling_type: higher_lv_scaling_type
         })
             .then(() => {
