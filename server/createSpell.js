@@ -15,19 +15,6 @@ firebase.initializeApp(firebaseConfig);
 // Ottieni un riferimento al database Firestore
 const db = firebase.firestore();
 
-//prendo gli id degli inserimenti
-const spell_name = document.getElementById("spell-name").value;
-const spell_tag = document.getElementById("spell-tag").value;
-const spell_level = document.getElementById("spell-level").value;
-const spell_time = document.getElementById("spell-time").value;
-const spell_time_action = document.getElementById("spell-time-action").value;
-const spell_type = document.getElementById("spell-type").value;
-const range_type = document.getElementById("range-type").value;
-const range_type_int = document.getElementById("range-type-int").value;
-const duration_type = document.getElementById("duration-type").value;
-const duration_type_int = document.getElementById("duration-type-int").value;
-const duration = document.getElementById("duration").value;
-const spell_description = document.getElementById("spell-description").value;
 
 let bV = false, bS = false, bM = false;
 
@@ -69,6 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById("form").addEventListener("submit", function (e) {
     e.preventDefault();
 
+    //prendo gli id degli inserimenti
+    const spell_name = document.getElementById("spell-name").value;
+    const spell_tag = document.getElementById("spell-tag").value;
+    const spell_level = document.getElementById("spell-level").value;
+    const spell_time = document.getElementById("spell-time").value;
+    const spell_time_action = document.getElementById("spell-time-action").value;
+    const spell_type = document.getElementById("spell-type").value;
+    const range_type = document.getElementById("range-type").value;
+    const range_type_int = document.getElementById("range-type-int").value;
+    const duration_type = document.getElementById("duration-type").value;
+    const duration_type_int = document.getElementById("duration-type-int").value;
+    const duration = document.getElementById("duration").value;
+    const spell_description = document.getElementById("spell-description").value;
+
     db.collection('spells').add({
         spell_name: spell_name,
         spell_tag: spell_tag,
@@ -79,7 +80,7 @@ document.getElementById("form").addEventListener("submit", function (e) {
         b_V: bV,
         b_S: bS,
         b_M: bM,
-        material_components_description: material_components_description.value,
+        material_components_description: document.getElementById("material-components-description").value,
         range_type: range_type,
         range_type_int: range_type_int,
         duration_type: duration_type,
@@ -152,9 +153,9 @@ const arrayOpzioni = [
     "Druido - Cerchio della Luna",
     "Druido - Cerchio del Pastore",
     "Druido - Cerchio del Fuoco Selvaggio",
-    
+
     "Guerriero - Cavaliere Eldritch",
-    
+
     "Paladino",
     "Paladino - Giuramento di Conquista",
     "Paladino - Giuramento di Devozione",
@@ -167,7 +168,7 @@ const arrayOpzioni = [
     "Paladino - Giuramento degli Osservatori",
     "Paladino - Giuramento della Vendetta",
     "Paladino - Giuramento del Rompicapo",
-    
+
     "Ranger",
     "Ranger - Maestro delle bestie",
     "Ranger - Drakewarden",
@@ -178,7 +179,7 @@ const arrayOpzioni = [
     "Ranger - Uccisore di mostri ",
     "Ranger - Custode di sciami",
     "Ranger - Ingannatore Arcano",
-    
+
     "Incantatore",
     "Incantatore - Mente aberrante",
     "Incantatore - Anima a orologeria",
@@ -189,7 +190,7 @@ const arrayOpzioni = [
     "Incantatore - Magia dell'Ombra",
     "Incantatore - Stregoneria della Tempesta",
     "Incantatore - Magia Selvaggia",
-    
+
     "Stregone",
     "Stregone - L'Arcivescovo",
     "Stregone - Il Celeste",
@@ -200,7 +201,7 @@ const arrayOpzioni = [
     "Stregone - La lama esagonale",
     "Stregone - Il Non-Morto",
     "Stregone - L'immortale",
-    
+
     "Mago",
     "Mago - Lame Danzanti",
     "Mago - Magia del Sangue",
@@ -229,7 +230,7 @@ function opzioniClasse() {
         optionElement.value = i + 1;
         // Imposta il testo dell'opzione
         optionElement.text = opzione;
-        optionElement.value = opzione.replace(/ - /g, "_").replace(/ /g, "_").replace(/'/g,"_");
+        optionElement.value = opzione.replace(/ - /g, "_").replace(/ /g, "_").replace(/'/g, "_");
         // Aggiungi l'opzione al menu select
         selectMenu.appendChild(optionElement);
     }
