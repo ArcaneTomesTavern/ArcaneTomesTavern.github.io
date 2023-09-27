@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGGIUNGI UNA CAMPAGNA</title>
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/createCampaign.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuova Campagna</title>
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/createCampaign.css" />
+  </head>
+
+  <body>
     <h1>NUOVA CAMPAGNA</h1>
 
     <!-- Form per inserire i dati -->
     <form id="form">
-        
-        <fieldset id = "set-nome">
-            <legend for="nome_campagna">Nome Campagna</legend>
-            <input type="text" id="nome_campagna" required><br><br>
-        </fieldset>
-        
-        <br>
-        
-        <fieldset id = "set-giocatori">
-            <legend for="giocatori">Giocatori (separati da virgola)</legend>
-            <input type="text" id="giocatori"><br><br>
-        </fieldset>
-        
-        <br>
-        
-        <fieldset id = "set-tipo">
-            <legend>Tipi Di Campagna</legend>
-            <select name="selezione-campagne" id="selezione-campagne" required>
-                <option value="null" selected disabled>seleziona una campagna</option>
-                <option value="one_shot">One shot</option>
-                <option value="bi_shot">Bi shot</option>
-                <option value="campaign">Campagna</option>
-            </select>
-        </fieldset>
+      <fieldset id="set-nome">
+        <legend for="nome_campagna" class="legend-div">
+          <i class="legend-div">Nome Campagna</i>
+        </legend>
+        <br />
+        <input type="text" id="nome_campagna" required /><br /><br />
+      </fieldset>
 
-        <br>
-        <br>
-        
-        <div  type="submit" id = "dm-div-container" class = "button-container">
-            <button class="campButton" style="--clr: #d5a24c;">
-                <span>CREA LA CAMPAGNA</span><i></i>
-            </button>
+      <br />
+
+      <fieldset id="set-giocatori">
+        <legend for="giocatori">
+          <i class="legend-div" alt="Le ripetizioni vengono salvate una volta">
+            Giocatori
+            <img
+              src="../server/resources/info.png"
+              id="info_btn"
+              alt="Le ripetizioni vengono salvate una volta"
+              onclick="infoAlert()"
+            />
+          </i>
+        </legend>
+        <br />
+        <!-- <input type="text" id="giocatori" required> -->
+        <div id="players-container">
+          <!--<div class="container">
+                    <select name="players-list" class="players-list" id="p1_l" required>
+                        <option value="null" selected disabled>Seleziona personaggio</option>
+                    </select>
+                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="hover"
+                        colors="primary:#ffffff,secondary:#d5a24c" stroke="35" style="width:10%">
+                    </lord-icon>
+                </div>-->
         </div>
 
+        <button type="button" id="add-player">AGGIUNGI GIOCATORE</button>
+        <br /><br />
+      </fieldset>
+
+      <br />
+
+      <fieldset id="set-tipo">
+        <legend class="legend-div">
+          <i class="legend-div">Tipi Di Campagna</i>
+        </legend>
+        <br />
+        <select name="selezione-campagne" id="selezione-campagne" required>
+          <option value="null" selected disabled>seleziona una campagna</option>
+          <option value="one_shot">One shot</option>
+          <option value="bi_shot">Bi shot</option>
+          <option value="campaign">Campagna</option></select
+        ><br /><br />
+      </fieldset>
+
+      <br />
+      <br />
+
+      <div type="submit" id="dm-div-container" class="button-container">
+        <button class="campButton" style="--clr: #d5a24c">
+          <span>CREA LA CAMPAGNA</span><i></i>
+        </button>
+      </div>
     </form>
 
     <!-- Includi Firebase SDK versione 8.x.x -->
@@ -53,5 +82,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <!-- script -->
     <script src="../server/createCampaign.js"></script>
-</body>
+    <script src="../server/classes/players.js"></script>
+    <!-- script esterni -->
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+  </body>
 </html>
