@@ -29,7 +29,7 @@
     transition: width 0.5s ease; /* Aggiunge una transizione per l'animazione */
 }
 
-.container {
+.container_car {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -39,16 +39,66 @@
 }
 
 .rettangolo {
-    width: 100px;
+    width: 80px;
     height: 100px;
-    background-color: #3498db;
-    border: 2px solid #2980b9;
+    background-color: #27272c;
+    border: 2px solid #b92929;
     border-radius: 5px;
     text-align: center;
     line-height: 100px;
     font-size: 18px;
     color: white;
 }
+
+.rettangolo_BC {
+    width: 150px;
+    height: 100px;
+    background-color: #27272c;
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#bonus_competenza {
+    margin-top: 0; /* Rimuovi il margine superiore */
+}
+
+.rettangolo_I {
+    width: 100px;
+    height: 100px;
+    background-color: #27272c;
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rettangolo_S {
+    width: 300px;
+    height: 100px;
+    background-color: #27272c;
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 body {
     align-items: normal;

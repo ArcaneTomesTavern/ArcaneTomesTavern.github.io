@@ -25,6 +25,11 @@ const costituzioneDIV = document.getElementById("costituzione");
 const intelligenzaDIV = document.getElementById("intelligenza");
 const saggezzaDIV = document.getElementById("saggezza");
 const carismaDIV = document.getElementById("carisma");
+const bonus_compDIV = document.getElementById("bonus_competenza");
+const velocitaDIV = document.getElementById("velocita");
+const ispirazioneDIV = document.getElementById("ispirazione");
+const ispirazioneCheckbox = document.getElementById("ispirazioneCheckbox"); // solo per checkbox di ispirazione
+const saluteDIV = document.getElementById("salute");
 
 function ottieniEVisualizzaDati() {
     playersRef.doc(playerId).get().then((doc) => {
@@ -44,7 +49,12 @@ function ottieniEVisualizzaDati() {
             const intelligenza = data.intelligenza;
             const saggezza = data.saggezza;
             const carisma = data.carisma;
-            
+            const bonus_competenza = data.bonus_competenza;
+            const velocita = data.velocita;
+            const ispirazione = data.ispirazione;
+            const max_punti_ferita = data.max_punti_ferita;
+            const curr_punti_ferita = data.curr_punti_ferita;
+            const temp_punti_ferita = data.temp_punti_ferita;
 
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
@@ -64,6 +74,19 @@ function ottieniEVisualizzaDati() {
             ottieniSegno(saggezzaDIV, saggezza);     
             ottieniSegno(carismaDIV, carisma);
 
+            bonus_compDIV.innerHTML = `<p>Bonus Competenza</p><br><p>+${bonus_competenza}</p>`;
+
+            velocitaDIV.innerHTML = `<p>Velocità</p><br><p>${velocita}ft</p>`;
+
+            ispirazioneCheckbox.checked = ispirazione;
+
+            if(temp_punti_ferita != 0)
+                saluteDIV.innerHTML = `<p>Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
+                <br<p>Temporanei:&nbsp &nbsp ${temp_punti_ferita}</p>`;
+            else
+                saluteDIV.innerHTML = `<p>Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
+                <br<p>Temporanei:&nbsp &nbsp ---</p>`;
+            
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
         }
