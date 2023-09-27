@@ -141,6 +141,22 @@
     margin-top: 10px;
 }
 
+.rettangolo_piccolo {
+    width: 320px;
+    height: 400px;
+    background-color: #27272c;
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    text-align: right;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
 .rettangolo_mega {
     width: 320px;
     height: 980px;

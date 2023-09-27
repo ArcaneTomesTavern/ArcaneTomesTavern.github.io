@@ -45,24 +45,32 @@ function ottieniEVisualizzaDati() {
             const livello = data.livello;
             const esperienza = data.esperienza;
             const imageUrl = data.image_url;
+
             const forza = data.forza;
             const destrezza = data.destrezza;
             const costituzione = data.costituzione;
             const intelligenza = data.intelligenza;
             const saggezza = data.saggezza;
             const carisma = data.carisma;
+
             const bonus_competenza = data.bonus_competenza;
             const velocita = data.velocita;
             const ispirazione = data.ispirazione;
+
             const max_punti_ferita = data.max_punti_ferita;
             const curr_punti_ferita = data.curr_punti_ferita;
             const temp_punti_ferita = data.temp_punti_ferita;
+
             const forza_ts = data.forza_ts;
             const destrezza_ts = data.destrezza_ts;
             const costituzione_ts = data.costituzione_ts;
             const intelligenza_ts = data.intelligenza_ts;
             const saggezza_ts = data.saggezza_ts;
             const carisma_ts = data.carisma_ts;
+
+            const percezione_passiva = data.percezione_passiva;
+            const investigazione_passiva= data.investigazione_passiva;
+            const saggezza_passiva = data.saggezza_passiva;
 
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
@@ -101,6 +109,12 @@ function ottieniEVisualizzaDati() {
             <p>Forza: ${segno(forza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Intelligenza: ${segno(intelligenza_ts)} </p><br>
             <p>Destrezza: ${segno(destrezza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Saggezza: ${segno(saggezza_ts)} </p><br>
             <p>Costituzione: ${segno(costituzione_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Carisma: ${segno(carisma_ts)} </p>
+            `;
+
+            sensiDIV.innerHTML = `<p>Capacità Sensoriali</p><br><br><br>
+            <p>Percezione Passiva:&nbsp${percezione_passiva}</p><br>
+            <p>Investigazione Passiva:&nbsp${investigazione_passiva}</p><br>
+            <p>Saggezza Passiva:&nbsp${saggezza_passiva}</p><br>
             `;
 
         } else {

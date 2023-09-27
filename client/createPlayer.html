@@ -129,7 +129,7 @@
                     id="percezione_passiva"
                     name="percezione_passiva"
                     required
-                /><br /><br /><br />
+                /><br /><br />
 
                 <label for="investigazione_passiva" class="rettangolo_singolo"
                     >Investigazione Passiva:</label
@@ -139,7 +139,7 @@
                     id="investigazione_passiva"
                     name="investigazione_passiva"
                     required
-                /><br /><br /><br />
+                /><br /><br />
 
                 <label for="saggezza_passiva" class="rettangolo_singolo"
                     >Saggezza Passiva:</label
@@ -564,11 +564,14 @@
                             <label for="equipaggiamento-tipo"
                                 >Tipo Oggetto:</label
                             >
-                            <input
-                                type="text"
-                                name="equipaggiamento-tipo[]"
-                                required
-                            /><br />
+                            <select 
+                            type="number"
+                            name="magia-livello[]"
+                            required>
+                                <option value="armatura">Armatura</option>
+                                <option value="arma">Arma</option>
+                                <option value="utensile">Utensile</option>
+                            </select><br />
                             <button
                                 type="button"
                                 onclick="rimuoviEquipaggiamento(this)"
@@ -680,7 +683,11 @@
             <label for="equipaggiamento-nome">Nome Oggetto:</label>
             <input type="text" name="equipaggiamento-nome[]" required><br>
             <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
-            <input type="text" name="equipaggiamento-tipo[]" required><br>
+            <select type="number" name="magia-livello[]"required>
+                <option value="armatura">Armatura</option>
+                <option value="arma">Arma</option>
+                <option value="utensile">Utensile</option>
+            </select><br>
             <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button><br>
         `;
 
