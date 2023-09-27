@@ -56,6 +56,10 @@ form.addEventListener("submit", function (e) {
     const ispirazione = false;
     const bonus_competenza = parseInt(document.getElementById("bonus_competenza").value);
 
+    const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
+    const investigazione_passiva = parseInt(document.getElementById("investigazione_passiva").value);
+    const saggezza_passiva = parseInt(document.getElementById("saggezza_passiva").value);
+
     const acrobazia = parseInt(document.getElementById("acrobazia").value);
     const addestrare_animali = parseInt(document.getElementById("acrobazia").value);
     const arcano = parseInt(document.getElementById("acrobazia").value);
@@ -87,7 +91,6 @@ form.addEventListener("submit", function (e) {
     const ts_morte_fallito = 0;
 
     const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
-    const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
     const ideali = document.getElementById("ideali").value;
     const legami = document.getElementById("legami").value;
     const difetti = document.getElementById("difetti").value;
@@ -179,7 +182,10 @@ form.addEventListener("submit", function (e) {
 
                     ispirazione: ispirazione,
                     bonus_competenza: bonus_competenza,
+
                     percezione_passiva: percezione_passiva,
+                    investigazione_passiva: investigazione_passiva,
+                    saggezza_passiva: saggezza_passiva,
 
                     acrobazia: acrobazia,
                     addestrare_animali: addestrare_animali,
@@ -285,7 +291,10 @@ form.addEventListener("submit", function (e) {
 
                     ispirazione: ispirazione,
                     bonus_competenza: bonus_competenza,
+
                     percezione_passiva: percezione_passiva,
+                    investigazione_passiva: investigazione_passiva,
+                    saggezza_passiva: saggezza_passiva,
 
                     acrobazia: acrobazia,
                     addestrare_animali: addestrare_animali,

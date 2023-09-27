@@ -1,297 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inserimento Giocatore</title>
-    <link rel="stylesheet" href="../client/css/createPlayer.css">
-    <link rel="stylesheet" href="../client/css/general.css">
-</head>
-<body>
-  <h1>Inserimento Giocatore</h1>
-  <form id="giocatore-form">
-
-  <label for="nome_personaggio" class="rettangolo_singolo">Nome Personaggio:</label>
-  <input type="text" id="nome_personaggio" name="nome_personaggio" required><br><br>
-
-  <div class="rettangolo">
-      <label for="classe">Classe & Livello:</label>
-      <input type="text" id="classe" name="classe" required>
-
-      <label for="livello"></label>
-      <input type="number" id="livello" name="livello" required>
-
-      <label for="background">Background:</label>
-      <input type="text" id="background" name="background" required><br><br>
-
-      <label for="nome_giocatore">Nome Giocatore:</label>
-      <input type="text" id="nome_giocatore" name="nome_giocatore" required>
-
-      <label for="razza">Razza:</label>
-      <input type="text" id="razza" name="razza" required>
-
-      <label for="allineamento">Allineamento:</label>
-      <input type="text" id="allineamento" name="allineamento" required>
-
-  </div><br>
-
-  <div class="prima_colonna">
-      <label for="forza">Forza:</label>
-      <input type="number" id="forza" name="forza" required><br><br><br><br><br><br><br>
-
-      <label for="destrezza">Destrezza:</label>
-      <input type="number" id="destrezza" name="destrezza" required><br><br><br><br><br><br><br>
-
-      <label for="costituzione">Costituzione:</label>
-      <input type="number" id="costituzione" name="costituzione" required><br><br><br><br><br><br><br>
-
-      <label for="intelligenza">Intelligenza:</label>
-      <input type="number" id="intelligenza" name="intelligenza" required><br><br><br><br><br><br><br>
-
-      <label for="saggezza">Saggezza:</label>
-      <input type="number" id="saggezza" name="saggezza" required><br><br><br><br><br><br><br>
-
-      <label for="carisma">Carisma:</label>
-      <input type="number" id="carisma" name="carisma" required><br><br><br><br><br><br><br>
-
-    </div>
-
-  <div class="seconda_colonna">
-      <label for="ispirazione" class="rettangolo_singolo">Ispirazione</label><br><br>
-      
-      <label for="bonus_competenza" class="rettangolo_singolo">Bonus Competenza:</label>
-      <input type="number" id="bonus_competenza" name="bonus_competenza" required><br><br>
-
-      <label for="percezione_passiva" class="rettangolo_singolo">Percezione Passiva:</label>
-      <input type="number" id="percezione_passiva" name="percezione_passiva" required><br><br><br>
-
-      <div class="rettangolo_ts">
-          <h2>Tiri Salvezza</h2><br><br>
-          <label for="forza_ts">Forza:</label>
-          <input type="number" id="forza_ts" name="forza_ts" required><br>
-
-          <label for="destrezza_ts">Destrezza:</label>
-          <input type="number" id="destrezza_ts" name="destrezza_ts" required><br>
-
-          <label for="costituzione_ts">Costituzione:</label>
-          <input type="number" id="costituzione_ts" name="costituzione_ts" required><br>
-
-          <label for="intelligenza_ts">Intelligenza:</label>
-          <input type="number" id="intelligenza_ts" name="intelligenza_ts" required><br>
-
-          <label for="saggezza_ts">Saggezza:</label>
-          <input type="number" id="saggezza_ts" name="saggezza_ts" required><br>
-
-          <label for="carisma_ts">Carisma:</label>
-          <input type="number" id="carisma_ts" name="carisma_ts" required><br>
-      </div><br><br>
-
-      <div class="rettangolo_abilita">
-          <label for="acrobazia">Acrobazia:</label>
-          <input type="number" id="acrobazia" name="acrobazia" required><br>
-
-          <label for="addestrare_animali">Addestrare Animali:</label>
-          <input type="number" id="addestrare_animali" name="addestrare_animali" required><br>
-
-          <label for="arcano">Arcano:</label>
-          <input type="number" id="arcano" name="arcano" required><br>
-
-          <label for="atletica">Atletica:</label>
-          <input type="number" id="atletica" name="atletica" required><br>
-
-          <label for="furtivita">Furtivita:</label>
-          <input type="number" id="furtivita" name="furtivita" required><br>
-
-          <label for="indagare">Indagare:</label>
-          <input type="number" id="indagare" name="indagare" required><br>
-
-          <label for="inganno">Inganno:</label>
-          <input type="number" id="inganno" name="inganno" required><br>
-
-          <label for="intimidire">Intimidire:</label>
-          <input type="number" id="intimidire" name="intimidire" required><br>
-
-          <label for="intrattenere">Intrattenere:</label>
-          <input type="number" id="intrattenere" name="intrattenere" required><br>
-
-          <label for="intuizione">Intuizione:</label>
-          <input type="number" id="intuizione" name="intuizione" required><br>
-
-          <label for="medicina">Medicina:</label>
-          <input type="number" id="medicina" name="medicina" required><br>
-
-          <label for="natura">Natura:</label>
-          <input type="number" id="natura" name="natura" required><br>
-
-          <label for="percezione">Percezione:</label>
-          <input type="number" id="percezione" name="percezione" required><br>
-
-          <label for="persuasione">Persuasione:</label>
-          <input type="number" id="persuasione" name="persuasione" required><br>
-
-          <label for="rapidita_mano">Rapidita_mano:</label>
-          <input type="number" id="rapidita_mano" name="rapidita_mano" required><br>
-
-          <label for="religione">Religione:</label>
-          <input type="number" id="religione" name="religione" required><br>
-
-          <label for="sopravvivenza">Sopravvivenza:</label>
-          <input type="number" id="sopravvivenza" name="sopravvivenza" required><br>
-
-          <label for="storia">Storia:</label>
-          <input type="number" id="storia" name="storia" required><br>
-      </div>
-  </div>
-
-  <div class="terza_colonna">
-      <br><br>    
-      <label for="classe_armatura" class="rettangolo_singolo">Classe Armatura:</label>
-      <input type="number" id="classe_armatura" name="classe_armatura" required><br><br>
-
-      <label for="iniziativa" class="rettangolo_singolo">Iniziativa:</label>
-      <input type="number" id="iniziativa" name="iniziativa" required><br><br>
-
-      <label for="velocita" class="rettangolo_singolo">Velocità:</label>
-      <input type="number" id="velocita" name="velocita" required><br><br>
-
-      <div class="rettangolo_HP">
-          <label for="max_punti_ferita">Punti Ferita Massimi:</label>
-          <input type="number" id="max_punti_ferita" name="max_punti_ferita" required><br><br>
-
-          <label for="curr_punti_ferita">Punti Ferita</label><br>
-
-          <label for="temp_punti_ferita">Punti Ferita Temporanei</label><br><br>
-
-          <label for="dadi_vita">Dadi Vita:</label>
-          <input type="text" id="dadi_vita" name="dadi_vita" required><br>
-      </div><br>
-
-      <label for="ts_morte_successo" class="rettangolo_singolo">TS Morte Succcesso: 0</label><br><br>
-      <label for="ts_morte_fallito" class="rettangolo_singolo">TS Morte Fallito: 0</label><br><br><br><br><br>
-
-      <label for="tratti_caratteriali" class="rettangolo_singolo">Tratti Caratteriali:</label><br><br>
-      <textarea id="tratti_caratteriali" name="tratti_caratteriali"></textarea> <br><br>
-
-      <label for="ideali" class="rettangolo_singolo">Ideali:</label><br><br>
-      <textarea id="ideali" name="ideali"></textarea> <br><br>
-
-      <label for="legami" class="rettangolo_singolo">Legami:</label><br><br>
-      <textarea id="legami" name="legami"></textarea> <br><br>
-
-      <label for="difetti" class="rettangolo_singolo">Difetti:</label><br><br>
-      <textarea id="difetti" name="difetti"></textarea> <br><br>
-  </div><br>
-
-  <div class="container">
-    <div class="section">
-      <div class="rettangolo_HP">
-        <label for="cp">Monete di Rame (Cp):</label>
-        <input type="number" id="cp" name="cp" required><br>
-
-        <label for="sp">Monete di Argento (Sp):</label>
-        <input type="number" id="sp" name="sp" required><br>
-
-        <label for="ep">Monete d'Electrum (Ep):</label>
-        <input type="number" id="ep" name="ep" required><br>
-
-        <label for="gp">Monete d'Oro (Gp):</label>
-        <input type="number" id="gp" name="gp" required><br>
-
-        <label for="pp">Monete di Platino (Pp):</label>
-        <input type="number" id="pp" name="pp" required><br>
-      </div><br>
-    </div>
-
-    <div class="section">
-      <label for="comp_linguaggi" class="rettangolo_singolo">Competenze & Linguaggi:</label><br><br>
-      <textarea id="comp_linguaggi" name="comp_linguaggi"></textarea> <br><br>
-    </div>
-
-    <div class="section">
-      <label for="privilegi_tratti" class="rettangolo_singolo">Privilegi & Tratti:</label><br><br>
-      <textarea id="privilegi_tratti" name="privilegi_tratti"></textarea> <br><br>
-    </div>
-  </div>
-
-  <div class="rettangolo">
-    <label for="eta">Età:</label>
-    <input type="number" id="eta" name="eta" required>
-
-    <label for="altezza">Altezza:</label>
-    <input type="text" id="altezza" name="altezza" required>
-
-    <label for="peso">Peso:</label>
-    <input type="text" id="peso" name="peso" required><br><br>
-
-    <label for="occhi">Occhi:</label>
-    <input type="text" id="occhi" name="occhi" required>
-
-    <label for="carnagione">Carnagione:</label>
-    <input type="text" id="carnagione" name="carnagione" required>
-
-    <label for="capelli">Capelli:</label>
-    <input type="text" id="capelli" name="capelli" required><br><br>
-  </div><br>
-
-  <br>
-  <h1>Caricamento Aspetto</h1>
-  <input type="file" id="image-input" accept="image/*"><br><br>
-  <img id="image-preview" src="" alt="Preview">
-  <br><br>
-
-  <div class="container">
-    <div class="section">
-      <label for="storia_pg" class="rettangolo_singolo">Storia del Personaggio:</label><br><br>
-      <textarea id="storia_pg" name="storia_pg"></textarea> <br><br>
-    </div>
-
-    <div class="section">
-      <label for="tesoro" class="rettangolo_singolo">Tesoro del Personaggio:</label><br><br>
-      <textarea id="tesoro" name="tesoro"></textarea> <br><br>
-    </div>
-
-    <div class="section">
-      <label for="allenze_organizzazioni" class="rettangolo_singolo">Allenze & Organizzazioni:</label><br><br>
-      <textarea id="allenze_organizzazioni" name="allenze_organizzazioni"></textarea> <br><br>
-    </div>
-  </div> <br><br><hr><br><br>
-            
-  <div class="container">
-      <div class="section">
-        <h2>Equipaggiamento</h2>
-        <div id="equipaggiamento-container">
-          <!-- Campi di input per il primo oggetto di equipaggiamento -->
-          <div class="equipaggiamento">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inserimento Giocatore</title>
+        <link rel="stylesheet" href="../client/css/createPlayer.css" />
+        <link rel="stylesheet" href="../client/css/general.css" />
+    </head>
+    <body>
+        <h1>Inserimento Giocatore</h1>
+        <form id="giocatore-form">
+            <label for="nome_personaggio" class="rettangolo_singolo"
+                >Nome Personaggio:</label
+            >
+            <input
+                type="text"
+                id="nome_personaggio"
+                name="nome_personaggio"
+                required
+            /><br /><br />
+
+            <div class="rettangolo">
+                <label for="classe">Classe & Livello:</label>
+                <input type="text" id="classe" name="classe" required />
+
+                <label for="livello"></label>
+                <input type="number" id="livello" name="livello" required />
+
+                <label for="background">Background:</label>
+                <input
+                    type="text"
+                    id="background"
+                    name="background"
+                    required
+                /><br /><br />
+
+                <label for="nome_giocatore">Nome Giocatore:</label>
+                <input
+                    type="text"
+                    id="nome_giocatore"
+                    name="nome_giocatore"
+                    required
+                />
+
+                <label for="razza">Razza:</label>
+                <input type="text" id="razza" name="razza" required />
+
+                <label for="allineamento">Allineamento:</label>
+                <input
+                    type="text"
+                    id="allineamento"
+                    name="allineamento"
+                    required
+                />
+            </div>
+            <br />
+
+            <div class="prima_colonna">
+                <label for="forza">Forza:</label>
+                <input
+                    type="number"
+                    id="forza"
+                    name="forza"
+                    required
+                /><br /><br /><br /><br /><br /><br /><br />
+
+                <label for="destrezza">Destrezza:</label>
+                <input
+                    type="number"
+                    id="destrezza"
+                    name="destrezza"
+                    required
+                /><br /><br /><br /><br /><br /><br /><br />
+
+                <label for="costituzione">Costituzione:</label>
+                <input
+                    type="number"
+                    id="costituzione"
+                    name="costituzione"
+                    required
+                /><br /><br /><br /><br /><br /><br /><br />
+
+                <label for="intelligenza">Intelligenza:</label>
+                <input
+                    type="number"
+                    id="intelligenza"
+                    name="intelligenza"
+                    required
+                /><br /><br /><br /><br /><br /><br /><br />
+
+                <label for="saggezza">Saggezza:</label>
+                <input
+                    type="number"
+                    id="saggezza"
+                    name="saggezza"
+                    required
+                /><br /><br /><br /><br /><br /><br /><br />
+
+                <label for="carisma">Carisma:</label>
+                <input
+                    type="number"
+                    id="carisma"
+                    name="carisma"
+                    required
+                /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+
+            <div class="seconda_colonna">
+                <label for="ispirazione" class="rettangolo_singolo"
+                    >Ispirazione</label
+                ><br /><br />
+
+                <label for="bonus_competenza" class="rettangolo_singolo"
+                    >Bonus Competenza:</label
+                >
+                <input
+                    type="number"
+                    id="bonus_competenza"
+                    name="bonus_competenza"
+                    required
+                /><br /><br />
+
+                <label for="percezione_passiva" class="rettangolo_singolo"
+                    >Percezione Passiva:</label
+                >
+                <input
+                    type="number"
+                    id="percezione_passiva"
+                    name="percezione_passiva"
+                    required
+                /><br /><br /><br />
+
+                <label for="investigazione_passiva" class="rettangolo_singolo"
+                    >Investigazione Passiva:</label
+                >
+                <input
+                    type="number"
+                    id="investigazione_passiva"
+                    name="investigazione_passiva"
+                    required
+                /><br /><br /><br />
+
+                <label for="saggezza_passiva" class="rettangolo_singolo"
+                    >Saggezza Passiva:</label
+                >
+                <input
+                    type="number"
+                    id="saggezza_passiva"
+                    name="saggezza_passiva"
+                    required
+                /><br /><br /><br />
+
+                <div class="rettangolo_ts">
+                    <h2>Tiri Salvezza</h2>
+                    <br /><br />
+                    <label for="forza_ts">Forza:</label>
+                    <input
+                        type="number"
+                        id="forza_ts"
+                        name="forza_ts"
+                        required
+                    /><br />
+
+                    <label for="destrezza_ts">Destrezza:</label>
+                    <input
+                        type="number"
+                        id="destrezza_ts"
+                        name="destrezza_ts"
+                        required
+                    /><br />
+
+                    <label for="costituzione_ts">Costituzione:</label>
+                    <input
+                        type="number"
+                        id="costituzione_ts"
+                        name="costituzione_ts"
+                        required
+                    /><br />
+
+                    <label for="intelligenza_ts">Intelligenza:</label>
+                    <input
+                        type="number"
+                        id="intelligenza_ts"
+                        name="intelligenza_ts"
+                        required
+                    /><br />
+
+                    <label for="saggezza_ts">Saggezza:</label>
+                    <input
+                        type="number"
+                        id="saggezza_ts"
+                        name="saggezza_ts"
+                        required
+                    /><br />
+
+                    <label for="carisma_ts">Carisma:</label>
+                    <input
+                        type="number"
+                        id="carisma_ts"
+                        name="carisma_ts"
+                        required
+                    /><br />
+                </div>
+                <br /><br />
+
+                <div class="rettangolo_abilita">
+                    <label for="acrobazia">Acrobazia:</label>
+                    <input
+                        type="number"
+                        id="acrobazia"
+                        name="acrobazia"
+                        required
+                    /><br />
+
+                    <label for="addestrare_animali">Addestrare Animali:</label>
+                    <input
+                        type="number"
+                        id="addestrare_animali"
+                        name="addestrare_animali"
+                        required
+                    /><br />
+
+                    <label for="arcano">Arcano:</label>
+                    <input
+                        type="number"
+                        id="arcano"
+                        name="arcano"
+                        required
+                    /><br />
+
+                    <label for="atletica">Atletica:</label>
+                    <input
+                        type="number"
+                        id="atletica"
+                        name="atletica"
+                        required
+                    /><br />
+
+                    <label for="furtivita">Furtivita:</label>
+                    <input
+                        type="number"
+                        id="furtivita"
+                        name="furtivita"
+                        required
+                    /><br />
+
+                    <label for="indagare">Indagare:</label>
+                    <input
+                        type="number"
+                        id="indagare"
+                        name="indagare"
+                        required
+                    /><br />
+
+                    <label for="inganno">Inganno:</label>
+                    <input
+                        type="number"
+                        id="inganno"
+                        name="inganno"
+                        required
+                    /><br />
+
+                    <label for="intimidire">Intimidire:</label>
+                    <input
+                        type="number"
+                        id="intimidire"
+                        name="intimidire"
+                        required
+                    /><br />
+
+                    <label for="intrattenere">Intrattenere:</label>
+                    <input
+                        type="number"
+                        id="intrattenere"
+                        name="intrattenere"
+                        required
+                    /><br />
+
+                    <label for="intuizione">Intuizione:</label>
+                    <input
+                        type="number"
+                        id="intuizione"
+                        name="intuizione"
+                        required
+                    /><br />
+
+                    <label for="medicina">Medicina:</label>
+                    <input
+                        type="number"
+                        id="medicina"
+                        name="medicina"
+                        required
+                    /><br />
+
+                    <label for="natura">Natura:</label>
+                    <input
+                        type="number"
+                        id="natura"
+                        name="natura"
+                        required
+                    /><br />
+
+                    <label for="percezione">Percezione:</label>
+                    <input
+                        type="number"
+                        id="percezione"
+                        name="percezione"
+                        required
+                    /><br />
+
+                    <label for="persuasione">Persuasione:</label>
+                    <input
+                        type="number"
+                        id="persuasione"
+                        name="persuasione"
+                        required
+                    /><br />
+
+                    <label for="rapidita_mano">Rapidita_mano:</label>
+                    <input
+                        type="number"
+                        id="rapidita_mano"
+                        name="rapidita_mano"
+                        required
+                    /><br />
+
+                    <label for="religione">Religione:</label>
+                    <input
+                        type="number"
+                        id="religione"
+                        name="religione"
+                        required
+                    /><br />
+
+                    <label for="sopravvivenza">Sopravvivenza:</label>
+                    <input
+                        type="number"
+                        id="sopravvivenza"
+                        name="sopravvivenza"
+                        required
+                    /><br />
+
+                    <label for="storia">Storia:</label>
+                    <input
+                        type="number"
+                        id="storia"
+                        name="storia"
+                        required
+                    /><br />
+                </div>
+            </div>
+
+            <div class="terza_colonna">
+                <br /><br />
+                <label for="classe_armatura" class="rettangolo_singolo"
+                    >Classe Armatura:</label
+                >
+                <input
+                    type="number"
+                    id="classe_armatura"
+                    name="classe_armatura"
+                    required
+                /><br /><br />
+
+                <label for="iniziativa" class="rettangolo_singolo"
+                    >Iniziativa:</label
+                >
+                <input
+                    type="number"
+                    id="iniziativa"
+                    name="iniziativa"
+                    required
+                /><br /><br />
+
+                <label for="velocita" class="rettangolo_singolo"
+                    >Velocità:</label
+                >
+                <input
+                    type="number"
+                    id="velocita"
+                    name="velocita"
+                    required
+                /><br /><br />
+
+                <div class="rettangolo_HP">
+                    <label for="max_punti_ferita">Punti Ferita Massimi:</label>
+                    <input
+                        type="number"
+                        id="max_punti_ferita"
+                        name="max_punti_ferita"
+                        required
+                    /><br /><br />
+
+                    <label for="curr_punti_ferita">Punti Ferita</label><br />
+
+                    <label for="temp_punti_ferita"
+                        >Punti Ferita Temporanei</label
+                    ><br /><br />
+
+                    <label for="dadi_vita">Dadi Vita:</label>
+                    <input
+                        type="text"
+                        id="dadi_vita"
+                        name="dadi_vita"
+                        required
+                    /><br />
+                </div>
+                <br />
+
+                <label for="ts_morte_successo" class="rettangolo_singolo"
+                    >TS Morte Succcesso: 0</label
+                ><br /><br />
+                <label for="ts_morte_fallito" class="rettangolo_singolo"
+                    >TS Morte Fallito: 0</label
+                ><br /><br /><br /><br /><br />
+
+                <label for="tratti_caratteriali" class="rettangolo_singolo"
+                    >Tratti Caratteriali:</label
+                ><br /><br />
+                <textarea
+                    id="tratti_caratteriali"
+                    name="tratti_caratteriali"
+                ></textarea>
+                <br /><br />
+
+                <label for="ideali" class="rettangolo_singolo">Ideali:</label
+                ><br /><br />
+                <textarea id="ideali" name="ideali"></textarea> <br /><br />
+
+                <label for="legami" class="rettangolo_singolo">Legami:</label
+                ><br /><br />
+                <textarea id="legami" name="legami"></textarea> <br /><br />
+
+                <label for="difetti" class="rettangolo_singolo">Difetti:</label
+                ><br /><br />
+                <textarea id="difetti" name="difetti"></textarea> <br /><br />
+            </div>
+            <br />
+
+            <div class="container">
+                <div class="section">
+                    <div class="rettangolo_HP">
+                        <label for="cp">Monete di Rame (Cp):</label>
+                        <input type="number" id="cp" name="cp" required /><br />
+
+                        <label for="sp">Monete di Argento (Sp):</label>
+                        <input type="number" id="sp" name="sp" required /><br />
+
+                        <label for="ep">Monete d'Electrum (Ep):</label>
+                        <input type="number" id="ep" name="ep" required /><br />
+
+                        <label for="gp">Monete d'Oro (Gp):</label>
+                        <input type="number" id="gp" name="gp" required /><br />
+
+                        <label for="pp">Monete di Platino (Pp):</label>
+                        <input type="number" id="pp" name="pp" required /><br />
+                    </div>
+                    <br />
+                </div>
+
+                <div class="section">
+                    <label for="comp_linguaggi" class="rettangolo_singolo"
+                        >Competenze & Linguaggi:</label
+                    ><br /><br />
+                    <textarea
+                        id="comp_linguaggi"
+                        name="comp_linguaggi"
+                    ></textarea>
+                    <br /><br />
+                </div>
+
+                <div class="section">
+                    <label for="privilegi_tratti" class="rettangolo_singolo"
+                        >Privilegi & Tratti:</label
+                    ><br /><br />
+                    <textarea
+                        id="privilegi_tratti"
+                        name="privilegi_tratti"
+                    ></textarea>
+                    <br /><br />
+                </div>
+            </div>
+
+            <div class="rettangolo">
+                <label for="eta">Età:</label>
+                <input type="number" id="eta" name="eta" required />
+
+                <label for="altezza">Altezza:</label>
+                <input type="text" id="altezza" name="altezza" required />
+
+                <label for="peso">Peso:</label>
+                <input type="text" id="peso" name="peso" required /><br /><br />
+
+                <label for="occhi">Occhi:</label>
+                <input type="text" id="occhi" name="occhi" required />
+
+                <label for="carnagione">Carnagione:</label>
+                <input type="text" id="carnagione" name="carnagione" required />
+
+                <label for="capelli">Capelli:</label>
+                <input
+                    type="text"
+                    id="capelli"
+                    name="capelli"
+                    required
+                /><br /><br />
+            </div>
+            <br />
+
+            <br />
+            <h1>Caricamento Aspetto</h1>
+            <input type="file" id="image-input" accept="image/*" /><br /><br />
+            <img id="image-preview" src="" alt="Preview" />
+            <br /><br />
+
+            <div class="container">
+                <div class="section">
+                    <label for="storia_pg" class="rettangolo_singolo"
+                        >Storia del Personaggio:</label
+                    ><br /><br />
+                    <textarea id="storia_pg" name="storia_pg"></textarea>
+                    <br /><br />
+                </div>
+
+                <div class="section">
+                    <label for="tesoro" class="rettangolo_singolo"
+                        >Tesoro del Personaggio:</label
+                    ><br /><br />
+                    <textarea id="tesoro" name="tesoro"></textarea> <br /><br />
+                </div>
+
+                <div class="section">
+                    <label
+                        for="allenze_organizzazioni"
+                        class="rettangolo_singolo"
+                        >Allenze & Organizzazioni:</label
+                    ><br /><br />
+                    <textarea
+                        id="allenze_organizzazioni"
+                        name="allenze_organizzazioni"
+                    ></textarea>
+                    <br /><br />
+                </div>
+            </div>
+            <br /><br />
+            <hr />
+            <br /><br />
+
+            <div class="container">
+                <div class="section">
+                    <h2>Equipaggiamento</h2>
+                    <div id="equipaggiamento-container">
+                        <!-- Campi di input per il primo oggetto di equipaggiamento -->
+                        <div class="equipaggiamento">
+                            <label for="equipaggiamento-nome"
+                                >Nome Oggetto:</label
+                            >
+                            <input
+                                type="text"
+                                name="equipaggiamento-nome[]"
+                                required
+                            /><br />
+                            <label for="equipaggiamento-tipo"
+                                >Tipo Oggetto:</label
+                            >
+                            <input
+                                type="text"
+                                name="equipaggiamento-tipo[]"
+                                required
+                            /><br />
+                            <button
+                                type="button"
+                                onclick="rimuoviEquipaggiamento(this)"
+                            >
+                                Rimuovi Equipaggiamento</button
+                            ><br />
+                        </div>
+                    </div>
+                    <button type="button" onclick="aggiungiEquipaggiamento()">
+                        Aggiungi Equipaggiamento
+                    </button>
+                </div>
+
+                <div class="section">
+                    <h2>Magie</h2>
+                    <div id="magie-container">
+                        <!-- Campi di input per la prima magia -->
+                        <div class="magia">
+                            <label for="magia-nome">Nome Magia:</label>
+                            <input
+                                type="text"
+                                name="magia-nome[]"
+                                required
+                            /><br />
+                            <label for="magia-livello">Livello Magia:</label>
+                            <input
+                                type="number"
+                                name="magia-livello[]"
+                                required
+                            /><br />
+                            <button type="button" onclick="rimuoviMagia(this)">
+                                Rimuovi Magia</button
+                            ><br />
+                        </div>
+                    </div>
+                    <button type="button" onclick="aggiungiMagia()">
+                        Aggiungi Magia
+                    </button>
+                </div>
+
+                <div class="section">
+                    <h2>Attacchi & Incantesimi</h2>
+                    <div id="attacchi-container">
+                        <!-- Campi di input per il primo oggetto di equipaggiamento -->
+                        <div class="attacchi">
+                            <label for="attacco-nome"
+                                >Nome Arma/Incantesimo:</label
+                            >
+                            <input
+                                type="text"
+                                name="attacco-nome[]"
+                                required
+                            /><br />
+                            <label for="attacco-bonus">Bonus Attc.:</label>
+                            <input
+                                type="text"
+                                name="attacco-bonus[]"
+                                required
+                            /><br />
+                            <label for="attacco-danno">Danno Attc.:</label>
+                            <input
+                                type="text"
+                                name="attacco-danno[]"
+                                required
+                            /><br />
+                            <label for="attacco-tipo">Tipo Attc.:</label>
+                            <input
+                                type="text"
+                                name="attacco-tipo[]"
+                                required
+                            /><br />
+                            <button
+                                type="button"
+                                onclick="rimuoviAttacco(this)"
+                            >
+                                Rimuovi Attacco/Incantesimo</button
+                            ><br />
+                        </div>
+                    </div>
+                    <button type="button" onclick="aggiungiAttacchi()">
+                        Aggiungi Attacco/Incantesimo
+                    </button>
+                </div>
+            </div>
+
+            <br /><br />
+            <hr />
+            <button type="submit" class="confirm">Salva Giocatore</button>
+        </form>
+
+        <!-- Includi Firebase SDK versione 8.x.x -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+        <script src="../server/createPlayer.js"></script>
+
+        <script>
+            function aggiungiEquipaggiamento() {
+                const equipaggiamentoContainer = document.getElementById(
+                    "equipaggiamento-container"
+                );
+
+                // Creazione di un nuovo blocco di campi di input per l'equipaggiamento
+                const nuovoEquipaggiamento = document.createElement("div");
+                nuovoEquipaggiamento.className = "equipaggiamento";
+                nuovoEquipaggiamento.innerHTML = `
+            <br>
             <label for="equipaggiamento-nome">Nome Oggetto:</label>
             <input type="text" name="equipaggiamento-nome[]" required><br>
             <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
             <input type="text" name="equipaggiamento-tipo[]" required><br>
             <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button><br>
-          </div>
-        </div>
-        <button type="button" onclick="aggiungiEquipaggiamento()">Aggiungi Equipaggiamento</button>
-      </div>
-    
-      <div class="section">
-        <h2>Magie</h2>
-        <div id="magie-container">
-          <!-- Campi di input per la prima magia -->
-          <div class="magia">
+        `;
+
+                equipaggiamentoContainer.appendChild(nuovoEquipaggiamento);
+            }
+
+            function rimuoviEquipaggiamento(button) {
+                const equipaggiamentoContainer = document.getElementById(
+                    "equipaggiamento-container"
+                );
+                equipaggiamentoContainer.removeChild(button.parentNode);
+            }
+
+            function aggiungiMagia() {
+                const magieContainer =
+                    document.getElementById("magie-container");
+
+                // Creazione di un nuovo blocco di campi di input per la magia
+                const nuovaMagia = document.createElement("div");
+                nuovaMagia.className = "magia";
+                nuovaMagia.innerHTML = `
+            <br>
             <label for="magia-nome">Nome Magia:</label>
             <input type="text" name="magia-nome[]" required><br>
             <label for="magia-livello">Livello Magia:</label>
             <input type="number" name="magia-livello[]" required><br>
             <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button><br>
-          </div>
-        </div>
-        <button type="button" onclick="aggiungiMagia()">Aggiungi Magia</button>
-      </div>
-    
-      <div class="section">
-        <h2>Attacchi & Incantesimi</h2>
-        <div id="attacchi-container">
-          <!-- Campi di input per il primo oggetto di equipaggiamento -->
-          <div class="attacchi">
+        `;
+
+                magieContainer.appendChild(nuovaMagia);
+            }
+
+            function rimuoviMagia(button) {
+                const magieContainer =
+                    document.getElementById("magie-container");
+                magieContainer.removeChild(button.parentNode);
+            }
+
+            function aggiungiAttacchi() {
+                const attacchiContainer =
+                    document.getElementById("attacchi-container");
+
+                // Creazione di un nuovo blocco di campi di input per gli attacchi e gli incatesimi equip.
+                const attacchi = document.createElement("div");
+                attacchi.className = "attacchi";
+                attacchi.innerHTML = `
+            <br>
             <label for="attacco-nome">Nome Arma/Incantesimo:</label>
             <input type="text" name="attacco-nome[]" required><br>
             <label for="attacco-bonus">Bonus Attc.:</label>
@@ -301,126 +737,42 @@
             <label for="attacco-tipo">Tipo Attc.:</label>
             <input type="text" name="attacco-tipo[]" required><br>
             <button type="button" onclick="rimuoviAttacco(this)">Rimuovi Attacco/Incantesimo</button><br>
-          </div>
-        </div>
-        <button type="button" onclick="aggiungiAttacchi()">Aggiungi Attacco/Incantesimo</button>
-      </div>
-  </div>
-    
-  <br><br>
-  <hr>
-  <button type="submit" class="confirm">Salva Giocatore</button>
-
-  </form>
-
-    <!-- Includi Firebase SDK versione 8.x.x -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-
-    <script src="../server/createPlayer.js"></script>
-
-    <script>
-        function aggiungiEquipaggiamento() {
-        const equipaggiamentoContainer = document.getElementById("equipaggiamento-container");
-
-        // Creazione di un nuovo blocco di campi di input per l'equipaggiamento
-        const nuovoEquipaggiamento = document.createElement("div");
-        nuovoEquipaggiamento.className = "equipaggiamento";
-        nuovoEquipaggiamento.innerHTML = `
-            <br>
-            <label for="equipaggiamento-nome">Nome Oggetto:</label>
-            <input type="text" name="equipaggiamento-nome[]" required><br>
-            <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
-            <input type="text" name="equipaggiamento-tipo[]" required><br>
-            <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button><br>
         `;
 
-        equipaggiamentoContainer.appendChild(nuovoEquipaggiamento);
-        }
+                attacchiContainer.appendChild(attacchi);
+            }
 
-        function rimuoviEquipaggiamento(button) {
-        const equipaggiamentoContainer = document.getElementById("equipaggiamento-container");
-        equipaggiamentoContainer.removeChild(button.parentNode);
-        }
+            function rimuoviAttacco(button) {
+                const attacchiContainer =
+                    document.getElementById("attacchi-container");
+                attacchiContainer.removeChild(button.parentNode);
+            }
 
-        function aggiungiMagia() {
-        const magieContainer = document.getElementById("magie-container");
+            // Ottieni riferimenti agli elementi HTML
+            const inputFile = document.getElementById("image-input");
+            const imagePreview = document.getElementById("image-preview");
 
-        // Creazione di un nuovo blocco di campi di input per la magia
-        const nuovaMagia = document.createElement("div");
-        nuovaMagia.className = "magia";
-        nuovaMagia.innerHTML = `
-            <br>
-            <label for="magia-nome">Nome Magia:</label>
-            <input type="text" name="magia-nome[]" required><br>
-            <label for="magia-livello">Livello Magia:</label>
-            <input type="number" name="magia-livello[]" required><br>
-            <button type="button" onclick="rimuoviMagia(this)">Rimuovi Magia</button><br>
-        `;
+            // Aggiungi un gestore di eventi per l'evento "change" dell'input file
+            inputFile.addEventListener("change", function () {
+                const file = inputFile.files[0];
 
-        magieContainer.appendChild(nuovaMagia);
-        }
+                if (file) {
+                    // Leggi il contenuto del file come URL dati
+                    const reader = new FileReader();
 
-        function rimuoviMagia(button) {
-        const magieContainer = document.getElementById("magie-container");
-        magieContainer.removeChild(button.parentNode);
-        }
+                    reader.onload = function (e) {
+                        // Assegna l'URL dati come sorgente dell'immagine di preview
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = "block"; // Mostra l'immagine di preview
+                    };
 
-        function aggiungiAttacchi() {
-        const attacchiContainer = document.getElementById("attacchi-container");
-
-        // Creazione di un nuovo blocco di campi di input per gli attacchi e gli incatesimi equip.
-        const attacchi = document.createElement("div");
-        attacchi.className = "attacchi";
-        attacchi.innerHTML = `
-            <br>
-            <label for="attacco-nome">Nome Arma/Incantesimo:</label>
-            <input type="text" name="attacco-nome[]" required><br>
-            <label for="attacco-bonus">Bonus Attc.:</label>
-            <input type="text" name="attacco-bonus[]" required><br>
-            <label for="attacco-danno">Danno Attc.:</label>
-            <input type="text" name="attacco-danno[]" required><br>
-            <label for="attacco-tipo">Tipo Attc.:</label>
-            <input type="text" name="attacco-tipo[]" required><br>
-            <button type="button" onclick="rimuoviAttacco(this)">Rimuovi Attacco/Incantesimo</button><br>
-        `;
-
-        attacchiContainer.appendChild(attacchi);
-        }
-
-        function rimuoviAttacco(button) {
-        const attacchiContainer = document.getElementById("attacchi-container");
-        attacchiContainer.removeChild(button.parentNode);
-        }
-
-        // Ottieni riferimenti agli elementi HTML
-        const inputFile = document.getElementById('image-input');
-        const imagePreview = document.getElementById('image-preview');
-
-        // Aggiungi un gestore di eventi per l'evento "change" dell'input file
-        inputFile.addEventListener('change', function () {
-          const file = inputFile.files[0];
-
-          if (file) {
-            // Leggi il contenuto del file come URL dati
-            const reader = new FileReader();
-            
-            reader.onload = function (e) {
-              // Assegna l'URL dati come sorgente dell'immagine di preview
-              imagePreview.src = e.target.result;
-              imagePreview.style.display = 'block'; // Mostra l'immagine di preview
-            };
-
-            // Leggi il contenuto del file come URL dati
-            reader.readAsDataURL(file);
-          } else {
-            // Se l'utente annulla la selezione, nascondi l'immagine di preview
-            imagePreview.style.display = 'none';
-          }
-        });
-
-
-    </script>
-</body>
+                    // Leggi il contenuto del file come URL dati
+                    reader.readAsDataURL(file);
+                } else {
+                    // Se l'utente annulla la selezione, nascondi l'immagine di preview
+                    imagePreview.style.display = "none";
+                }
+            });
+        </script>
+    </body>
 </html>

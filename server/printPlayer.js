@@ -30,6 +30,8 @@ const velocitaDIV = document.getElementById("velocita");
 const ispirazioneDIV = document.getElementById("ispirazione");
 const ispirazioneCheckbox = document.getElementById("ispirazioneCheckbox"); // solo per checkbox di ispirazione
 const saluteDIV = document.getElementById("salute");
+const tsDIV = document.getElementById("caratteristica_ts");
+const sensiDIV = document.getElementById("sensi");
 
 function ottieniEVisualizzaDati() {
     playersRef.doc(playerId).get().then((doc) => {
@@ -55,6 +57,12 @@ function ottieniEVisualizzaDati() {
             const max_punti_ferita = data.max_punti_ferita;
             const curr_punti_ferita = data.curr_punti_ferita;
             const temp_punti_ferita = data.temp_punti_ferita;
+            const forza_ts = data.forza_ts;
+            const destrezza_ts = data.destrezza_ts;
+            const costituzione_ts = data.costituzione_ts;
+            const intelligenza_ts = data.intelligenza_ts;
+            const saggezza_ts = data.saggezza_ts;
+            const carisma_ts = data.carisma_ts;
 
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
@@ -80,13 +88,21 @@ function ottieniEVisualizzaDati() {
 
             ispirazioneCheckbox.checked = ispirazione;
 
-            if(temp_punti_ferita != 0)
+            if(temp_punti_ferita != 0) {
                 saluteDIV.innerHTML = `<p>Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
                 <br<p>Temporanei:&nbsp &nbsp ${temp_punti_ferita}</p>`;
-            else
+            }
+            else {
                 saluteDIV.innerHTML = `<p>Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
                 <br<p>Temporanei:&nbsp &nbsp ---</p>`;
+            }
             
+            tsDIV.innerHTML = `<p>Tiri Salvezza Abilità</p><br><br><br>
+            <p>Forza: ${segno(forza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Intelligenza: ${segno(intelligenza_ts)} </p><br>
+            <p>Destrezza: ${segno(destrezza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Saggezza: ${segno(saggezza_ts)} </p><br>
+            <p>Costituzione: ${segno(costituzione_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Carisma: ${segno(carisma_ts)} </p>
+            `;
+
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
         }
@@ -107,4 +123,11 @@ function ottieniSegno(elementoDiv, elementoData, nome_caratteristica) {
         elementoDiv.innerHTML = `<p>${nome_caratteristica}<br><br>+${elementoData}</p>`
     else 
         elementoDiv.innerHTML = `<p>${nome_caratteristica}<br><br>${elementoData}</p>`
+}
+
+function segno(elementoData) {
+    if(elementoData > 0)
+        return `+${elementoData}`
+    else
+    return `${elementoData}`
 }
