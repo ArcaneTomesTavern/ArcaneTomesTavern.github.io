@@ -46,6 +46,13 @@ form.addEventListener("submit", function (e) {
     const saggezza = parseInt(document.getElementById("saggezza").value);
     const carisma = parseInt(document.getElementById("carisma").value);
 
+    const forza_ts = parseInt(document.getElementById("forza_ts").value);
+    const destrezza_ts = parseInt(document.getElementById("destrezza_ts").value);
+    const costituzione_ts = parseInt(document.getElementById("costituzione_ts").value);
+    const intelligenza_ts = parseInt(document.getElementById("intelligenza_ts").value);
+    const saggezza_ts = parseInt(document.getElementById("saggezza_ts").value);
+    const carisma_ts = parseInt(document.getElementById("carisma_ts").value);
+
     const ispirazione = false;
     const bonus_competenza = parseInt(document.getElementById("bonus_competenza").value);
 
@@ -163,6 +170,13 @@ form.addEventListener("submit", function (e) {
                     saggezza: saggezza,
                     carisma: carisma,
 
+                    forza_ts: forza_ts,
+                    destrezza_ts: destrezza_ts,
+                    costituzione_ts: costituzione_ts,
+                    intelligenza_ts: intelligenza_ts,
+                    saggezza_ts: saggezza_ts,
+                    carisma_ts: carisma_ts,
+
                     ispirazione: ispirazione,
                     bonus_competenza: bonus_competenza,
                     percezione_passiva: percezione_passiva,
@@ -261,6 +275,13 @@ form.addEventListener("submit", function (e) {
                     intelligenza: intelligenza,
                     saggezza: saggezza,
                     carisma: carisma,
+
+                    forza_ts: forza_ts,
+                    destrezza_ts: destrezza_ts,
+                    costituzione_ts: costituzione_ts,
+                    intelligenza_ts: intelligenza_ts,
+                    saggezza_ts: saggezza_ts,
+                    carisma_ts: carisma_ts,
 
                     ispirazione: ispirazione,
                     bonus_competenza: bonus_competenza,

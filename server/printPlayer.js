@@ -67,12 +67,12 @@ function ottieniEVisualizzaDati() {
             const immagineElement = document.getElementById('immagineFirebase');
             immagineElement.src = imageUrl;  
 
-            ottieniSegno(forzaDIV, forza);
-            ottieniSegno(destrezzaDIV, destrezza);       
-            ottieniSegno(costituzioneDIV, costituzione);
-            ottieniSegno(intelligenzaDIV, intelligenza);
-            ottieniSegno(saggezzaDIV, saggezza);     
-            ottieniSegno(carismaDIV, carisma);
+            ottieniSegno(forzaDIV, forza, "Forza");
+            ottieniSegno(destrezzaDIV, destrezza, "Destrezza");       
+            ottieniSegno(costituzioneDIV, costituzione, "Costituzione");
+            ottieniSegno(intelligenzaDIV, intelligenza, "Intelligenza");
+            ottieniSegno(saggezzaDIV, saggezza, "Saggezza");     
+            ottieniSegno(carismaDIV, carisma, "Carisma");
 
             bonus_compDIV.innerHTML = `<p>Bonus Competenza</p><br><p>+${bonus_competenza}</p>`;
 
@@ -102,9 +102,9 @@ ottieniEVisualizzaDati();
 const level_exp = [1, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000,
      120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000];
 
-function ottieniSegno(elementoDiv, elementoData) {
+function ottieniSegno(elementoDiv, elementoData, nome_caratteristica) {
     if(elementoData > 0)
-        elementoDiv.innerHTML = `<p> +${elementoData}</p>`
+        elementoDiv.innerHTML = `<p>${nome_caratteristica}<br><br>+${elementoData}</p>`
     else 
-        elementoDiv.innerHTML = `<p> ${elementoData}</p>`
+        elementoDiv.innerHTML = `<p>${nome_caratteristica}<br><br>${elementoData}</p>`
 }
