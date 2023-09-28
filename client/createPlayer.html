@@ -553,20 +553,16 @@
                     <div id="equipaggiamento-container">
                         <!-- Campi di input per il primo oggetto di equipaggiamento -->
                         <div class="equipaggiamento">
-                            <label for="equipaggiamento-nome"
-                                >Nome Oggetto:</label
-                            >
+                            <label for="equipaggiamento-nome">Nome Oggetto:</label>
                             <input
                                 type="text"
                                 name="equipaggiamento-nome[]"
                                 required
                             /><br />
-                            <label for="equipaggiamento-tipo"
-                                >Tipo Oggetto:</label
-                            >
+                            <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
                             <select 
                             type="number"
-                            name="magia-livello[]"
+                            name="equipaggiamento-tipo[]"
                             id="tipoEquipaggiamentoSelect"
                             required>
                                 <option value="armatura">Armatura</option>
@@ -684,7 +680,7 @@
             <label for="equipaggiamento-nome">Nome Oggetto:</label>
             <input type="text" name="equipaggiamento-nome[]" required><br>
             <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
-            <select type="number" name="magia-livello[]"required>
+            <select type="number" name="equipaggiamento-tipo[]"required>
                 <option value="armatura">Armatura</option>
                 <option value="arma">Arma</option>
                 <option value="utensile">Utensile</option>
