@@ -119,7 +119,8 @@ form.addEventListener("submit", function (e) {
         const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
         equipaggiamentoInputs.forEach(input => {
             const nomeEquipaggiamento = input.querySelector("[name='equipaggiamento-nome[]']").value;
-            const tipoEquipaggiamento = input.querySelector("[name='equipaggiamento-tipo[]']").value;
+            const selectElement = input.querySelector("#tipoEquipaggiamentoSelect");
+            const tipoEquipaggiamento = selectElement.options[selectElement.selectedIndex].value;
             equipaggiamento.push({ nome: nomeEquipaggiamento, tipo: tipoEquipaggiamento });
         });
 
