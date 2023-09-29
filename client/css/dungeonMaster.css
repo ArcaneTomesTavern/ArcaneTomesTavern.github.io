@@ -41,10 +41,14 @@ body {
     height: 2rem;
     overflow: hidden;
 }
+.row:hover{
+    background-color: bisque;
+    border-radius: 0.5rem;
+}
 .ply-div {
     padding: 0.5rem;
     margin: 0.5rem;
-    background-color: bisque;
+    background-color: #d5a24c;
     border-radius: 0.7rem;
 }
 .icons {
