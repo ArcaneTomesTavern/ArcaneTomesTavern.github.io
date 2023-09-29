@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 // Ottieni un riferimento a Firestore
 const db = firebase.firestore();
 const playersRef = db.collection("players"); // Sostituisci "players" con il nome effettivo della tua raccolta
-const playerId = "U50R9nXSG7JV95b2xyMN"; // Sostituisci con l'ID del documento che desideri recuperare
+const playerId = "ELyqKAN794416YGJXPGv"; // Sostituisci con l'ID del documento che desideri recuperare
 
 // DIV VARI DEI DATI
 const nome_pgDIV = document.getElementById("nome_pg");
@@ -71,6 +71,8 @@ function ottieniEVisualizzaDati() {
             const percezione_passiva = data.percezione_passiva;
             const investigazione_passiva= data.investigazione_passiva;
             const saggezza_passiva = data.saggezza_passiva;
+
+            const armatura = data.equipaggiamento.tipo;
 
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
