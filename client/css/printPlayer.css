@@ -102,7 +102,6 @@
     align-items: center;
 }
 
-
 .container_mega {
     display: flex;
     flex-wrap: wrap;
@@ -166,7 +165,7 @@
     border: 2px solid #b92929;
     border-radius: 5px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     display: flex;
     flex-direction: column;

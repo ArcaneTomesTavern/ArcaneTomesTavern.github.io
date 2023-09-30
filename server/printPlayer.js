@@ -33,6 +33,7 @@ const saluteDIV = document.getElementById("salute");
 const tsDIV = document.getElementById("caratteristica_ts");
 const sensiDIV = document.getElementById("sensi");
 const comp_linguaggiDIV = document.getElementById("competenze_linguaggi");
+const abilitaDIV = document.getElementById("abilita");
 
 function ottieniEVisualizzaDati() {
     playersRef.doc(playerId).get().then((doc) => {
@@ -74,8 +75,44 @@ function ottieniEVisualizzaDati() {
             const saggezza_passiva = data.saggezza_passiva;
 
             const equipaggiamento = data.equipaggiamento;
-            
             const comp_linguaggi = data.comp_linguaggi;
+
+            const acrobazia = data.acrobazia;
+            const acrobaziaChecked = data.acrobaziaChecked;
+            const addestrare_animali = data.addestrare_animali;
+            const addestrare_animaliChecked = data.addestrare_animaliChecked;
+            const arcano = data.arcano;
+            const arcanoChecked = data.arcanoChecked;
+            const atletica = data.atletica;
+            const atleticaChecked = data.atleticaChecked;
+            const furtivita = data.furtivita;
+            const furtivitaChecked = data.furtivitaChecked;
+            const indagare = data.indagare;
+            const indagareChecked = data.indagareChecked;
+            const inganno = data.inganno;
+            const ingannoChecked = data.ingannoChecked;
+            const intimidire = data.intimidire;
+            const intimidireChecked = data.intimidireChecked;
+            const intrattenere = data.intrattenere;
+            const intrattenereChecked = data.intrattenereChecked;
+            const intuizione = data.intuizione;
+            const intuizioneChecked = data.intuizioneChecked;
+            const medicina = data.medicina;
+            const medicinaChecked = data.medicinaChecked;
+            const natura = data.natura;
+            const naturaChecked = data.naturaChecked;
+            const percezione = data.percezione;
+            const percezioneChecked = data.percezioneChecked;
+            const persuasione = data.persuasione;
+            const persuasioneChecked = data.persuasioneChecked;
+            const rapidita_mano = data.rapidita_mano;
+            const rapidita_manoChecked = data.rapidita_manoChecked;
+            const religione = data.religione;
+            const religioneChecked = data.religioneChecked;
+            const sopravvivenza = data.sopravvivenza;
+            const sopravvivenzaChecked = data.sopravvivenzaChecked;
+            const storia = data.storia;
+            const storiaChecked = data.storiaChecked;
 
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
@@ -87,14 +124,14 @@ function ottieniEVisualizzaDati() {
 
             const immagineElement = document.getElementById('immagineFirebase');
             immagineElement.src = imageUrl;  
-
-            ottieniSegno(forzaDIV, forza, "Forza");
-            ottieniSegno(destrezzaDIV, destrezza, "Destrezza");       
-            ottieniSegno(costituzioneDIV, costituzione, "Costituzione");
-            ottieniSegno(intelligenzaDIV, intelligenza, "Intelligenza");
-            ottieniSegno(saggezzaDIV, saggezza, "Saggezza");     
-            ottieniSegno(carismaDIV, carisma, "Carisma");
-
+            
+            forzaDIV.innerHTML = `<p>Forza<br><br>${ottieniSegno(forza)}</p>`;
+            destrezzaDIV.innerHTML = `<p>Destrezza<br><br>${ottieniSegno(destrezza)}</p>`;
+            costituzioneDIV.innerHTML = `<p>Costituzione<br><br>${ottieniSegno(costituzione)}</p>`;
+            intelligenzaDIV.innerHTML = `<p>Intelligenza<br><br>${ottieniSegno(intelligenza)}</p>`;
+            saggezzaDIV.innerHTML = `<p>Saggezza<br><br>${ottieniSegno(saggezza)}</p>`;
+            carismaDIV.innerHTML = `<p>Carisma<br><br>${ottieniSegno(carisma)}</p>`;
+            
             bonus_compDIV.innerHTML = `<p>Bonus Competenza</p><br><p>+${bonus_competenza}</p>`;
 
             velocitaDIV.innerHTML = `<p>Velocità</p><br><p>${velocita}ft</p>`;
@@ -111,9 +148,9 @@ function ottieniEVisualizzaDati() {
             }
             
             tsDIV.innerHTML = `<p style="color: grey; font-size: 22px">Tiri Salvezza Abilità</p><br><br><br>
-            <p>Forza: ${segno(forza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Intelligenza: ${segno(intelligenza_ts)} </p><br>
-            <p>Destrezza: ${segno(destrezza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Saggezza: ${segno(saggezza_ts)} </p><br>
-            <p>Costituzione: ${segno(costituzione_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Carisma: ${segno(carisma_ts)} </p>
+            <p>Forza: ${ottieniSegno(forza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Intelligenza: ${ottieniSegno(intelligenza_ts)} </p><br>
+            <p>Destrezza: ${ottieniSegno(destrezza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Saggezza: ${ottieniSegno(saggezza_ts)} </p><br>
+            <p>Costituzione: ${ottieniSegno(costituzione_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Carisma: ${ottieniSegno(carisma_ts)} </p>
             `;
 
             sensiDIV.innerHTML = `<p style="color: grey; font-size: 22px">Capacità Sensoriali</p><br><br><br>
@@ -124,6 +161,64 @@ function ottieniEVisualizzaDati() {
 
             comp_linguaggiDIV.innerHTML = `<p style="color: grey; font-size: 22px">Competenze e Linguaggi</p><br><br><br>
             ${dividiEquipaggiamento(equipaggiamento)}<hr><br><br><p style="color: grey; font-size: 18px"> Linguaggi</p><br><p>${comp_linguaggi}</p>`;
+
+            abilitaDIV.innerHTML = `<p style="color: grey; font-size: 22px">Abilità</p><br><br>
+                <div>
+                    <input type="checkbox" id="checkboxAcrobazia" ${acrobaziaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxAcrobazia">Acrobazia:${ottieniSegno(acrobazia)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxAddestrare_animali" ${addestrare_animaliChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxAddestrare_animali">Addestrare_animali:${ottieniSegno(addestrare_animali)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxArcano" ${arcanoChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxArcano">Arcano:${ottieniSegno(arcano)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxAtletica" ${atleticaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxAtletica">Atletica:${ottieniSegno(atletica)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxFurtivita" ${furtivitaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxFurtivita">Furtivita:${ottieniSegno(furtivita)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxIndagare" ${indagareChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxIndagare">Indagare:${ottieniSegno(indagare)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxInganno" ${ingannoChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxInganno">Inganno:${ottieniSegno(inganno)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxIntimidire" ${intimidireChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxIntimidire">Intimidire:${ottieniSegno(intimidire)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxIntrattenere" ${intrattenereChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxIntrattenere">Intrattenere:${ottieniSegno(intrattenere)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxIntuizione" ${intuizioneChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxIntuizione">Intuizione:${ottieniSegno(intuizione)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxMedicina" ${medicinaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxMedicina">Medicina:${ottieniSegno(medicina)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxNatura" ${naturaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxNatura">Natura:${ottieniSegno(natura)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxPercezione" ${percezioneChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxPercezione">Percezione:${ottieniSegno(percezione)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxPersuasione" ${persuasioneChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxPersuasione">Persuasione:${ottieniSegno(persuasione)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxRapidita_mano" ${rapidita_manoChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxRapidita_mano">Rapidita di Mano:${ottieniSegno(rapidita_mano)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxReligione" ${religioneChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxReligione">Religione:${ottieniSegno(religione)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxSopravvivenza" ${sopravvivenzaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxSopravvivenza">Sopravvivenza:${ottieniSegno(sopravvivenza)}</label><br><br><br>
+
+                    <input type="checkbox" id="checkboxStoria" ${storiaChecked ? 'checked' : ''} disabled>
+                    <label for="checkboxStoria">Storia:${ottieniSegno(storia)}</label><br><br><br>
+                </div>
+            `;
 
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
@@ -140,14 +235,7 @@ ottieniEVisualizzaDati();
 const level_exp = [1, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000,
      120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000];
 
-function ottieniSegno(elementoDiv, elementoData, nome_caratteristica) {
-    if(elementoData > 0)
-        elementoDiv.innerHTML = `<p>${nome_caratteristica}<br><br>+${elementoData}</p>`
-    else 
-        elementoDiv.innerHTML = `<p>${nome_caratteristica}<br><br>${elementoData}</p>`
-}
-
-function segno(elementoData) {
+function ottieniSegno(elementoData) {
     if(elementoData > 0)
         return `+${elementoData}`
     else
