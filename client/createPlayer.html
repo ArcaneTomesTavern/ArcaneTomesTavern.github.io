@@ -321,8 +321,14 @@
             </div>
 
             <br><br>
-            <hr />
+            <hr>
             <button type="submit" class="confirm">Salva Giocatore</button>
+
+            <!-- 
+            <div class="loader-wrapper">
+                <span class="loader"><span class="loader-inner"></span></span>
+            </div>
+            -->
 
         </form>
 
@@ -444,6 +450,30 @@
                     imagePreview.style.display = "none";
                 }
             });
+
+            /*
+            // Ottieni un riferimento all'elemento del loader
+            const loaderContainer = document.getElementById("loader-wrapper");
+
+            // Ottieni un riferimento al tuo modulo di invio (assumendo che abbia un ID "myForm")
+            const form = document.getElementById("giocatore-form");
+
+            // Aggiungi un ascoltatore per l'invio del modulo
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Previene l'invio del modulo predefinito
+            
+            // Mostra la schermata di caricamento
+            loaderContainer.style.display = "block";
+
+            // Simula un ritardo per scopi dimostrativi (puoi rimuovere questa parte)
+            setTimeout(function () {
+                // Nascondi la schermata di caricamento dopo un certo periodo di tempo
+                loaderContainer.style.display = "none";
+                
+                // Puoi aggiungere qui il codice per inviare effettivamente il modulo o fare altre operazioni
+            }, 3000); // Cambia 3000 a quanto tempo desideri che la schermata di caricamento sia visibile
+            });*/
+
         </script>
     </body>
 </html>
