@@ -148,7 +148,7 @@
     border: 2px solid #b92929;
     border-radius: 5px;
     text-align: right;
-    font-size: 18px;
+    font-size: 12px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -179,3 +179,19 @@ body {
     margin-left: 50px;
     margin-top: 50px;
 }
+
+hr {
+    border: 90%;
+    width: 96%;
+    height: 1px;
+}
+
+#schermata-caricamento {
+    /* Alcune personalizzazioni */
+    background-color: #3498db;
+    color: #fff;
+}
+
+.animate__bounce {
+    animation-duration: 2s; /* Durata dell'animazione in secondi */
+}  

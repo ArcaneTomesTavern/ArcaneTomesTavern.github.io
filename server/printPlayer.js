@@ -32,6 +32,7 @@ const ispirazioneCheckbox = document.getElementById("ispirazioneCheckbox"); // s
 const saluteDIV = document.getElementById("salute");
 const tsDIV = document.getElementById("caratteristica_ts");
 const sensiDIV = document.getElementById("sensi");
+const comp_linguaggiDIV = document.getElementById("competenze_linguaggi");
 
 function ottieniEVisualizzaDati() {
     playersRef.doc(playerId).get().then((doc) => {
@@ -72,7 +73,9 @@ function ottieniEVisualizzaDati() {
             const investigazione_passiva= data.investigazione_passiva;
             const saggezza_passiva = data.saggezza_passiva;
 
-            const armatura = data.equipaggiamento.tipo;
+            const equipaggiamento = data.equipaggiamento;
+            
+            const comp_linguaggi = data.comp_linguaggi;
 
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
@@ -119,6 +122,8 @@ function ottieniEVisualizzaDati() {
             <p>Saggezza Passiva:&nbsp${saggezza_passiva}</p><br>
             `;
 
+            comp_linguaggiDIV.innerHTML = `${dividiEquipaggiamento(equipaggiamento)}<hr><br><br><p style="color: grey; font-size: 18px"> Linguaggi</p><br><p>${comp_linguaggi}</p>`;
+
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
         }
@@ -145,5 +150,54 @@ function segno(elementoData) {
     if(elementoData > 0)
         return `+${elementoData}`
     else
-    return `${elementoData}`
+        return `${elementoData}`
 }
+
+function dividiEquipaggiamento(elementoData) {
+    var s_armature = `<p style="color: grey; font-size: 18px">Armature</p><br>`;
+    var s_armi = `<p style="color: grey; font-size: 18px">Armi</p><br>`;
+    var s_oggetti = `<p style="color: grey; font-size: 18px">Utensili</p><br>`;
+
+    var armature_counter = 0;
+    var armi_counter = 0;
+    var oggetti_counter = 0;
+
+    var armatura_checklast = 0;
+    var arma_checklast = 0;
+    var utensile_checklast = 0;
+
+    for(var i = 0; i < elementoData.length; i++)
+    {
+        if (`${elementoData[i].tipo}` == "armatura")
+            armature_counter++;
+        if (`${elementoData[i].tipo}` == "arma")
+            armi_counter++;
+        if (`${elementoData[i].tipo}` == "utensile")
+            oggetti_counter++;
+    }
+
+    for (var i = 0; i < elementoData.length; i++) {
+        if (`${elementoData[i].tipo}` == "armatura") {
+            s_armature += `${elementoData[i].nome},&nbsp&nbsp`;
+            armatura_checklast++;
+            if(armatura_checklast == armature_counter)
+                s_armature += `${elementoData[i].nome}`;          
+        }
+        if (`${elementoData[i].tipo}` == "arma") { //TODO da sistemare
+            if(arma_checklast == armi_counter)
+                s_armi += `${elementoData[i].nome}`;
+            s_armi += `${elementoData[i].nome},&nbsp&nbsp`;
+            arma_checklast++;
+        }
+        if (`${elementoData[i].tipo}` == "utensile") {
+            s_oggetti += `${elementoData[i].nome},&nbsp&nbsp`;
+            utensile_checklast++;
+            if(utensile_checklast == oggetti_counter)
+                s_oggetti += `${elementoData[i].nome}`;
+        }
+    }
+
+    //TODO fare check delle 4 che fa a capo se superata la soglia appuntoo delle 4  
+    return `<p>${s_armature}</p><br><hr><br><br><p>${s_armi}</p><br><hr><br><br><p>${s_oggetti}</p><br>`
+  }
+  

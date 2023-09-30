@@ -323,6 +323,11 @@
             <br><br>
             <hr />
             <button type="submit" class="confirm">Salva Giocatore</button>
+
+            <div id="schermata-caricamento" class="animate__animated animate__bounce" style="display: none;">
+                <p>Caricamento in corso...</p>
+            </div>
+
         </form>
 
         <!-- Includi Firebase SDK versione 8.x.x -->
@@ -442,6 +447,19 @@
                     // Se l'utente annulla la selezione, nascondi l'immagine di preview
                     imagePreview.style.display = "none";
                 }
+            });
+
+            const form = document.getElementById("giocatore-form");
+            const schermataCaricamento = document.getElementById("schermata-caricamento");
+
+            form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Blocca l'invio del modulo predefinito
+
+            // Nascondi il modulo principale
+            form.style.display = "none";
+
+            // Mostra la schermata di caricamento
+            schermataCaricamento.style.display = "block";
             });
         </script>
     </body>
