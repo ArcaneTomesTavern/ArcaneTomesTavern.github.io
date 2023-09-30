@@ -110,19 +110,20 @@ function ottieniEVisualizzaDati() {
                 <br<p>Temporanei:&nbsp &nbsp ---</p>`;
             }
             
-            tsDIV.innerHTML = `<p>Tiri Salvezza Abilità</p><br><br><br>
+            tsDIV.innerHTML = `<p style="color: grey; font-size: 22px">Tiri Salvezza Abilità</p><br><br><br>
             <p>Forza: ${segno(forza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Intelligenza: ${segno(intelligenza_ts)} </p><br>
             <p>Destrezza: ${segno(destrezza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Saggezza: ${segno(saggezza_ts)} </p><br>
             <p>Costituzione: ${segno(costituzione_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Carisma: ${segno(carisma_ts)} </p>
             `;
 
-            sensiDIV.innerHTML = `<p>Capacità Sensoriali</p><br><br><br>
+            sensiDIV.innerHTML = `<p style="color: grey; font-size: 22px">Capacità Sensoriali</p><br><br><br>
             <p>Percezione Passiva:&nbsp${percezione_passiva}</p><br>
             <p>Investigazione Passiva:&nbsp${investigazione_passiva}</p><br>
             <p>Saggezza Passiva:&nbsp${saggezza_passiva}</p><br>
             `;
 
-            comp_linguaggiDIV.innerHTML = `${dividiEquipaggiamento(equipaggiamento)}<hr><br><br><p style="color: grey; font-size: 18px"> Linguaggi</p><br><p>${comp_linguaggi}</p>`;
+            comp_linguaggiDIV.innerHTML = `<p style="color: grey; font-size: 22px">Competenze e Linguaggi</p><br><br><br>
+            ${dividiEquipaggiamento(equipaggiamento)}<hr><br><br><p style="color: grey; font-size: 18px"> Linguaggi</p><br><p>${comp_linguaggi}</p>`;
 
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
@@ -178,22 +179,22 @@ function dividiEquipaggiamento(elementoData) {
 
     for (var i = 0; i < elementoData.length; i++) {
         if (`${elementoData[i].tipo}` == "armatura") {
-            s_armature += `${elementoData[i].nome},&nbsp&nbsp`;
-            armatura_checklast++;
-            if(armatura_checklast == armature_counter)
-                s_armature += `${elementoData[i].nome}`;          
+            armatura_checklast++;   
+            s_armature += `${elementoData[i].nome}`;
+            if(armatura_checklast != armature_counter)
+                s_armature += `,&nbsp`;
         }
-        if (`${elementoData[i].tipo}` == "arma") { //TODO da sistemare
-            if(arma_checklast == armi_counter)
-                s_armi += `${elementoData[i].nome}`;
-            s_armi += `${elementoData[i].nome},&nbsp&nbsp`;
+        if (`${elementoData[i].tipo}` == "arma") {
             arma_checklast++;
+            s_armi += `${elementoData[i].nome}`;
+            if(arma_checklast != armi_counter)
+                s_armi += `,&nbsp`;
         }
         if (`${elementoData[i].tipo}` == "utensile") {
-            s_oggetti += `${elementoData[i].nome},&nbsp&nbsp`;
             utensile_checklast++;
-            if(utensile_checklast == oggetti_counter)
-                s_oggetti += `${elementoData[i].nome}`;
+            s_oggetti += `${elementoData[i].nome}`;
+            if(utensile_checklast != oggetti_counter)
+                s_oggetti += `,&nbsp`;
         }
     }
 
