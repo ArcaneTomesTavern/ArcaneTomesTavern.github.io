@@ -119,16 +119,6 @@ textarea {
     min-height: 50px;
 }
 
-#schermata-caricamento {
-    /* Alcune personalizzazioni */
-    background-color: #3498db;
-    color: #fff;
-}
-
-.animate__bounce {
-    animation-duration: 2s; /* Durata dell'animazione in secondi */
-}  
-
 /*body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
