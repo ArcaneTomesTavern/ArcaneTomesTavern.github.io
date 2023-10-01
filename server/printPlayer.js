@@ -64,11 +64,17 @@ function ottieniEVisualizzaDati() {
             const temp_punti_ferita = data.temp_punti_ferita;
 
             const forza_ts = data.forza_ts;
+            const forza_tsChecked = data.forza_tsChecked;
             const destrezza_ts = data.destrezza_ts;
+            const destrezza_tsChecked = data.destrezza_tsChecked;
             const costituzione_ts = data.costituzione_ts;
+            const costituzione_tsChecked = data.costituzione_tsChecked;
             const intelligenza_ts = data.intelligenza_ts;
+            const intelligenza_tsChecked = data.intelligenza_tsChecked;
             const saggezza_ts = data.saggezza_ts;
+            const saggezza_tsChecked = data.saggezza_tsChecked;
             const carisma_ts = data.carisma_ts;
+            const carisma_tsChecked = data.carisma_tsChecked;
 
             const percezione_passiva = data.percezione_passiva;
             const investigazione_passiva= data.investigazione_passiva;
@@ -148,9 +154,25 @@ function ottieniEVisualizzaDati() {
             }
             
             tsDIV.innerHTML = `<p style="color: grey; font-size: 22px">Tiri Salvezza Abilità</p><br><br><br>
-            <p>Forza: ${ottieniSegno(forza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Intelligenza: ${ottieniSegno(intelligenza_ts)} </p><br>
-            <p>Destrezza: ${ottieniSegno(destrezza_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Saggezza: ${ottieniSegno(saggezza_ts)} </p><br>
-            <p>Costituzione: ${ottieniSegno(costituzione_ts)} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Carisma: ${ottieniSegno(carisma_ts)} </p>
+            <div>
+                <input type="checkbox" id="checkboxForza_ts" ${forza_tsChecked ? 'checked' : ''} disabled>
+                <label for="checkboxForza_ts">Forza:&nbsp${ottieniSegno(forza_ts)}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+
+                <input type="checkbox" id="checkboxIntelligenza_ts" ${intelligenza_tsChecked ? 'checked' : ''} disabled>
+                <label for="checkboxIntelligenza_ts">Intelligenza&nbsp:${ottieniSegno(intelligenza_ts)}</label><br><br><br>
+
+                <input type="checkbox" id="checkboxDestrezza_ts" ${destrezza_tsChecked ? 'checked' : ''} disabled>
+                <label for="checkboxDestrezza_ts">Destrezza:&nbsp${ottieniSegno(destrezza_ts)}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+
+                <input type="checkbox" id="checkboxSaggezza_ts" ${saggezza_tsChecked ? 'checked' : ''} disabled>
+                <label for="checkboxSaggezza_ts">Saggezza&nbsp:${ottieniSegno(saggezza_ts)}</label><br><br><br>
+
+                <input type="checkbox" id="checkboxCostituzione_ts" ${costituzione_tsChecked ? 'checked' : ''} disabled>
+                <label for="checkboxCostituzione_ts">Costituzione:&nbsp${ottieniSegno(costituzione_ts)}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+
+                <input type="checkbox" id="checkboxCarisma_ts" ${carisma_tsChecked ? 'checked' : ''} disabled>
+                <label for="checkboxCarisma_ts">Carisma&nbsp:${ottieniSegno(carisma_ts)}</label><br><br><br>
+            </div>
             `;
 
             sensiDIV.innerHTML = `<p style="color: grey; font-size: 22px">Capacità Sensoriali</p><br><br><br>
@@ -162,61 +184,61 @@ function ottieniEVisualizzaDati() {
             comp_linguaggiDIV.innerHTML = `<p style="color: grey; font-size: 22px">Competenze e Linguaggi</p><br><br><br>
             ${dividiEquipaggiamento(equipaggiamento)}<hr><br><br><p style="color: grey; font-size: 18px"> Linguaggi</p><br><p>${comp_linguaggi}</p>`;
 
-            abilitaDIV.innerHTML = `<p style="color: grey; font-size: 22px">Abilità</p><br><br>
+            abilitaDIV.innerHTML = `<br><br><p style="color: grey; font-size: 22px">Abilità</p><br><br>
                 <div>
                     <input type="checkbox" id="checkboxAcrobazia" ${acrobaziaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxAcrobazia">Acrobazia:${ottieniSegno(acrobazia)}</label><br><br><br>
+                    <label for="checkboxAcrobazia">Acrobazia:&nbsp${ottieniSegno(acrobazia)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxAddestrare_animali" ${addestrare_animaliChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxAddestrare_animali">Addestrare_animali:${ottieniSegno(addestrare_animali)}</label><br><br><br>
+                    <label for="checkboxAddestrare_animali">Addestrare_animali:&nbsp${ottieniSegno(addestrare_animali)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxArcano" ${arcanoChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxArcano">Arcano:${ottieniSegno(arcano)}</label><br><br><br>
+                    <label for="checkboxArcano">Arcano:&nbsp${ottieniSegno(arcano)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxAtletica" ${atleticaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxAtletica">Atletica:${ottieniSegno(atletica)}</label><br><br><br>
+                    <label for="checkboxAtletica">Atletica:&nbsp${ottieniSegno(atletica)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxFurtivita" ${furtivitaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxFurtivita">Furtivita:${ottieniSegno(furtivita)}</label><br><br><br>
+                    <label for="checkboxFurtivita">Furtivita:&nbsp${ottieniSegno(furtivita)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxIndagare" ${indagareChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxIndagare">Indagare:${ottieniSegno(indagare)}</label><br><br><br>
+                    <label for="checkboxIndagare">Indagare:&nbsp${ottieniSegno(indagare)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxInganno" ${ingannoChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxInganno">Inganno:${ottieniSegno(inganno)}</label><br><br><br>
+                    <label for="checkboxInganno">Inganno:&nbsp${ottieniSegno(inganno)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxIntimidire" ${intimidireChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxIntimidire">Intimidire:${ottieniSegno(intimidire)}</label><br><br><br>
+                    <label for="checkboxIntimidire">Intimidire:&nbsp${ottieniSegno(intimidire)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxIntrattenere" ${intrattenereChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxIntrattenere">Intrattenere:${ottieniSegno(intrattenere)}</label><br><br><br>
+                    <label for="checkboxIntrattenere">Intrattenere:&nbsp${ottieniSegno(intrattenere)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxIntuizione" ${intuizioneChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxIntuizione">Intuizione:${ottieniSegno(intuizione)}</label><br><br><br>
+                    <label for="checkboxIntuizione">Intuizione:&nbsp${ottieniSegno(intuizione)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxMedicina" ${medicinaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxMedicina">Medicina:${ottieniSegno(medicina)}</label><br><br><br>
+                    <label for="checkboxMedicina">Medicina:&nbsp${ottieniSegno(medicina)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxNatura" ${naturaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxNatura">Natura:${ottieniSegno(natura)}</label><br><br><br>
+                    <label for="checkboxNatura">Natura:&nbsp${ottieniSegno(natura)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxPercezione" ${percezioneChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxPercezione">Percezione:${ottieniSegno(percezione)}</label><br><br><br>
+                    <label for="checkboxPercezione">Percezione:&nbsp${ottieniSegno(percezione)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxPersuasione" ${persuasioneChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxPersuasione">Persuasione:${ottieniSegno(persuasione)}</label><br><br><br>
+                    <label for="checkboxPersuasione">Persuasione:&nbsp${ottieniSegno(persuasione)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxRapidita_mano" ${rapidita_manoChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxRapidita_mano">Rapidita di Mano:${ottieniSegno(rapidita_mano)}</label><br><br><br>
+                    <label for="checkboxRapidita_mano">Rapidita di Mano:&nbsp${ottieniSegno(rapidita_mano)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxReligione" ${religioneChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxReligione">Religione:${ottieniSegno(religione)}</label><br><br><br>
+                    <label for="checkboxReligione">Religione:&nbsp${ottieniSegno(religione)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxSopravvivenza" ${sopravvivenzaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxSopravvivenza">Sopravvivenza:${ottieniSegno(sopravvivenza)}</label><br><br><br>
+                    <label for="checkboxSopravvivenza">Sopravvivenza:&nbsp${ottieniSegno(sopravvivenza)}</label><br><br><br>
 
                     <input type="checkbox" id="checkboxStoria" ${storiaChecked ? 'checked' : ''} disabled>
-                    <label for="checkboxStoria">Storia:${ottieniSegno(storia)}</label><br><br><br>
+                    <label for="checkboxStoria">Storia:&nbsp${ottieniSegno(storia)}</label><br><br><br>
                 </div>
             `;
 
