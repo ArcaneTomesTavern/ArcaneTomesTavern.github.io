@@ -30,7 +30,7 @@
         <div class="rettangolo_BC" id="bonus_competenza"></div>
         <div class="rettangolo_BC" id="velocita"></div>
         <div class="rettangolo_I" id="ispirazione">
-            <label for="ispirazioneCheckbox">Ispirazione</label><br>
+            <label for="ispirazioneCheckbox" style="color: grey; font-size: 15px">Ispirazione</label><br>
             <input type="checkbox" id="ispirazioneCheckbox" disabled>
         </div>             
         <div class="rettangolo_S" id="salute"></div>
@@ -44,13 +44,28 @@
             </div>
         </div>
         <div class="colonna2">
-            <div class="rettangolo_mega" id="abilita"></div>
+            <div class="rettangolo_abilita" id="abilita"></div>
         </div>
         <div class="colonna3">
-            <div class="quadrato"></div>
-            <div class="quadrato"></div>
-            <div class="quadrato"></div>
-            <div class="rettangolo_mega"></div>
+            <div class="top_colonna3">
+                <div class="top-block" id="iniziativa"></div>
+                <div class="top-block" id="ca"></div>
+                <div class="top-block2" id="resistenze"></div>
+                <div class="top-block2" id="condizioni"></div>           
+            </div>
+            <div class="rettangolo_mega">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="#" onclick="cambiaContenuto('Azioni')">Azioni</a></li>
+                        <li><a href="#" onclick="cambiaContenuto('Inventario')">Inventario</a></li>
+                        <li><a href="#" onclick="cambiaContenuto('Caratteristiche & Tratti')">Caratteristiche & Tratti</a></li>
+                        <li><a href="#" onclick="cambiaContenuto('Descrizione')">Descrizione</a></li>
+                        <li><a href="#" onclick="cambiaContenuto('Note')">Note</a></li>
+                        <li><a href="#" onclick="cambiaContenuto('Extra')">Extra</a></li>
+                    </ul>    
+                </nav>
+                <main id="contenuto">Benvenuto!</main>
+            </div>
         </div>
     </div>
       
@@ -61,5 +76,37 @@
     <script src="app.js"></script> <!-- Script JavaScript -->
 
     <script src="../server/printPlayer.js"></script>
+
+    <script>
+        function cambiaContenuto(nuovoContenuto) {
+            var contenuto = document.getElementById('contenuto');
+            
+            // Esempio: Modifica il colore di sfondo in base al collegamento selezionato
+            switch (nuovoContenuto) {
+                case 'Azioni':
+                    printAzioni(contenuto);
+                    break;
+                case 'Inventario':
+                    printInventario(contenuto);
+                    break;
+                case 'Caratteristiche & Tratti':
+                    printCar_Tratti(contenuto)
+                    break;
+                case 'Descrizione':
+                    printDescrizione(contenuto)
+                    break;
+                case 'Note':
+                    printNote(contenuto);
+                    break;
+                case 'Extra':
+                    printExtra(contenuto);
+                    break;
+                default:
+                    contenuto.textContent = 'Benvenuto!';
+                    contenuto.style.backgroundColor = ''; // Ripristina il colore di sfondo predefinito
+                    break;
+            }
+        }
+    </script>
 </body>
 </html>

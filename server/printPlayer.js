@@ -34,6 +34,10 @@ const tsDIV = document.getElementById("caratteristica_ts");
 const sensiDIV = document.getElementById("sensi");
 const comp_linguaggiDIV = document.getElementById("competenze_linguaggi");
 const abilitaDIV = document.getElementById("abilita");
+const iniziativaDIV = document.getElementById("iniziativa");
+const caDIV = document.getElementById("ca");
+const resistenzeDIV = document.getElementById("resistenze");
+const condizioniDIV = document.getElementById("condizioni");
 
 function ottieniEVisualizzaDati() {
     playersRef.doc(playerId).get().then((doc) => {
@@ -120,6 +124,12 @@ function ottieniEVisualizzaDati() {
             const storia = data.storia;
             const storiaChecked = data.storiaChecked;
 
+            const iniziativa = data.iniziativa;
+            const classe_armatura = data.classe_armatura;
+
+            const resistenze = data.resistenze;
+            const condizioni = data.condizioni;
+
             // Aggiungi i dati all'elemento HTML
             datiDiv.innerHTML = `<p>${razza} &nbsp ${classe} <br><br> <p>Livello ${livello}<\p>`;
 
@@ -131,25 +141,25 @@ function ottieniEVisualizzaDati() {
             const immagineElement = document.getElementById('immagineFirebase');
             immagineElement.src = imageUrl;  
             
-            forzaDIV.innerHTML = `<p>Forza<br><br>${ottieniSegno(forza)}</p>`;
-            destrezzaDIV.innerHTML = `<p>Destrezza<br><br>${ottieniSegno(destrezza)}</p>`;
-            costituzioneDIV.innerHTML = `<p>Costituzione<br><br>${ottieniSegno(costituzione)}</p>`;
-            intelligenzaDIV.innerHTML = `<p>Intelligenza<br><br>${ottieniSegno(intelligenza)}</p>`;
-            saggezzaDIV.innerHTML = `<p>Saggezza<br><br>${ottieniSegno(saggezza)}</p>`;
-            carismaDIV.innerHTML = `<p>Carisma<br><br>${ottieniSegno(carisma)}</p>`;
+            forzaDIV.innerHTML = `<p  style="color: grey; font-size: 15px">Forza</p><br><p>${ottieniSegno(forza)}</p>`;
+            destrezzaDIV.innerHTML = `<p  style="color: grey; font-size: 15px">Destrezza</p><br><p>${ottieniSegno(destrezza)}</p>`;
+            costituzioneDIV.innerHTML = `<p  style="color: grey; font-size: 15px">Costituzione</p><br><p>${ottieniSegno(costituzione)}</p>`;
+            intelligenzaDIV.innerHTML = `<p  style="color: grey; font-size: 15px">Intelligenza</p><br><p>${ottieniSegno(intelligenza)}</p>`;
+            saggezzaDIV.innerHTML = `<p  style="color: grey; font-size: 15px">Saggezza</p><br><p>${ottieniSegno(saggezza)}</p>`;
+            carismaDIV.innerHTML = `<p  style="color: grey; font-size: 15px">Carisma</p><br><p>${ottieniSegno(carisma)}</p>`;
             
-            bonus_compDIV.innerHTML = `<p>Bonus Competenza</p><br><p>+${bonus_competenza}</p>`;
+            bonus_compDIV.innerHTML = `<p style="color: grey; font-size: 15px">Bonus Competenza</p><br><p>+${bonus_competenza}</p>`;
 
-            velocitaDIV.innerHTML = `<p>Velocità</p><br><p>${velocita}ft</p>`;
+            velocitaDIV.innerHTML = `<p style="color: grey; font-size: 15px">Velocità</p><br><p>${velocita}ft</p>`;
 
             ispirazioneCheckbox.checked = ispirazione;
 
             if(temp_punti_ferita != 0) {
-                saluteDIV.innerHTML = `<p>Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
+                saluteDIV.innerHTML = `<p style="color: grey; font-size: 15px">Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
                 <br<p>Temporanei:&nbsp &nbsp ${temp_punti_ferita}</p>`;
             }
             else {
-                saluteDIV.innerHTML = `<p>Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
+                saluteDIV.innerHTML = `<p style="color: grey; font-size: 15px">Salute</p><br><p>Attuale:&nbsp &nbsp${curr_punti_ferita}/${max_punti_ferita}</p>
                 <br<p>Temporanei:&nbsp &nbsp ---</p>`;
             }
             
@@ -242,6 +252,15 @@ function ottieniEVisualizzaDati() {
                 </div>
             `;
 
+            iniziativaDIV.innerHTML = `<p style="color: grey; font-size: 15px">Iniziativa</p><br><p>${ottieniSegno(iniziativa)}</p>`;
+
+            caDIV.innerHTML = `<p style="color: grey; font-size: 15px">C. A</p><br><p>${classe_armatura}</p>`;
+
+            resistenzeDIV.innerHTML = `<p style="color: grey; font-size: 18px">Resistenze</p><hr><br><p>${resistenze}</p>`;
+            condizioniDIV.innerHTML = `<p style="color: grey; font-size: 18px">Condizioni</p><hr><br><p>${condizioni}</p>`;
+
+            
+
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
         }
@@ -249,6 +268,8 @@ function ottieniEVisualizzaDati() {
         console.error("Errore nel recupero dei dati:", error);
         datiDiv.innerHTML = "<p>Si è verificato un errore nel recupero dei dati.</p>";
     });
+
+   
 }
 
 // Chiama la funzione per ottenere e visualizzare i dati
@@ -311,4 +332,48 @@ function dividiEquipaggiamento(elementoData) {
     //TODO fare check delle 4 che fa a capo se superata la soglia appuntoo delle 4  
     return `<p>${s_armature}</p><br><hr><br><br><p>${s_armi}</p><br><hr><br><br><p>${s_oggetti}</p><br>`
   }
-  
+ 
+function printAzioni(nav_list)
+{
+    nav_list.textContent = 'Azioni';
+    nav_list.style.backgroundColor = 'lightblue';
+}
+
+function printInventario(nav_list)
+{
+    nav_list.textContent = 'Inventario';
+    nav_list.style.backgroundColor = 'lightgreen';
+}
+
+function printCar_Tratti(nav_list)
+{
+    nav_list.textContent = 'Caratteristiche & Tratti';;
+}
+function printDescrizione(nav_list)
+{
+    playersRef.doc(playerId).get().then((doc) => {
+        if (doc.exists) {
+            const data = doc.data();
+
+            const storia_pg = data.storia_pg;
+
+            nav_list.innerHTML = `<br><p style="padding: 20px;">${storia_pg}</p><br>`;
+
+        } else {
+            datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
+        }
+    }).catch((error) => {
+        console.error("Errore nel recupero dei dati:", error);
+        datiDiv.innerHTML = "<p>Si è verificato un errore nel recupero dei dati.</p>";
+    });
+}
+function printNote(nav_list)
+{
+    nav_list.textContent = 'Note';
+    nav_list.style.backgroundColor = 'blue';
+}
+function printExtra(nav_list)
+{
+    nav_list.textContent = 'Extra';
+    nav_list.style.backgroundColor = 'orange';
+}

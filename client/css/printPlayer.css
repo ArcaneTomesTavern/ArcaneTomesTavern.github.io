@@ -107,7 +107,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 50px; /* Spazio tra i rettangoli */
+    gap: 30px; /* Spazio tra i rettangoli */
     padding: 20px; /* Padding esterno per spazio extra */
     margin-top: -20px;
 }
@@ -121,7 +121,15 @@
 }
 
 .colonna3 {
-  
+}
+
+.top_colonna3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 20px;
+    margin-top: 20px;
 }
 
 .quadrato {
@@ -158,7 +166,7 @@
     padding-right: 10px;
 }
 
-.rettangolo_mega {
+.rettangolo_abilita {
     width: 320px;
     height: 1110px;
     background-color: #27272c;
@@ -173,10 +181,85 @@
     align-items: center;
     margin-top: 20px;
 }
+
+/* Definizione dello stile dei blocchi sopra */
+.top-block {
+    width: 100px; /* Larghezza desiderata */
+    height: 100px; /* Altezza desiderata */
+    background-color: #27272c;
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Spazio tra i blocchi sopra */
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-block2 {
+    width: 200px; /* Larghezza desiderata */
+    height: 100px; /* Altezza desiderata */
+    background-color: #27272c;
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Spazio tra i blocchi sopra */
+    text-align: left;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rettangolo_mega {
+    width: 650px;
+    height: 970px;
+    background-color: hsl(240, 6%, 16%);
+    border: 2px solid #b92929;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    background-color:hsl(240, 6%, 16%);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.navbar a{
+    color: #b92929;
+    text-decoration-color: #b92929;
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a:hover{
+    background-color: hsl(240, 7%, 8%);
+    border-radius: 5px;
+    border: 1px solid #b92929;
+}
   
 body {
     align-items: normal;
-    justify-content: right;
+    justify-content: center;
     margin-left: 50px;
     margin-top: 50px;
 }
