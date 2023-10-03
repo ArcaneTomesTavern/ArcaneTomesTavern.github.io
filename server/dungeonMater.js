@@ -38,19 +38,136 @@ document.addEventListener("DOMContentLoaded", () => {
         .get()
         .then((querySnapshot) => {
             let plys_ids = querySnapshot.data().players;
-
+            
             //container div griglia
             const container = document.createElement("div");
             container.className = "container";
-
-            let concat_str = `
+            
+            // Creiamo un array per accumulare l'HTML
+            const promises = [];
+            const htmlArray = [];
+            htmlArray.push(`
             <div class="four">
                 <h1>GIOCATORI</h1>
             </div>
-            <br />`;
+            <br /> <div class="grid-div"> `);
 
             //interrogo db per recuperare le info del giocatore
             for (let i = 0; i < plys_ids.length; i++) {
+                const promise = db
+                    .collection("players")
+                    .doc(plys_ids[i])
+                    .get()
+                    .then((queryPlayerSnapshot) => {
+                        _playerList.push(
+                            new DMPlayer(
+                                plys_ids[i],
+                                queryPlayerSnapshot.data().nome_giocatore,
+                                queryPlayerSnapshot.data().nome_personaggio,
+                                queryPlayerSnapshot.data().classe,
+                                queryPlayerSnapshot.data().curr_punti_ferita,
+                                queryPlayerSnapshot.data().max_punti_ferita,
+                                queryPlayerSnapshot.data().classe_armatura,
+                                queryPlayerSnapshot.data().ispirazione
+                            )
+                        );
+
+                        // Accumula l'HTML in un array
+                        htmlArray.push(`<div class="ply-div">
+                        <div class="row">
+                            <img
+                                class="icons"
+                                src="../server/resources/dm_icons/user.png"
+                            />
+                            <b class="inside-text">${
+                                queryPlayerSnapshot.data().nome_giocatore
+                            }</b>
+                        </div>
+                        <div class="row">
+                            <img
+                                class="icons"
+                                src="../server/resources/dm_icons/character.png"
+                            />
+                            <b class="inside-text">${
+                                queryPlayerSnapshot.data().nome_personaggio
+                            }</b>
+                        </div>
+                        <div class="row">
+                            <img
+                                class="icons"
+                                src="../server/resources/dm_icons/class.png"
+                            />
+                            <b class="inside-text">${
+                                queryPlayerSnapshot.data().classe
+                            }</b>
+                        </div>
+                        <div class="row">
+                            <img
+                                class="icons"
+                                src="../server/resources/dm_icons/life.png"
+                            />
+                            <b class="inside-text">${
+                                queryPlayerSnapshot.data().curr_punti_ferita
+                            }/${queryPlayerSnapshot.data().max_punti_ferita}</b>
+                        </div>
+                        <div class="row">
+                            <img
+                                class="icons"
+                                src="../server/resources/dm_icons/shield.png"
+                            />
+                            <b class="inside-text">${
+                                queryPlayerSnapshot.data().classe_armatura
+                            }</b>
+                        </div>
+                        <div class="row">
+                            <img
+                                class="icons"
+                                src="../server/resources/dm_icons/initiative.png"
+                            />
+                            <b class="inside-text">${
+                                queryPlayerSnapshot.data().ispirazione
+                            }</b>
+                        </div>
+                        <div class="row">
+                            <img
+                                class="low-icons"
+                                src="../server/resources/dm_icons/character_img.png"
+                            />
+                            <img
+                                class="low-icons"
+                                src="../server/resources/dm_icons/open.png"
+                            />
+                        </div>
+                    </div>`);
+                    });
+
+                promises.push(promise);
+            }
+        
+            // Attendiamo che tutte le richieste al database siano completate
+            Promise.all(promises)
+                .then(() => {
+                    htmlArray.push("</div>");
+                    // Ora possiamo aggiornare il contenuto del container
+                    container.innerHTML = htmlArray.join(""); // Uniamo l'array in una stringa
+                    document.getElementById("body-container").appendChild(container);
+                    // Rimuovi il loader e mostra il contenuto
+                    document.getElementById("loading-img").style.display =
+                        "none";
+                    document.getElementById("body-container").style.display =
+                        "block";
+                })
+                .catch((error) => {
+                    console.error("Errore nella query Firestore:", error);
+                    document.getElementById("loading-img").style.display =
+                        "none";
+                    document.getElementById("body-container").style.display =
+                        "block";
+                });
+        });
+});
+//interrogo db per recuperare le info del giocatore
+/*for (let i = 0; i < plys_ids.length; i++) {
                 db.collection("players")
                     .doc(plys_ids[i])
                     .get()
@@ -149,8 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Errore nella query Firestore:", error);
             document.getElementById("loading-img").style.display = "none";
             document.getElementById("body-container").style.display = "block";
-        });
-});
+        });*/
 
 /*setInterval(updateCounter, 3000);
 
