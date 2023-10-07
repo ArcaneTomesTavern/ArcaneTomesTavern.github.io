@@ -12,6 +12,67 @@ body {
     min-height: 100vh;
     background: #27272c;
     color: white;
-    font-family: 'Mooli', sans-serif;
+    font-family: "Mooli", sans-serif;
     /*background: #cba667;*/
+}
+/*** GRIGLIA ***/
+.div-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+.cell {
+    width: 100%;
+    display: block;
+    text-align: left;
+    font-size: 0.85rem;
+}
+.cell input, select{
+    width: 100%;
+}
+/*** FIELDSET ***/
+fieldset {
+    width: 80%;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+legend {
+    font-size: 1.5 rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/*** MEDIA ***/
+@media (max-width: 480px) {
+    .div-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .cell {
+        width: 100%;
+        display: contents;
+        text-align: left;
+        font-size: 0.85rem;
+    }
+    .cell input, select{
+        width: 100%;
+    }
+}
+@media (max-width: 750px) {
+    .div-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cell {
+        width: 100%;
+        display: contents;
+        text-align: left;
+        font-size: 0.85rem;
+    }
+    .cell input, select{
+        width: 100%;
+    }
 }

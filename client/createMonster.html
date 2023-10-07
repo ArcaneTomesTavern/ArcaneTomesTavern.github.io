@@ -1,12 +1,85 @@
+<!--   
+        CAMPI CREAZIONE MOSTRO
+            - nome del mostro
+            - tipo di mostro
+            sottotipo di mostro
+            dimensione 
+            tipo di mostro sciame 
+            allineamento
+            valutazione della sfida
+
+            descrizione dei tratti speciali
+            descrizione delle azioni
+            descrizione delle reazioni
+            descrizione delle caratteristiche del mostro
+            descrizione azione bonus
+
+            è leggendario? 
+            è mitico?
+            ha una tana?
+            classe armatura
+            tipo di armatura
+            percezione passiva
+            punti git conteggio dei dadi
+            punti ferita valore del dado
+            modificatore dei punti ferita 
+            punti ferita medi
+            punteggio str
+            punteggio dex
+            punteggio di con
+            Punteggio int
+            punteggio wis
+            punteggio cha
+            Potenzialità nei tiri salvezza 
+            aggiustamenti del danno
+            immunità alle condizioni
+            ambienti dei mostri
+            annullamento delle note linguistiche
+            etichette dei mostri
+            avatar piccolo
+            avatar grande
+
+        -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horror Nursery</title>
-    <link rel="stylesheet" href="css/createMonster.css">
-</head>
-<body>
-        
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Horror Nursery</title>
+        <link rel="stylesheet" href="css/createMonster.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend>Caratteristiche Principali</legend>
+            <div class="div-grid">
+                <div class="cell">
+                    <i>Nome Mostro</i>
+                    <input type="text"/>
+                </div>
+                
+                <div class="cell">
+                    <i>Tipo Di Mostro</i>
+                    <select name="monster-type" id="monster-type" required><option name="null" selected disabled>-</option></select>
+                </div>
+                
+                <div class="cell">
+                    <i>Sotto Tipi Di Mostro</i>
+                    <select name="monster-subtype" id="monster-subtype" required><option name="null" selected disabled>-</option></select>
+                </div>
+
+                <div class="cell">
+                    <i>Grandezza Mostro</i>
+                    <select name="monster-size" id="monster-size" required><option name="null" selected disabled>-</option></select>
+                </div>
+
+            </div>
+        </fieldset>
+
+
+
+        <!-- SCRIPT -->
+        <script src="../server/classes/readJson.js"></script>
+        <script src="../server/createMonster.js"></script>
+    </body>
 </html>
