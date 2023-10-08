@@ -270,3 +270,60 @@ hr {
     height: 1px;
 }
 
+textarea {
+    min-height: 100px; /* Altezza minima del textarea */
+    min-width: 580px;
+    background-color: #0000; /* Colore di sfondo */
+    font-family: 'Mooli', sans-serif; /* Tipo di carattere */
+    font-size: 16px; /* Dimensione del carattere */
+    color: #ffffff; /* Colore del testo */
+    resize: none; 
+    /*border: none; /* Rimuove i bordi */
+    outline: none; /* Rimuove l'outline al focus */
+    border-color: grey;
+    border-radius: 5px;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+
+.spazio_inteno {
+    width: 600px; /* Imposta la larghezza desiderata per il contenitore */
+    height: 900px; /* Imposta l'altezza desiderata per il contenitore */
+    overflow: auto; 
+}
+
+.spazio_inteno::-webkit-scrollbar {
+    width: 12px; /* Imposta la larghezza della barra di scorrimento */
+}
+
+.spazio_inteno::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Colore di sfondo della traccia della barra di scorrimento */
+}
+
+.spazio_inteno::-webkit-scrollbar-thumb {
+    background: #b92929; /* Colore del "pollice" della barra di scorrimento */
+    border-radius: 5px; /* Imposta un bordo arrotondato per il "pollice" */
+}
+
+.spazio_inteno::-webkit-scrollbar-thumb:hover {
+    background: #741919; /* Colore del "pollice" quando ci si passa sopra con il mouse */
+}
+
+.confirm {
+    border: 2px solid #741919; /* Imposta uno stile di bordo */
+    padding: 10px; /* Aggiunge spazio interno al rettangolo */
+    background-color: #b92929; /* Imposta il colore di sfondo del rettangolo */
+    border-radius: 10px; /* Aggiunge bordi arrotondati al rettangolo */
+    width:100px; /* Imposta la larghezza del rettangolo */
+    height: 50px;
+    color: white;
+    font-size: small;
+    font-family: 'Mooli', sans-serif;
+}
+  
+
+  
+
