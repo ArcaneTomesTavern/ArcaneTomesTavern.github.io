@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const playersRef = db.collection("players"); // Sostituisci "players" con il nome effettivo della tua raccolta
 const playerId = "ELyqKAN794416YGJXPGv"; // Sostituisci con l'ID del documento che desideri recuperare ELyqKAN794416YGJXPGv wtsDfocA4B5rAoD17Avv
+const playerDocRef = playersRef.doc(playerId);
 
 // DIV VARI DEI DATI
 const nome_pgDIV = document.getElementById("nome_pg");
@@ -411,27 +412,26 @@ function printDescrizione(nav_list)
         datiDiv.innerHTML = "<p>Si è verificato un errore nel recupero dei dati.</p>";
     });
 }
-function printNote(nav_list)
-{
+function printNote(nav_list) {
     playersRef.doc(playerId).get().then((doc) => {
         if (doc.exists) {
             const data = doc.data();
-            
+
             const allenze_organizzazioni = data.allenze_organizzazioni;
             const nemici = data.nemici;
             const storia_pg = data.storia_pg;
             const annotazioni = data.annotazioni;
 
             nav_list.innerHTML = `<div class="spazio_inteno">
-            <p style="padding: 20px; font-weight: bold; color: grey;">Alleanze & Organizzazioni</p>
-            <textarea disabled style="padding: 20px;">${allenze_organizzazioni}</textarea><br><br>
-            <p style="padding: 20px; font-weight: bold; color: grey;">Nemici</p>
-            <textarea disabled style="padding: 20px;">${nemici}</textarea><br><br>
-            <p style="padding: 20px; font-weight: bold; color: grey;">Storia Personaggio</p>
-            <textarea disabled style="padding: 20px;">${storia_pg}</textarea><br><br>
-            <p style="padding: 20px; font-weight: bold; color: grey;">Annotazioni</p>
-            <textarea style="padding: 20px;">${annotazioni}</textarea>
-            <button type="submit" class="confirm">Salva</button><br>
+                <p style="padding: 20px; font-weight: bold; color: grey;">Alleanze & Organizzazioni</p>
+                <textarea disabled style="padding: 20px;">${allenze_organizzazioni}</textarea><br><br>
+                <p style="padding: 20px; font-weight: bold; color: grey;">Nemici</p>
+                <textarea disabled style="padding: 20px;">${nemici}</textarea><br><br>
+                <p style="padding: 20px; font-weight: bold; color: grey;">Storia Personaggio</p>
+                <textarea disabled style="padding: 20px;">${storia_pg}</textarea><br><br>
+                <p style="padding: 20px; font-weight: bold; color: grey;">Annotazioni</p>
+                <textarea id="annotazioni" style="padding: 20px;">${annotazioni}</textarea>
+                <button type="submit" id="submit">Salva</button><br>
             </div>
             `;
 
@@ -442,150 +442,44 @@ function printNote(nav_list)
                     textarea.style.height = textarea.scrollHeight + 'px'; // Imposta l'altezza in base al contenuto
                 }
             }
-            
-            // Aggiungi un gestore di eventi per il cambiamento del contenuto di ciascun textarea
+
+            // Aggiungi un gestore di eventi per il cambiamento del contenuto del campo "annotazioni"
+            document.getElementById('annotazioni').addEventListener('input', () => {
+                updateTextareaHeight('annotazioni');
+            });
+
             document.getElementById('storia_pg').addEventListener('input', () => {
                 updateTextareaHeight('storia_pg');
             });
 
-            //INIZIO SUBMIT
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
-                const file = imageInput.files[0];
-            
-                const nome_personaggio = document.getElementById("nome_personaggio").value;
-            
-                const classe = document.getElementById("classe").value;
-                const livello = parseFloat(document.getElementById("livello").value);
-                const background = document.getElementById("background").value;
-                const nome_giocatore = document.getElementById("nome_giocatore").value;
-                const razza = document.getElementById("razza").value;
-                const allineamento = document.getElementById("allineamento").value;
-                const esperienza = 0;
-            
-                const forza = parseInt(document.getElementById("forza").value);
-                const destrezza = parseInt(document.getElementById("destrezza").value);
-                const costituzione = parseInt(document.getElementById("costituzione").value);
-                const intelligenza = parseInt(document.getElementById("intelligenza").value);
-                const saggezza = parseInt(document.getElementById("saggezza").value);
-                const carisma = parseInt(document.getElementById("carisma").value);
-            
-                const forza_ts = parseInt(document.getElementById("forza_ts").value);
-                const destrezza_ts = parseInt(document.getElementById("destrezza_ts").value);
-                const costituzione_ts = parseInt(document.getElementById("costituzione_ts").value);
-                const intelligenza_ts = parseInt(document.getElementById("intelligenza_ts").value);
-                const saggezza_ts = parseInt(document.getElementById("saggezza_ts").value);
-                const carisma_ts = parseInt(document.getElementById("carisma_ts").value);
-            
-                const ispirazione = false;
-                const bonus_competenza = parseInt(document.getElementById("bonus_competenza").value);
-            
-                const percezione_passiva = parseInt(document.getElementById("percezione_passiva").value);
-                const investigazione_passiva = parseInt(document.getElementById("investigazione_passiva").value);
-                const saggezza_passiva = parseInt(document.getElementById("saggezza_passiva").value);
-            
-                const acrobazia = parseInt(document.getElementById("acrobazia").value);
-                const addestrare_animali = parseInt(document.getElementById("acrobazia").value);
-                const arcano = parseInt(document.getElementById("acrobazia").value);
-                const atletica = parseInt(document.getElementById("acrobazia").value);
-                const furtivita = parseInt(document.getElementById("acrobazia").value);
-                const indagare = parseInt(document.getElementById("acrobazia").value);
-                const inganno = parseInt(document.getElementById("acrobazia").value);
-                const intimidire = parseInt(document.getElementById("acrobazia").value);
-                const intrattenere = parseInt(document.getElementById("acrobazia").value);
-                const intuizione = parseInt(document.getElementById("acrobazia").value);
-                const medicina = parseInt(document.getElementById("acrobazia").value);
-                const natura = parseInt(document.getElementById("acrobazia").value);
-                const percezione = parseInt(document.getElementById("acrobazia").value);
-                const persuasione = parseInt(document.getElementById("acrobazia").value);
-                const rapidita_mano = parseInt(document.getElementById("acrobazia").value);
-                const religione = parseInt(document.getElementById("acrobazia").value);
-                const sopravvivenza = parseInt(document.getElementById("acrobazia").value);
-                const storia = parseInt(document.getElementById("acrobazia").value);
-            
-                const classe_armatura = parseInt(document.getElementById("classe_armatura").value);
-                const iniziativa = parseInt(document.getElementById("iniziativa").value);
-                const velocita = parseInt(document.getElementById("velocita").value);
-            
-                const max_punti_ferita = parseInt(document.getElementById("max_punti_ferita").value);
-                const curr_punti_ferita = parseInt(document.getElementById("max_punti_ferita").value);
-                const temp_punti_ferita = 0;
-                const dadi_vita = document.getElementById("dadi_vita").value;
-                const ts_morte_successo = 0;
-                const ts_morte_fallito = 0;
-            
-                const tratti_caratteriali = document.getElementById("tratti_caratteriali").value;
-                const ideali = document.getElementById("ideali").value;
-                const legami = document.getElementById("legami").value;
-                const difetti = document.getElementById("difetti").value;
-            
-                const cp = parseInt(document.getElementById("cp").value);
-                const sp = parseInt(document.getElementById("sp").value);
-                const ep = parseInt(document.getElementById("ep").value);
-                const gp = parseInt(document.getElementById("gp").value);
-                const pp = parseInt(document.getElementById("pp").value);
-            
-                const comp_linguaggi = document.getElementById("comp_linguaggi").value;
-                const privilegi_tratti = document.getElementById("privilegi_tratti").value;
-            
-                const eta = parseInt(document.getElementById("eta").value);
-                const altezza = document.getElementById("altezza").value;
-                const peso = document.getElementById("peso").value;
-                const occhi = document.getElementById("occhi").value;
-                const carnagione = document.getElementById("carnagione").value;
-                const capelli = document.getElementById("capelli").value;
-            
-                const storia_pg = document.getElementById("storia_pg").value;
-                const tesoro = document.getElementById("tesoro").value;
-                const allenze_organizzazioni = document.getElementById("allenze_organizzazioni").value;
-            
-                const equipaggiamento = [];
-                    const equipaggiamentoInputs = document.querySelectorAll(".equipaggiamento");
-                    equipaggiamentoInputs.forEach(input => {
-                        const nomeEquipaggiamento = input.querySelector("[name='equipaggiamento-nome[]']").value;
-                        const tipoEquipaggiamento = input.querySelector("[name='equipaggiamento-tipo[]']").value;
-                        equipaggiamento.push({ nome: nomeEquipaggiamento, tipo: tipoEquipaggiamento });
-                    });
-            
-                    // Raccolta dei dati delle magie dinamiche
-                const magie = [];
-                    const magieInputs = document.querySelectorAll(".magia");
-                    magieInputs.forEach(input => {
-                        const nomeMagia = input.querySelector("[name='magia-nome[]']").value;
-                        const livelloMagia = input.querySelector("[name='magia-livello[]']").value;
-                        magie.push({ nome: nomeMagia, livello: livelloMagia });
-                    });
-            
-                const attacchi = [];
-                    const attacchi_incantesimiInputs = document.querySelectorAll(".attacchi");
-                    attacchi_incantesimiInputs.forEach(input => {
-                        const nomeAttacco = input.querySelector("[name='attacco-nome[]']").value;
-                        const bonusAttacco = input.querySelector("[name='attacco-bonus[]']").value;
-                        const dannoAttacco = input.querySelector("[name='attacco-danno[]']").value;
-                        const tipoAttacco = input.querySelector("[name='attacco-tipo[]']").value;
-                        attacchi.push({ nome: nomeAttacco,bonus: bonusAttacco, danno: dannoAttacco, tipo: tipoAttacco });
-                    });
-                // Verifica se è stato caricato un file
-                if (file) {
-                    // Genera un nome univoco per il file (ad esempio, timestamp)
-                    const timestamp = new Date().getTime();
-                    const fileName = `${timestamp}_${file.name}`;
-                    
-                    giocatoriRef.add({ //TODO CONTROLLARE QUESTO METODO E giocatoriRef SE è corretto
-                        annotazioni: annotazioni
-                    }).then((docRef) => {
-                        console.log("Documento scritto con ID:", docRef.id);
-                        alert("Giocatore inserito con successo!");
-                        form.reset();
-                    }).catch((error) => {
-                        console.error("Errore durante l'inserimento del giocatore:", error);
-                        alert("Si è verificato un errore durante l'inserimento del giocatore: " + error.message);
-                    });
-                        
-                } 
-            });
-            //FINE SUBMIT
+            const annotazioniInput = document.getElementById("annotazioni");
+            const saveButton = document.getElementById("submit");
 
+            saveButton.addEventListener("click", () => {
+                // Ottieni il valore attuale del campo "annotazioni"
+                const nuoveAnnotazioni = annotazioniInput.value;
+
+                // Aggiorna il campo "annotazioni" nel documento del giocatore
+                playerDocRef.set({ annotazioni: nuoveAnnotazioni }, { merge: true })
+                    .then(() => {
+                        console.log("Campo 'annotazioni' aggiornato con successo.");
+                    })
+                    .catch((error) => {
+                        console.error("Errore durante l'aggiornamento del campo 'annotazioni':", error);
+                    });
+            });
+
+            playerDocRef.onSnapshot((doc) => {
+                // Verifica che il documento esista e contenga il campo "annotazioni"
+                if (doc.exists && doc.data().annotazioni) {
+                    const annotazioni = doc.data().annotazioni;
+                    // Aggiorna il campo "annotazioni" nell'input con il valore dal database
+                    annotazioniInput.value = annotazioni;
+                } else {
+                    // Se il documento non esiste o non contiene il campo "annotazioni", reimposta il valore dell'input
+                    annotazioniInput.value = "";
+                }
+            });
         } else {
             datiDiv.innerHTML = "<p>Il documento non esiste.</p>";
         }
@@ -594,6 +488,8 @@ function printNote(nav_list)
         datiDiv.innerHTML = "<p>Si è verificato un errore nel recupero dei dati.</p>";
     });
 }
+
+
 function printExtra(nav_list)
 {
     nav_list.textContent = 'Extra';
