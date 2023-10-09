@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var monster_size = document.getElementById("monster-size");
 
     //?oggetti file json
-    const jsonReader = new ReadJson("/server/resources/json/constants.json");       //? bisogna mettere il percorso assoluto non in base a dove si trova il file
+    const jsonReader = new ReadJson("/server/resources/json/monster.json");       //? bisogna mettere il percorso assoluto non in base a dove si trova il file
 
     //?lettura dal file json
     jsonReader.readData().then(() => {
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             opt.text = monsterTypes[i];
             opt.id = monsterTypes[i].replace(/ /g, "_");
             opt.tagName = monsterTypes[i].replace(/ /g, "_");
-            //opt.innerHTML = i;
             monster_type.appendChild(opt);
         }
 
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
             opt.text = monsteSubType[i];
             opt.id = monsteSubType[i].replace(/ /g, "_");
             opt.tagName = monsteSubType[i].replace(/ /g, "_");
-            //opt.innerHTML = i;
             monster_subtype.appendChild(opt);
         }
         
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             opt.text = monsterSize[i];
             opt.id = monsterSize[i].replace(/ /g, "_");
             opt.tagName = monsterSize[i].replace(/ /g, "_");
-            //opt.innerHTML = i;
             monster_size.appendChild(opt);
         }
     });
