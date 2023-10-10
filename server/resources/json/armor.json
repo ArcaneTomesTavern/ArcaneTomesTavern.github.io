@@ -1,0 +1,131 @@
+{
+    "armature_leggere": [
+        {
+            "nome": "Imbottita",
+            "costo": 5,
+            "bonusClasseArmatura": 11,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": true,
+            "peso": 4
+        },
+        {
+            "nome": "Cuoio",
+            "costo": 10,
+            "bonusClasseArmatura": 11,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": false,
+            "peso": 5
+        },
+        {
+            "nome": "Cuoio Borchiato",
+            "costo": 45,
+            "bonusClasseArmatura": 12,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": false,
+            "peso": 6.5
+        }
+    ],
+
+    "armature_medie": [
+        {
+            "nome": "Pelle",
+            "costo": 10,
+            "bonusClasseArmatura": 12,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": false,
+            "peso": 6
+        },
+        {
+            "nome": "Giaco di Maglia",
+            "costo": 50,
+            "bonusClasseArmatura": 13,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": false,
+            "peso": 10
+        },
+        {
+            "nome": "Corazza di Scaglie",
+            "costo": 50,
+            "bonusClasseArmatura": 14,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": true,
+            "peso": 22.5
+        },
+        {
+            "nome": "Corazza di Piastre",
+            "costo": 400,
+            "bonusClasseArmatura": 14,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": false,
+            "peso": 10
+        },
+        {
+            "nome": "Mezza Armatura",
+            "costo": 750,
+            "bonusClasseArmatura": 15,
+            "bonusAggiuntivo": true,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": true,
+            "peso": 20
+        }
+    ],
+
+    "armature_pesanti": [
+        {
+            "nome": "Corazza ad Anelli",
+            "costo": 30,
+            "bonusClasseArmatura": 14,
+            "bonusAggiuntivo": false,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": true,
+            "peso": 20
+        },
+        {
+            "nome": "Cotta di Maglia",
+            "costo": 75,
+            "bonusClasseArmatura": 16,
+            "bonusAggiuntivo": false,
+            "forzaRichiesta": 13,
+            "svantaggioFurtività": true,
+            "peso": 27.5
+        },
+        {
+            "nome": "Corazza a Striscie",
+            "costo": 200,
+            "bonusClasseArmatura": 17,
+            "bonusAggiuntivo": false,
+            "forzaRichiesta": 15,
+            "svantaggioFurtività": true,
+            "peso": 30
+        },
+        {
+            "nome": "Armatura Completa",
+            "costo": 1500,
+            "bonusClasseArmatura": 18,
+            "bonusAggiuntivo": false,
+            "forzaRichiesta": 15,
+            "svantaggioFurtività": true,
+            "peso": 32.5
+        }
+    ],
+
+    "scudi": [
+        {
+            "nome": "Scudo",
+            "costo": 10,
+            "bonusClasseArmatura": 2,
+            "bonusAggiuntivo": false,
+            "forzaRichiesta": 0,
+            "svantaggioFurtività": false,
+            "peso": 3
+        }
+    ]
+  }
+  
