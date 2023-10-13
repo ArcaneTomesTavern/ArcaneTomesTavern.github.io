@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < challengeRate.length; i++) {
         const opt = document.createElement("option");
         opt.text = challengeRate[i];
-        //opt.id = monsterChRate[i].replace(/ /g, "_");
         opt.id = "ch_" + challengeRate[i];
         opt.tagName = "ch_" + challengeRate[i];
         monster_challenge.appendChild(opt);
