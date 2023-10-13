@@ -60,7 +60,8 @@ body {
     margin-left: 0.25rem;
 }
 .inside-text {
-    color: #444;
+    color: black;
+    /*color: #444;*/
     margin-left: 1.5rem;
 }
 /*** TESTO ***/
