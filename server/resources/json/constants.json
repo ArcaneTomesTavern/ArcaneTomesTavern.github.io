@@ -1,4 +1,38 @@
 {
-    
-    
+    "size": [
+        "Gargantuan ",
+        "Huge ",
+        "Large",
+        "Medium",
+        "Medium or Small",
+        "Small",
+        "Tiny"
+    ],
+    "alignment": [
+        "Any Alignment",
+        "Any Chaotic Alignment ",
+        "Any Evil Alignment ",
+        "Any Good Alignment",
+        "Any Lawful Alignment ",
+        "Any Non-Good Alignment",
+        "Any Non-Lawful Alignment ",
+        "Chaotic Evil",
+        "Chaotic Good",
+        "Chaotic Neutral",
+        "Lawful Evil",
+        "Lawful Good",
+        "Lawful Neutral",
+        "Neutral",
+        "Neutral Evil",
+        "Neutral Good",
+        "Typically Chaotic Evil",
+        "Typically Chaotic Good",
+        "Typically Chaotic Neutral",
+        "Typically Lawful Evil ",
+        "Typically Lawful Good",
+        "Typically Lawful Neutral ",
+        "Typically Neutral",
+        "Typically Neutral Evil ",
+        "Typically Neutral Good Unaligned"
+    ]
 }
