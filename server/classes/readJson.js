@@ -27,6 +27,10 @@ class ReadJson {
     getSize(){
         return this.jsonData?.size || [];
     }
+    getSwarnType(){
+        return this.jsonData?.swarn_monster_type || [];
+
+    }
 }
 
 /*

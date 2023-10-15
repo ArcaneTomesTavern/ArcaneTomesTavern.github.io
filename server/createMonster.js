@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //?prendo gli id
     var monster_type = document.getElementById("monster-type");
     var monster_subtype = document.getElementById("monster-subtype");
+    var monster_swarn_type = document.getElementById("swarn_type");
     var monster_size = document.getElementById("monster-size");
     var monster_alignment = document.getElementById("alignment");
     var monster_challenge = document.getElementById("challenge");
@@ -36,6 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
             opt.id = monsteSubType[i].replace(/ /g, "_");
             opt.tagName = monsteSubType[i].replace(/ /g, "_");
             monster_subtype.appendChild(opt);
+        }
+        
+        //*lettura sotto tipi mostri
+        const monsteSwarnType = jsonMonsterReader.getSwarnType();
+        for (let i = 0; i < monsteSwarnType.length; i++) {
+            const opt = document.createElement("option");
+            opt.text = monsteSwarnType[i];
+            opt.id = monsteSwarnType[i].replace(/ /g, "_");
+            opt.tagName = monsteSwarnType[i].replace(/ /g, "_");
+            monster_swarn_type.appendChild(opt);
         }
     });
 
