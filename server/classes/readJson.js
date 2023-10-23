@@ -22,6 +22,9 @@ class ReadJson {
     getMonsterSubType(){
         return this.jsonData?.monster_subtype || [];
     }
+    getSwarnType(){
+        return this.jsonData?.swarn_monster_type || [];
+    }
     
     /* METODI GENERALI */
     getSize(){
@@ -30,10 +33,7 @@ class ReadJson {
     getAlignment(){
         return this.jsonData?.alignment || [];
     }
-    getSwarnType(){
-        return this.jsonData?.swarn_monster_type || [];
 
-    }
 }
 
 /*
