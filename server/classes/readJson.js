@@ -27,6 +27,9 @@ class ReadJson {
     getSize(){
         return this.jsonData?.size || [];
     }
+    getAlignment(){
+        return this.jsonData?.alignment || [];
+    }
     getSwarnType(){
         return this.jsonData?.swarn_monster_type || [];
 
