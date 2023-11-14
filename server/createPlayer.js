@@ -7,7 +7,6 @@ const firebaseConfig = {
     appId: "1:1035963633765:web:7c1524769bc1e387ba768c",
     measurementId: "G-Q2BES5BYC2"
 };
-//sesso e tette a fiumi
 // Inizializza l'app Firebase
 firebase.initializeApp(firebaseConfig);
 
