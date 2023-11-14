@@ -275,15 +275,21 @@
                             <label for="equipaggiamento-nome">Nome Oggetto:</label>
                             <input type="text" name="equipaggiamento-nome[]" required><br>
                             <label for="equipaggiamento-tipo">Tipo Oggetto:</label>
-                            <select type="number"name="equipaggiamento-tipo[]"id="tipoEquipaggiamentoSelect"required>
+                            <select type="number" name="equipaggiamento-tipo[]" id="tipoEquipaggiamentoSelect" onchange="gestisciTipoEquipaggiamento(this)" required>
                                 <option value="armatura">Armatura</option>
                                 <option value="arma">Arma</option>
                                 <option value="utensile">Utensile</option>
-                            </select><br>
+                            </select>
+                            <!-- Menu a tendina per Armature -->
+                            <select id="scelte" style="display: none;">
+                                <!-- Opzioni verranno aggiunte dinamicamente da JavaScript -->
+                            </select>
+                            <br>
                             <button type="button" onclick="rimuoviEquipaggiamento(this)">Rimuovi Equipaggiamento</button><br>
                         </div>
                     </div>
-                    <button type="button" onclick="aggiungiEquipaggiamento()">Aggiungi Equipaggiamento</button></div>
+                    <button type="button" onclick="aggiungiEquipaggiamento()">Aggiungi Equipaggiamento</button>
+                </div>
 
                 <div class="section">
                     <h2>Magie</h2>
@@ -473,6 +479,72 @@
                 // Puoi aggiungere qui il codice per inviare effettivamente il modulo o fare altre operazioni
             }, 3000); // Cambia 3000 a quanto tempo desideri che la schermata di caricamento sia visibile
             });*/
+
+            //FUNZIONE SELEZIONE TIPO
+
+            function gestisciTipoEquipaggiamento(selectElement) {
+            // Recupera il valore selezionato
+            const tipoEquipaggiamento = selectElement.value;
+
+            // Mostra o nascondi il menu a tendina delle armature
+            const armatureSelect = document.getElementById('scelte');
+            if (tipoEquipaggiamento === 'armatura') {
+                armatureSelect.style.display = 'inline-block';
+            } else {
+                armatureSelect.style.display = 'none';
+            }
+            }
+
+            // Funzione chiamata per aggiungere un nuovo equipaggiamento
+            function aggiungiEquipaggiamento() {
+                // Clona il primo equipaggiamento
+                const primoEquipaggiamento = document.querySelector('.equipaggiamento');
+                const nuovoEquipaggiamento = primoEquipaggiamento.cloneNode(true);
+
+                // Pulisci i valori clonati (opzionale)
+                nuovoEquipaggiamento.querySelector('input').value = '';
+                nuovoEquipaggiamento.querySelector('select').selectedIndex = 0;
+
+                // Aggiungi il nuovo equipaggiamento al container
+                document.getElementById('equipaggiamento-container').appendChild(nuovoEquipaggiamento);
+            }
+
+            // Funzione chiamata per rimuovere un equipaggiamento
+            function rimuoviEquipaggiamento(buttonElement) {
+                // Ottieni il genitore del pulsante (div equipaggiamento) e rimuovilo
+                const equipaggiamentoDaRimuovere = buttonElement.parentNode;
+                equipaggiamentoDaRimuovere.parentNode.removeChild(equipaggiamentoDaRimuovere);
+            }
+
+
+            //FUNZIONE SCELTE ARMOR
+
+            document.addEventListener('DOMContentLoaded', function () {
+            // Elemento select
+            const selectElement = document.getElementById('scelte');
+
+            // Fetch del file JSON
+            fetch('../server/resources/json/armor.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Errore nel caricamento del file JSON');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Aggiungi le opzioni al menu a tendina
+                    Object.keys(data).forEach(tipoArmatura => {
+                        data[tipoArmatura].forEach(armatura => {
+                            const option = document.createElement('option');
+                            option.text = armatura.nome;
+                            selectElement.add(option);
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            });
 
         </script>
     </body>
